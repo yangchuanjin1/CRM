@@ -2,7 +2,7 @@ package com.ycj.service;
 
 import java.util.List;
 
-import com.ycj.entity.Users;
+import com.ycj.entity.Staff;
 
 public interface UsersService {
 	/**
@@ -10,6 +10,6 @@ public interface UsersService {
 	 * @param users 用户名和密码
 	 * @return
 	 */
-	Users selectByCheckUsers(Users users);
+	Staff selectByCheckUsers(Staff users);
 
 }

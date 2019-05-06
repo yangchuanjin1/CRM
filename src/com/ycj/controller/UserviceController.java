@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ycj.entity.Roles;
-import com.ycj.entity.Users;
+import com.ycj.entity.Staff;
 import com.ycj.service.UsersService;
 
 
@@ -20,10 +20,10 @@ public class UserviceController {
 	private UsersService usersService;
 	@RequestMapping(value="/loginUsers",method=RequestMethod.POST)
 	@ResponseBody
-	public Users loginUsers(Users users) {
-		System.out.println(users.getLoginName());
-		System.out.println(users.getPasswords());
-		Users selectByCheckUsers = usersService.selectByCheckUsers(users);
+	public Staff loginUsers(Staff users) {
+		System.out.println(users.getStaff_Name());
+		System.out.println(users.getStaff_Password());
+		Staff selectByCheckUsers = usersService.selectByCheckUsers(users);
 		System.out.println(selectByCheckUsers);
 		List<Roles> roles=selectByCheckUsers.getRoles();
 		for (int i = 0; i < roles.size(); i++) {

@@ -2,7 +2,7 @@ package com.ycj.dao;
 
 import java.util.List;
 
-import com.ycj.entity.Users;
+import com.ycj.entity.Staff;
 
 public interface UsersMapper {
 	/**
@@ -10,6 +10,6 @@ public interface UsersMapper {
 	 * @param users  查询参数
 	 * @return 返回这个用户的信息
 	 */
-	Users selectByCheckUsers(Users users);
+	Staff selectByCheckUsers(Staff users);
 
 }
