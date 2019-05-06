@@ -1,7 +1,7 @@
 package com.ycj.entity;
 
 import org.springframework.stereotype.Component;
-
+//½ÇÉ«±í
 @Component
 public class Roles {
 	private Integer RolesId;
