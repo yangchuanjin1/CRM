@@ -5,55 +5,84 @@
 <head>
 <meta charset="utf-8">
 <title>登录页面</title>
-<script type="text/javascript" src="jquery-easyui-1.4.3/global.js"></script>
-<style type="text/css">
-	body{
-		background:url("jquery-easyui-1.4.3/img/timg.gif") no-repeat;
-		background-size: 100% 100%;
-		
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.3/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.3/themes/default/easyui.css">
+<script type="text/javascript" src="jquery-easyui-1.4.3/jquery.min.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>
+</head>
 <script type="text/javascript">
-function denglu(){
-	if($("#denglu").form("validate")){
-		$.ajax({
-			type:"post",
-			url:"loginUsers",
-			datatype:"json",
-			data:{
-				"LoginName":$("#LoginName").val(),
-				"Passwords":$("#Password").val()
-			},
-			success:function(res){
-				if(res.success){
-					var obj=JSON.parse(res.message);
-					$.message.alert("提示","登陆成功");
-					globalData.setUserInfo(obj.UsersID,$("#LoginName").val(),obj.roles.RolesName);
-				}else{
-					$.message.alert("提示","登陆失败");
-				}
+function baocun(){
+	var flag=$("#fmLogin").form("validate");
+	var un=$("#un").val();
+	var pwd=$("#pwd").val();
+	if(flag){
+		$.post(globalDate.server+"login",{
+			un:un,
+			pwd:pwd,
+			token:globalDate.myToken
+		},function(res){
+			if(res.success){
+				var obj = eval("("+res.message+")");
+				globalDate.setUserInfo(obj.uid,$("#un").val(),obj.roleNames);
+				window.sessionStorage.setItem("roleNames",obj.roleNames);
+				window.sessionStorage.setItem("loginName",un);
+				window.sessionStorage.setItem("uid",obj.uid)
+				window.location.href="rw7.html";
+			}else{
+				$.messager.alert("出错啦",res.message,"error");
 			}
-		})
+		},"json");
+	}else{
+		$.messager.alert("验证","请完善数据","info");
 	}
 }
-</script>
-</head>
+
+/* 验证码刷新 */
+ function changeCode() {  //刷新
+	var data=new Date().getTime();
+	
+	$("#kaptcha").val("");
+    $('#kaptchaImage').click().attr('src', 'KaptchaServlet?tt='+data);  
+}
+
+		</script>
 <body>
-<div class="easyui-panel" title="登录界面" style="width: 250px;height: 150px;">
-	<form class="easyui-form" id="deng-panel-form">
-		<table>
-			<tr>
-				<td>用户名：</td>
-				<td><input type="text" class="easyui-textbox" id="LoginName" /></td>
-			</tr>
-			<tr>
-				<td>密码：</td>
-				<td><input type="password" class="easyui-textbox" id="Password" /></td>
-			</tr>
-		</table>
-		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="denglu()">登录</a>
-		<a href="register.jsp">免费注册</a>
-	</form>
-</div>
+<center style="margin-top: 250px;">
+	<div id="" class="easyui-panel" data-options="title:'登录页面'" style="width: 400px;height: 300px;">
+		<form id="fmLogin" method="post">
+			<input type="hidden" name="token" id="token" value="" />
+			<table style="padding: 30px;" cellpadding="10">
+				<tr>
+					<td>用户名：</td>
+					<td>
+						<input name="un" id="un" class="easyui-textbox" required="required"/>
+					</td>
+				</tr>
+				<tr style="padding: 20px;">
+					<td>密码：</td>
+					<td>
+						<input name="pwd" id="pwd" class="easyui-textbox" required="required"/>
+					</td>
+				</tr>
+				<tr style="padding: 20px;">
+					<td>验证码：</td>
+					<td>
+						<input name="j_code" type="text" id="kaptcha" maxlength="4" class="easyui-textbox" required="required" style="width:60px"/>
+						<img src="KaptchaServlet"  id="kaptchaImage" style="height:30px;"/>
+   						<a href="javascript:changeCode()">看不清?换一张</a>
+					</td>
+				</tr>
+				<tr style="padding: 20px;">
+					<td></td>
+					<td>
+						<a id="btnLogin" href="javascript:void(0)" class="easyui-linkbutton" onclick="baocun()">登录</a> &nbsp;&nbsp;&nbsp; 
+						<a id="btnClear" href="javascript:void(0)" class="easyui-linkbutton" onclick="quxiao()">取消</a>  
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</center>	
 </body>
 </html>
