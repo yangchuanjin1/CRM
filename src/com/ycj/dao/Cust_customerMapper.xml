@@ -3,5 +3,53 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.Cust_customerMapper">
-  
+  <resultMap type="cust_customer" id="cutMap">
+     <id column="Cust_ID" property="Cust_ID"/>
+     <result column="Cust_Name" property="Cust_Name"/>
+     <result column="Cust_Age" property="Cust_Age"/>
+     <result column="Cust_Gender" property="Cust_Gender"/>
+     <result column="Cust_Telephone" property="Cust_Telephone"/>
+     <result column="Cust_Education" property="Cust_Education"/>
+     <result column="Cust_state" property="Cust_state"/>
+     <result column="Cust_channel" property="Cust_channel"/>
+     <result column="Cust_website" property="Cust_website"/>
+     <result column="Cust_QQ" property="Cust_QQ"/>
+     <result column="Cust_WeChat" property="Cust_WeChat"/>
+     <result column="Cust_mailbox" property="Cust_mailbox"/>
+     <result column="Cust_Creationtime" property="Cust_Creationtime"/>
+     <result column="Cust_Course" property="Cust_Course"/>
+     <result column="Cust_Scoring" property="Cust_Scoring"/>
+     <result column="Cust_Revisit" property="Cust_Revisit"/>
+     <result column="Cust_RevisitDays" property="Cust_RevisitDays"/>
+     <result column="Cust_Door" property="Cust_Door"/>
+     <result column="Cust_Doortime" property="Cust_Doortime"/>
+     <result column="Cust_Pay" property="Cust_Pay"/>
+     <result column="Cust_Paytime" property="Cust_Paytime"/>
+     <result column="Cust_money" property="Cust_money"/>
+     <result column="Cust_Refund" property="Cust_Refund"/>
+     <result column="Cust_Refundreason" property="Cust_Refundreason"/>
+     <result column="Cust_entry" property="Cust_entry"/>
+     <result column="Cust_entrytime" property="Cust_entrytime"/>
+     <result column="Cust_notes" property="Cust_notes"/>
+     <result column="Cust_Region" property="Cust_Region"/>
+     <result column="Cust_preparation" property="Cust_preparation"/>
+     <result column="Cust_Asker_ID" property="Cust_Asker_ID"/>
+     <result column="Asker_ID" property="Asker.Asker_ID"/>
+     <result column="Asker_Name" property="Asker.Asker_Name"/>
+     <result column="Asker_Staff_ID" property="Asker.Asker_Staff_ID"/>
+     <result column="Asker_Weight" property="Asker.Asker_Weight"/>
+  </resultMap>
+   <select id="selectCust_customers" parameterType="cust_customer" resultMap="cutMap">
+      select cut.*,ak.*from cust_customer cut,asker ak 
+      where cut.`Cust_ Asker_ID`=ak.Asker_ID
+      limit #{page},#{rows}
+   </select>
+   <select id="selectCount" parameterType="cust_customer" resultType="int">
+        select count(Cust_ID)
+      from cust_customer cut,asker ak 
+      where cut.`Cust_ Asker_ID`=ak.Asker_ID
+   </select>
+   <!-- <insert id="updateCust_customer" parameterType=""></insert>
+   <update id="insertCust_customer" parameterType=""></update>
+   <delete id="deleteCust_customer" parameterType=""></delete> -->
   </mapper>

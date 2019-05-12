@@ -1,38 +1,62 @@
 package com.ycj.entity;
 
 import java.util.Date;
-//¿Í»§±í
+//ï¿½Í»ï¿½ï¿½ï¿½
 public class Cust_customer {
-	private Integer Cust_ID;//¿Í»§±àºÅ
-	private String Cust_Name;//¿Í»§Ãû³Æ
-	private Integer Cust_Age;//¿Í»§Ãû³Æ
-	private String Cust_Gender;//¿Í»§Ãû³Æ
-	private String  Cust_Telephone;//¿Í»§µç»°
-	private String Cust_Education;//¿Í»§Ñ§Àú
-	private String Cust_state;//¿Í»§µÄÑ§Àú×´Ì¬£¨ÉÏÑ§¡¢ÏÂÑ§£©
-	private String Cust_channel;//¿Í»§µÄÀ´Ô´ÇþµÀ
-	private String Cust_website;//¿Í»§µÄÀ´Ô´ÍøÕ¾
-	private String Cust_QQ;//¿Í»§QQ
-	private String Cust_WeChat;//¿Í»§Î¢ÐÅºÅ
-	private String Cust_mailbox;//¿Í»§ÓÊÏä
-	private Date Cust_Creationtime;//¿Í»§´´½¨µÄÊ±¼ä
-	private String Cust_Course;//¿Í»§µÄ¿Î³Ì·½Ïò
-	private Integer Cust_Scoring;//¿Í»§µÄÖÊÁ¿
-	private String Cust_Revisit;//ÊÇ·ñ»Ø·Ã£¨0.Î´»Ø·Ã1.»Ø·Ã£©
-	private Date Cust_RevisitDays;//»Ø·ÃÊ±¼ä
-	private String Cust_Door;//ÊÇ·ñÉÏÃÅ£¨0.ÉÏÃÅ1.Î´ÉÏÃÅ£©
-	private Date Cust_Doortime;//ÉÏÃÅÊ±¼ä
-	private String Cust_Pay;//ÊÇ·ñ½É·Ñ£¨0.½É·Ñ1.Î´½»·Ñ£©
-	private Date Cust_Paytime;//½É·ÑÊ±¼ä
-	private Double Cust_money;//½É·Ñ½ð¶î
-	private String Cust_Refund;//ÊÇ·ñÍË·Ñ£¨0.ÊÇ1.·ñ£©
-	private String Cust_Refundreason;//ÍË·ÑÔ­Òò
-	private String Cust_entry;//ÊÇ·ñ½ø°à£¨0.ÊÇ1.·ñ£©
-	private Date Cust_entrytime;//½ø°àÊ±¼ä
-	private String Cust_notes;//½ø°à±¸×¢
-	private String Cust_Region;//¿Í»§ËùÔÚµØÇø
-	private String Cust_preparation;//ÊÇ·ñ±¨±¸£¨0.ÊÇ1.·ñ£©
-	private Integer Cust_Asker_ID;//×ÉÑ¯Ê¦±àºÅ
+	private Integer Cust_ID;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½
+	private String Cust_Name;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½
+	private Integer Cust_Age;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String Cust_Gender;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String  Cust_Telephone;//ï¿½Í»ï¿½ï¿½ç»°
+	private String Cust_Education;//ï¿½Í»ï¿½Ñ§ï¿½ï¿½
+	private String Cust_state;//ï¿½Í»ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½
+	private String Cust_channel;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½
+	private String Cust_website;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Õ¾
+	private String Cust_QQ;//ï¿½Í»ï¿½QQ
+	private String Cust_WeChat;//ï¿½Í»ï¿½Î¢ï¿½Åºï¿½
+	private String Cust_mailbox;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½
+	private Date Cust_Creationtime;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private String Cust_Course;//ï¿½Í»ï¿½ï¿½Ä¿Î³Ì·ï¿½ï¿½ï¿½
+	private Integer Cust_Scoring;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String Cust_Revisit;//ï¿½Ç·ï¿½Ø·Ã£ï¿½0.Î´ï¿½Ø·ï¿½1.ï¿½Ø·Ã£ï¿½
+	private Date Cust_RevisitDays;//ï¿½Ø·ï¿½Ê±ï¿½ï¿½
+	private String Cust_Door;//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Å£ï¿½0.ï¿½ï¿½ï¿½ï¿½1.Î´ï¿½ï¿½ï¿½Å£ï¿½
+	private Date Cust_Doortime;//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private String Cust_Pay;//ï¿½Ç·ï¿½É·Ñ£ï¿½0.ï¿½É·ï¿½1.Î´ï¿½ï¿½ï¿½Ñ£ï¿½
+	private Date Cust_Paytime;//ï¿½É·ï¿½Ê±ï¿½ï¿½
+	private Double Cust_money;//ï¿½É·Ñ½ï¿½ï¿½
+	private String Cust_Refund;//ï¿½Ç·ï¿½ï¿½Ë·Ñ£ï¿½0.ï¿½ï¿½1.ï¿½ï¿½
+	private String Cust_Refundreason;//ï¿½Ë·ï¿½Ô­ï¿½ï¿½
+	private String Cust_entry;//ï¿½Ç·ï¿½ï¿½ï¿½à£¨0.ï¿½ï¿½1.ï¿½ï¿½
+	private Date Cust_entrytime;//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private String Cust_notes;//ï¿½ï¿½ï¿½à±¸×¢
+	private String Cust_Region;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½
+	private String Cust_preparation;//ï¿½Ç·ñ±¨±ï¿½ï¿½ï¿½0.ï¿½ï¿½1.ï¿½ï¿½
+	private Integer Cust_Asker_ID;//ï¿½ï¿½Ñ¯Ê¦ï¿½ï¿½ï¿½
+	
+	
+	private Cust_customer cust_customer;
+	private Integer page;
+	private Integer rows;
+	
+	public Cust_customer getCust_customer() {
+		return cust_customer;
+	}
+	public void setCust_customer(Cust_customer cust_customer) {
+		this.cust_customer = cust_customer;
+	}
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getRows() {
+		return rows;
+	}
+	public void setRows(Integer rows) {
+		this.rows = rows;
+	}
 	public Integer getCust_ID() {
 		return Cust_ID;
 	}
