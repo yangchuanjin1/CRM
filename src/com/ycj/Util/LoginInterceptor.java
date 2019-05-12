@@ -10,9 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * 登录拦截器
  * @author YangChuanJin
- *
+ *implements HandlerInterceptor
  */
-public class LoginInterceptor implements HandlerInterceptor {
+public class LoginInterceptor  {
 
 	//controller执行后且视图返回后调用此方法
 	public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
