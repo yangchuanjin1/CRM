@@ -34,10 +34,12 @@ public class LoginController {
 	 */
 
 	@RequestMapping(value="/loginStaff",method=RequestMethod.POST)
-	public String loginUsers(HttpServletRequest request,Model model,@RequestParam("kaptcha")String kaptcha) {
+	public String loginUsers(HttpServletRequest request,Model model,@RequestParam("kaptcha")String kaptcha,@RequestParam("yes")String yes) {
 		HttpSession session = request.getSession();  
 		String un = request.getParameter("un");
 		String pwd = request.getParameter("pwd");
+		/*String y = request.getParameter("y");*/
+		System.out.println(yes+"七天面扽古");
 		staff.setStaff_Name(un);
 		staff.setStaff_Password(pwd);
         String code = (String)session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
@@ -46,12 +48,15 @@ public class LoginController {
         System.out.println(kaptcha);
         //判断验证码是否相同
         if(code.equals(kaptcha)) {
-        	if(staffcha!=null) {
-        		if(staffcha.getStaff_IsLockout().equals("1")) {
+        	if(staffcha!=null) {//判断查询的用户信息是否为空
+        		if(staffcha.getStaff_IsLockout().equals("1")) {//判断用户是否锁定
         			model.addAttribute("mesg", "此用户已被锁定，请联系管理员进行解锁");
         			return "Login";
-        		}else {
         			
+        		}else {
+        			request.getSession().setAttribute("Staff_ID", staffcha.getStaff_ID());//把用户id存到session当中
+        			request.getSession().setAttribute("Staff_Name", un);
+        			return "index";
         		}
         	}else {
         		model.addAttribute("mesg", "用户名或密码输入不正确");
@@ -61,6 +66,5 @@ public class LoginController {
         	model.addAttribute("mesg", "验证码不正确");
         	return "Login";
         }
-		return null;
 	}
 }

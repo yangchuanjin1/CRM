@@ -89,6 +89,12 @@ function baocun(){
 					<td>${mesg }</td>
 				</tr>
 				<tr style="padding: 20px;">
+					<td><input name="yes" id="y" type="radio" value="yes" /></td>
+					<td>
+						七天免登陆
+					</td>
+				</tr>
+				<tr style="padding: 20px;">
 					<td></td>
 					<td>
 						<td rowspan="1"><input type="submit" value="登陆"/></td>
