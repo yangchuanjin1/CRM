@@ -3,5 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.StaffMapper">
- 
+ 	<select id="selectByCheckStaff" parameterType="staff" resultType="staff">
+ 		select * from staff where Staff_Name=#{Staff_Name} and Staff_Password=#{Staff_Password}
+ 	</select>
   </mapper>
