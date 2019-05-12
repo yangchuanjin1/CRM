@@ -1,5 +1,5 @@
 package com.ycj.dao;
-//¿Í»§±í
+//ï¿½Í»ï¿½ï¿½ï¿½
 public interface Cust_customerMapper {
-
+  
 }
