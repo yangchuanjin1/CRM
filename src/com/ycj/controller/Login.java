@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class Login {
-	@RequestMapping(value="/login")
+	/*@RequestMapping(value="/login")
 	public String login() {
 		return "/WEB-INF/JspPage/*.jsp";
-	}
+	}*/
 
 }

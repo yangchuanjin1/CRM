@@ -5,18 +5,29 @@
 <head>
 <meta charset="utf-8">
 <title>登录页面</title>
-<link rel="stylesheet" type="text/css" href="/CRM/jquery-easyui-1.4.3/themes/icon.css">
-<link rel="stylesheet" type="text/css" href="/CRM/jquery-easyui-1.4.3/themes/default/easyui.css">
-<script type="text/javascript" src="/CRM/jquery-easyui-1.4.3/jquery.min.js"></script>
-<script type="text/javascript" src="/CRM/jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/CRM/jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.3/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.3/themes/default/easyui.css">
+<script type="text/javascript" src="jquery-easyui-1.4.3/jquery.min.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <script type="text/javascript">
 function baocun(){
 	var flag=$("#fmLogin").form("validate");
-	var un=$("#un").val();
-	var pwd=$("#pwd").val();
 	if(flag){
+		$.ajax({
+			type:"post",
+			url:"",
+			data:{
+				:$("#").val(),
+				:$("#").val(),
+				:$("#").val()
+			},
+			datatype:"json",
+			
+		})	
+	}
+	/* if(flag){
 		$.post(globalDate.server+"login",{
 			un:un,
 			pwd:pwd,
@@ -35,7 +46,7 @@ function baocun(){
 		},"json");
 	}else{
 		$.messager.alert("验证","请完善数据","info");
-	}
+	} */
 }
 
 /* 验证码刷新 */
@@ -46,7 +57,7 @@ function baocun(){
     $('#kaptchaImage').click().attr('src', 'KaptchaServlet?tt='+data);  
 }
 
-		</script>
+</script>
 <body>
 <center style="margin-top: 150px;">
 	<div id="" class="easyui-panel" data-options="title:'登录页面'" style="width: 400px;height: 300px;">
@@ -76,8 +87,7 @@ function baocun(){
 				<tr style="padding: 20px;">
 					<td></td>
 					<td>
-						<a id="btnLogin" href="javascript:void(0)" class="easyui-linkbutton" onclick="baocun()">登录</a> &nbsp;&nbsp;&nbsp; 
-						<a id="btnClear" href="javascript:void(0)" class="easyui-linkbutton" onclick="quxiao()">取消</a>  
+						<a id="btnLogin" href="javascript:void(0)" class="easyui-linkbutton" onclick="baocun()">登录</a>  
 					</td>
 				</tr>
 			</table>
