@@ -17,15 +17,16 @@ function baocun(){
 	if(flag){
 		$.ajax({
 			type:"post",
-			url:"",
+			url:"loginStaff",
 			data:{
-				:$("#").val(),
-				:$("#").val(),
-				:$("#").val()
+				Staff_Name:$("#un").val(),
+				Staff_Password:$("#pwd").val(),
+				kaptcha:$("#kaptcha").val()
 			},
-			datatype:"json",
-			
+			datatype:"json"
 		})	
+	}else{
+		$.messager.alert("验证","请完善数据","info");
 	}
 	/* if(flag){
 		$.post(globalDate.server+"login",{
@@ -61,7 +62,7 @@ function baocun(){
 <body>
 <center style="margin-top: 150px;">
 	<div id="" class="easyui-panel" data-options="title:'登录页面'" style="width: 400px;height: 300px;">
-		<form id="fmLogin" method="post">
+		<form id="fmLogin" action="loginStaff" method="post">
 			<input type="hidden" name="token" id="token" value="" />
 			<table style="padding: 30px;" cellpadding="10">
 				<tr>
@@ -79,15 +80,24 @@ function baocun(){
 				<tr style="padding: 20px;">
 					<td>验证码：</td>
 					<td>
-						<input name="j_code" type="text" id="kaptcha" maxlength="4" class="easyui-textbox" required="required" style="width:60px"/>
+						<input name="kaptcha" type="text" id="kaptcha"  maxlength="4" class="easyui-textbox" required="required" style="width:60px"/>
 						<img src="KaptchaServlet"  id="kaptchaImage" style="height:30px;"/>
    						<a href="javascript:changeCode()">看不清?换一张</a>
+					</td>
+				</tr>
+				<tr>
+					<td>${mesg }</td>
+				</tr>
+				<tr style="padding: 20px;">
+					<td><input name="yes" id="y" type="radio" value="yes" /></td>
+					<td>
+						七天免登陆
 					</td>
 				</tr>
 				<tr style="padding: 20px;">
 					<td></td>
 					<td>
-						<a id="btnLogin" href="javascript:void(0)" class="easyui-linkbutton" onclick="baocun()">登录</a>  
+						<td rowspan="1"><input type="submit" value="登陆"/></td>
 					</td>
 				</tr>
 			</table>

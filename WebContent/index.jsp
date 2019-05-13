@@ -18,9 +18,10 @@
 			}
 		});
 	}
-	/* $(function(){
-		$("#spUName").text(window.sessionStorage.getItem("loginName"));
-		var userId=window.localStorage.getItem("userId");//获取登录页面中暂时存储的数据
+	 $(function(){
+		var Staff_Name ='<%= session.getAttribute("Staff_Name")%>';
+		$("#spUName").text(Staff_Name);
+		/* var userId=window.localStorage.getItem("userId");//获取登录页面中暂时存储的数据
 		// var roleNames=window.localStorage.getItem("roleNames");//
 		//  var roleName=['研发专员','管理员'];获取到的数据是字符串，使用逗号将其拆分，转化为对象
 		// var roleName=roleNames.split(",");
@@ -37,10 +38,10 @@
 				$("#menuTree").html(res);  
 				$("#treeUlId").tree(); //让easyUI引擎重新将treeUIId中的html代码转变成树并显示
 			},"html"
-		);
+		); */
 	});
 //树状结构的节点是否已在中部显示，参数re是标题，html 是路径
-function navTab(re, html) {
+ /* function navTab(re, html) {
 	var flag = $("#tt").tabs('exists', re);
 	$('#treeUlId').tree({ //和前边加载数据的代码中的"treeUIId"参数,保持一致即可
 	onSelect:function(node){
@@ -58,7 +59,7 @@ function navTab(re, html) {
 	}
 	}
 });
-} */
+}  */ 
 </script>
 </head>
 <body>
