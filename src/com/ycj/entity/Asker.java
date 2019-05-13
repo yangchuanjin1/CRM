@@ -1,10 +1,16 @@
 package com.ycj.entity;
-//×ÉÑ¯Ê¦±í
+
+import org.springframework.stereotype.Component;
+
+//ï¿½ï¿½Ñ¯Ê¦ï¿½ï¿½
+@Component
 public class Asker {
-	private Integer Asker_ID;//×ÉÑ¯Ê¦±àºÅ
-	private String Asker_Name;//×ÉÑ¯Ê¦Ãû³Æ
-	private Integer Asker_Staff_ID;//Ô±¹¤±àºÅ
-	private Integer Asker_Weight;//È¨ÖØ
+	private Integer Asker_ID;//ï¿½ï¿½Ñ¯Ê¦ï¿½ï¿½ï¿½
+	private String Asker_Name;//ï¿½ï¿½Ñ¯Ê¦ï¿½ï¿½ï¿½ï¿½
+	private Integer Asker_Staff_ID;//Ô±ï¿½ï¿½ï¿½ï¿½ï¿½
+	private Integer Asker_Weight;//È¨ï¿½ï¿½
+	private Staff staff;//å‘˜å·¥
+	
 	public Integer getAsker_ID() {
 		return Asker_ID;
 	}
@@ -28,6 +34,12 @@ public class Asker {
 	}
 	public void setAsker_Weight(Integer asker_Weight) {
 		Asker_Weight = asker_Weight;
+	}
+	public Staff getStaff() {
+		return staff;
+	}
+	public void setStaff(Staff staff) {
+		this.staff = staff;
 	}
 	
 

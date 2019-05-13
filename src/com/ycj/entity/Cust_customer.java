@@ -1,44 +1,131 @@
 package com.ycj.entity;
 
 import java.util.Date;
+
+import org.springframework.stereotype.Component;
 //�ͻ���
+@Component
 public class Cust_customer {
-	private Integer Cust_ID;//�ͻ����
-	private String Cust_Name;//�ͻ�����
-	private Integer Cust_Age;//�ͻ�����
-	private String Cust_Gender;//�ͻ�����
-	private String  Cust_Telephone;//�ͻ��绰
-	private String Cust_Education;//�ͻ�ѧ��
-	private String Cust_state;//�ͻ���ѧ��״̬����ѧ����ѧ��
-	private String Cust_channel;//�ͻ�����Դ����
-	private String Cust_website;//�ͻ�����Դ��վ
-	private String Cust_QQ;//�ͻ�QQ
-	private String Cust_WeChat;//�ͻ�΢�ź�
-	private String Cust_mailbox;//�ͻ�����
-	private Date Cust_Creationtime;//�ͻ�������ʱ��
-	private String Cust_Course;//�ͻ��Ŀγ̷���
-	private Integer Cust_Scoring;//�ͻ�������
-	private String Cust_Revisit;//�Ƿ�طã�0.δ�ط�1.�طã�
-	private Date Cust_RevisitDays;//�ط�ʱ��
-	private String Cust_Door;//�Ƿ����ţ�0.����1.δ���ţ�
-	private Date Cust_Doortime;//����ʱ��
-	private String Cust_Pay;//�Ƿ�ɷѣ�0.�ɷ�1.δ���ѣ�
-	private Date Cust_Paytime;//�ɷ�ʱ��
-	private Double Cust_money;//�ɷѽ��
-	private String Cust_Refund;//�Ƿ��˷ѣ�0.��1.��
-	private String Cust_Refundreason;//�˷�ԭ��
-	private String Cust_entry;//�Ƿ���ࣨ0.��1.��
-	private Date Cust_entrytime;//����ʱ��
-	private String Cust_notes;//���౸ע
-	private String Cust_Region;//�ͻ����ڵ���
-	private String Cust_preparation;//�Ƿ񱨱���0.��1.��
-	private Integer Cust_Asker_ID;//��ѯʦ���
-	
+	private Integer Cust_ID;//客户编号
+	private String Cust_Name;//客户名称
+	private Integer Cust_Age;//客户年龄
+	private String Cust_Gender;//客户（男女）1
+	private String  Cust_Telephone;//客户电话
+	private String Cust_Education;//客户学历(未知，大专，高中，中专，初中，本科，其它)
+	private String Cust_state;//客户状态（上学、下学）
+	private String Cust_channel;//客户来源渠道
+	private String Cust_website;//客户来源网站（其它，职英B站，高考站，职英A站）
+	private String Cust_QQ;//客户QQ
+	private String Cust_WeChat;//客户微信
+	private String Cust_mailbox;//客户邮箱
+	private String Cust_Creationtime;//客户创建的时间
+	private String minCust_Creationtime;//客户创建的时间
+	private String maxCust_Creationtime;//客户创建的时间
+	private String Cust_Course;//课程方向
+	private Integer Cust_Scoring;//客户的质量
+	private String Cust_Revisit;//是否回访（0.未回访1.回访）
+	private String Cust_RevisitDays;//回访时间
+	private String minCust_RevisitDays;//回访时间
+	private String maxCust_RevisitDays;//回访时间
+	private String Cust_Door;//是否上门（0.上门1.未上门）
+	private String Cust_Doortime;//上门时间
+	private String minCust_Doortime;//上门时间
+	private String maxCust_Doortime;//上门时间
+	private String Cust_Pay;//是否缴费（0.缴费1.未交费）
+	private String Cust_Paytime;//缴费时间
+	private String minCust_Paytime;//缴费时间
+	private String maxCust_Paytime;//缴费时间
+	private Double Cust_money;//缴费金额
+	private String Cust_Refund;//是否退费（0.是1.否）
+	private String Cust_Refundreason;//退费原因
+	private String Cust_entry;//是否进班（0.是1.否）p-
+	private String Cust_entrytime;//进班时间
+	private String minCust_entrytime;//进班时间
+	private String maxCust_entrytime;//进班时间
+	private String Cust_notes;//进班备注
+	private String Cust_Region;//客户所在地区
+	private String Cust_preparation;//是否报备（0.是1.否）
+	private String Cust_youxiao;//是否有效（0.是1.否）
+	//private Integer Cust_Asker_ID;//咨询师编号
+	private Asker asker;
 	
 	private Cust_customer cust_customer;
 	private Integer page;
 	private Integer rows;
 	
+	
+	public String getMinCust_Creationtime() {
+		return minCust_Creationtime;
+	}
+	public void setMinCust_Creationtime(String minCust_Creationtime) {
+		this.minCust_Creationtime = minCust_Creationtime;
+	}
+	public String getMaxCust_Creationtime() {
+		return maxCust_Creationtime;
+	}
+	public void setMaxCust_Creationtime(String maxCust_Creationtime) {
+		this.maxCust_Creationtime = maxCust_Creationtime;
+	}
+	public String getMinCust_RevisitDays() {
+		return minCust_RevisitDays;
+	}
+	public void setMinCust_RevisitDays(String minCust_RevisitDays) {
+		this.minCust_RevisitDays = minCust_RevisitDays;
+	}
+	public String getMaxCust_RevisitDays() {
+		return maxCust_RevisitDays;
+	}
+	public void setMaxCust_RevisitDays(String maxCust_RevisitDays) {
+		this.maxCust_RevisitDays = maxCust_RevisitDays;
+	}
+	public String getMinCust_Doortime() {
+		return minCust_Doortime;
+	}
+	public void setMinCust_Doortime(String minCust_Doortime) {
+		this.minCust_Doortime = minCust_Doortime;
+	}
+	public String getMaxCust_Doortime() {
+		return maxCust_Doortime;
+	}
+	public void setMaxCust_Doortime(String maxCust_Doortime) {
+		this.maxCust_Doortime = maxCust_Doortime;
+	}
+	public String getMinCust_Paytime() {
+		return minCust_Paytime;
+	}
+	public void setMinCust_Paytime(String minCust_Paytime) {
+		this.minCust_Paytime = minCust_Paytime;
+	}
+	public String getMaxCust_Paytime() {
+		return maxCust_Paytime;
+	}
+	public void setMaxCust_Paytime(String maxCust_Paytime) {
+		this.maxCust_Paytime = maxCust_Paytime;
+	}
+	public String getMinCust_entrytime() {
+		return minCust_entrytime;
+	}
+	public void setMinCust_entrytime(String minCust_entrytime) {
+		this.minCust_entrytime = minCust_entrytime;
+	}
+	public String getMaxCust_entrytime() {
+		return maxCust_entrytime;
+	}
+	public void setMaxCust_entrytime(String maxCust_entrytime) {
+		this.maxCust_entrytime = maxCust_entrytime;
+	}
+	public String getCust_youxiao() {
+		return Cust_youxiao;
+	}
+	public void setCust_youxiao(String cust_youxiao) {
+		Cust_youxiao = cust_youxiao;
+	}
+	public Asker getAsker() {
+		return asker;
+	}
+	public void setAsker(Asker asker) {
+		this.asker = asker;
+	}
 	public Cust_customer getCust_customer() {
 		return cust_customer;
 	}
@@ -129,12 +216,6 @@ public class Cust_customer {
 	public void setCust_mailbox(String cust_mailbox) {
 		Cust_mailbox = cust_mailbox;
 	}
-	public Date getCust_Creationtime() {
-		return Cust_Creationtime;
-	}
-	public void setCust_Creationtime(Date cust_Creationtime) {
-		Cust_Creationtime = cust_Creationtime;
-	}
 	public String getCust_Course() {
 		return Cust_Course;
 	}
@@ -153,35 +234,17 @@ public class Cust_customer {
 	public void setCust_Revisit(String cust_Revisit) {
 		Cust_Revisit = cust_Revisit;
 	}
-	public Date getCust_RevisitDays() {
-		return Cust_RevisitDays;
-	}
-	public void setCust_RevisitDays(Date cust_RevisitDays) {
-		Cust_RevisitDays = cust_RevisitDays;
-	}
 	public String getCust_Door() {
 		return Cust_Door;
 	}
 	public void setCust_Door(String cust_Door) {
 		Cust_Door = cust_Door;
 	}
-	public Date getCust_Doortime() {
-		return Cust_Doortime;
-	}
-	public void setCust_Doortime(Date cust_Doortime) {
-		Cust_Doortime = cust_Doortime;
-	}
 	public String getCust_Pay() {
 		return Cust_Pay;
 	}
 	public void setCust_Pay(String cust_Pay) {
 		Cust_Pay = cust_Pay;
-	}
-	public Date getCust_Paytime() {
-		return Cust_Paytime;
-	}
-	public void setCust_Paytime(Date cust_Paytime) {
-		Cust_Paytime = cust_Paytime;
 	}
 	public Double getCust_money() {
 		return Cust_money;
@@ -207,12 +270,6 @@ public class Cust_customer {
 	public void setCust_entry(String cust_entry) {
 		Cust_entry = cust_entry;
 	}
-	public Date getCust_entrytime() {
-		return Cust_entrytime;
-	}
-	public void setCust_entrytime(Date cust_entrytime) {
-		Cust_entrytime = cust_entrytime;
-	}
 	public String getCust_notes() {
 		return Cust_notes;
 	}
@@ -231,11 +288,56 @@ public class Cust_customer {
 	public void setCust_preparation(String cust_preparation) {
 		Cust_preparation = cust_preparation;
 	}
-	public Integer getCust_Asker_ID() {
+	/*public Integer getCust_Asker_ID() {
 		return Cust_Asker_ID;
 	}
 	public void setCust_Asker_ID(Integer cust_Asker_ID) {
 		Cust_Asker_ID = cust_Asker_ID;
+	}*/
+	public String getCust_Creationtime() {
+		return Cust_Creationtime;
+	}
+	public void setCust_Creationtime(String cust_Creationtime) {
+		Cust_Creationtime = cust_Creationtime;
+	}
+	public String getCust_RevisitDays() {
+		return Cust_RevisitDays;
+	}
+	public void setCust_RevisitDays(String cust_RevisitDays) {
+		Cust_RevisitDays = cust_RevisitDays;
+	}
+	public String getCust_Doortime() {
+		return Cust_Doortime;
+	}
+	public void setCust_Doortime(String cust_Doortime) {
+		Cust_Doortime = cust_Doortime;
+	}
+	public String getCust_Paytime() {
+		return Cust_Paytime;
+	}
+	public void setCust_Paytime(String cust_Paytime) {
+		Cust_Paytime = cust_Paytime;
+	}
+	public String getCust_entrytime() {
+		return Cust_entrytime;
+	}
+	public void setCust_entrytime(String cust_entrytime) {
+		Cust_entrytime = cust_entrytime;
+	}
+	@Override
+	public String toString() {
+		return "Cust_customer [Cust_ID=" + Cust_ID + ", Cust_Name=" + Cust_Name + ", Cust_Age=" + Cust_Age
+				+ ", Cust_Gender=" + Cust_Gender + ", Cust_Telephone=" + Cust_Telephone + ", Cust_Education="
+				+ Cust_Education + ", Cust_state=" + Cust_state + ", Cust_channel=" + Cust_channel + ", Cust_website="
+				+ Cust_website + ", Cust_QQ=" + Cust_QQ + ", Cust_WeChat=" + Cust_WeChat + ", Cust_mailbox="
+				+ Cust_mailbox + ", Cust_Creationtime=" + Cust_Creationtime + ", Cust_Course=" + Cust_Course
+				+ ", Cust_Scoring=" + Cust_Scoring + ", Cust_Revisit=" + Cust_Revisit + ", Cust_RevisitDays="
+				+ Cust_RevisitDays + ", Cust_Door=" + Cust_Door + ", Cust_Doortime=" + Cust_Doortime + ", Cust_Pay="
+				+ Cust_Pay + ", Cust_Paytime=" + Cust_Paytime + ", Cust_money=" + Cust_money + ", Cust_Refund="
+				+ Cust_Refund + ", Cust_Refundreason=" + Cust_Refundreason + ", Cust_entry=" + Cust_entry
+				+ ", Cust_entrytime=" + Cust_entrytime + ", Cust_notes=" + Cust_notes + ", Cust_Region=" + Cust_Region
+				+ ", Cust_preparation=" + Cust_preparation + ", Cust_Asker_ID="  + ", asker=" + asker
+				+ ", cust_customer=" + cust_customer + ", page=" + page + ", rows=" + rows + "]";
 	}
 	
 
