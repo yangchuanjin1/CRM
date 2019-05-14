@@ -2,6 +2,8 @@ package com.ycj.entity;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+@Component
 public class FenYe<T> {
    private Integer total;
    private List<Cust_customer> rows;
