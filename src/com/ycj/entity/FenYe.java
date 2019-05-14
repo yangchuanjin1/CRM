@@ -6,17 +6,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class FenYe<T> {
    private Integer total;
-   private List<Cust_customer> rows;
+   private List<T> rows;
 public Integer getTotal() {
 	return total;
 }
 public void setTotal(Integer total) {
 	this.total = total;
 }
-public List<Cust_customer> getRows() {
+
+public List<T> getRows() {
 	return rows;
 }
-public void setRows(List<Cust_customer> rows) {
+public void setRows(List<T> rows) {
 	this.rows = rows;
 }
 @Override

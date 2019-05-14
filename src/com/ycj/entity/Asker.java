@@ -9,8 +9,38 @@ public class Asker {
 	private String Asker_Name;//��ѯʦ����
 	private Integer Asker_Staff_ID;//Ա�����
 	private Integer Asker_Weight;//Ȩ��
-	private Staff staff;//员工
 	
+	private Integer page;
+	private Integer rows;
+	
+	private Staff staff;
+	
+	/*
+	 * private Signin signin;
+	 * 
+	 * 
+	 * 
+	 * public Signin getSignin() { return signin; } public void setSignin(Signin
+	 * signin) { this.signin = signin; }
+	 */
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getRows() {
+		return rows;
+	}
+	public void setRows(Integer rows) {
+		this.rows = rows;
+	}
+	public Staff getStaff() {
+		return staff;
+	}
+	public void setStaff(Staff staff) {
+		this.staff = staff;
+	}
 	public Integer getAsker_ID() {
 		return Asker_ID;
 	}
@@ -35,11 +65,11 @@ public class Asker {
 	public void setAsker_Weight(Integer asker_Weight) {
 		Asker_Weight = asker_Weight;
 	}
-	public Staff getStaff() {
-		return staff;
-	}
-	public void setStaff(Staff staff) {
-		this.staff = staff;
+	@Override
+	public String toString() {
+		return "Asker [Asker_ID=" + Asker_ID + ", Asker_Name=" + Asker_Name + ", Asker_Staff_ID=" + Asker_Staff_ID
+				+ ", Asker_Weight=" + Asker_Weight + ", page=" + page + ", rows=" + rows + ", staff=" + staff
+				 + "]";
 	}
 	
 

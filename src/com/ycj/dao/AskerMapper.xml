@@ -3,5 +3,101 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.AskerMapper">
-  
+  <resultMap type="asker" id="askerMap">
+        <id property="Asker_ID" column="Asker_ID"/>
+        <id property="Asker_Name" column="Asker_Name"/>
+        <id property="Asker_Weight" column="Asker_Weight"/>
+        <result property="staff.Staff_ID" column="Staff_ID" />
+        <result property="staff.Staff_Name" column="Staff_Name" />
+        <result property="staff.Staff_Password" column="Staff_Password" />
+        <result property="staff.Staff_IsLockout" column="Staff_IsLockout" />
+        <result property="staff.Staff_Time" column="Staff_Time" />
+        <result property="staff.Staff_CreatTime" column="Staff_CreatTime" />
+        <result property="staff.Staff_PsdWrong" column="Staff_PsdWrong" />
+        <result property="staff.Staff_LockTime" column="Staff_LockTime" />
+        <result property="staff.Staff_ProtectEmail" column="Staff_ProtectEmail" />
+        <result property="staff.Staff_ProtecMtel" column="Staff_ProtecMtel" />
+        <!-- <result property="signin.Sign_StaffID" column="signIn_ID" />
+        <result property="signin.SignIn_date" column="SignIn_date" />
+        <result property="signin.Back_date" column="Back_date" />
+        <result property="signin.Sign_StaffID" column="Sign_StaffID" />
+        <result property="signin.Signln_status" column="Signln_status" /> -->
+        
+  </resultMap>
+     <select id="seleAskers" parameterType="asker" resultMap="askerMap">
+     select ak.*,sta.*
+         from asker ak,staff sta
+		WHERE ak.`Asker_ Staff_ID`=sta.Staff_ID
+		ORDER BY Asker_Weight DESC
+         <!-- select ak.*,sta.*,sig.*
+         from asker ak,staff sta,signin sig 
+         <where>
+            ak.`Asker_ Staff_ID`=sta.Staff_ID 
+         and sig.`Sign_ StaffID`=sta.Staff_ID
+         <if test="staff.staff_Name !=null and staff.staff_Name !=''">
+             and Staff_Name like "%"#{staff.staff_Name}"%"
+         </if>
+         <if test="signin.signln_status !=null">
+             and sig.Signln_status = #{signin.signln_status}
+         </if>
+         <if test="signin.sSignIn_date!=null and signin.sSignIn_date!=''">
+             and SignIn_date &gt;=#{signin.sSignIn_date}
+         </if>
+         <if test="signin.eSignIn_date!=null and signin.eSignIn_date!=''">
+             and SignIn_date &lt;=#{signin.eSignIn_date}
+         </if>
+         <if test="signin.sBack_date !=null and signin.sBack_date !=''">
+             and Back_date &gt;=#{signin.sBack_date}
+         </if>
+         <if test="signin.eBack_date !=null and signin.eBack_date !=''">
+             and Back_date &lt;=#{signin.eBack_date}
+         </if>
+         </where> -->
+         limit #{page},#{rows}
+     </select>
+     <select id="selectCount" parameterType="asker" resultType="int">
+     select count(Asker_ID)
+         from asker ak,staff sta
+		WHERE ak.`Asker_ Staff_ID`=sta.Staff_ID
+		ORDER BY Asker_Weight DESC
+        <!-- select count(Asker_ID)
+         from asker ak,staff sta,signin sig 
+        <where>
+            ak.`Asker_ Staff_ID`=sta.Staff_ID 
+         and sig.`Sign_ StaffID`=sta.Staff_ID
+         <if test="staff.staff_Name !=null and staff.staff_Name !=''">
+             and Staff_Name like "%"#{staff.staff_Name}"%"
+         </if>
+         <if test="signin.signln_status !=null ">
+             and Signln_status = #{signin.signln_status}
+         </if>
+         <if test="signin.sSignIn_date!=null and signin.sSignIn_date!=''">
+             and SignIn_date &gt;=#{signin.sSignIn_date}
+         </if>
+         <if test="signin.eSignIn_date!=null and signin.eSignIn_date!=''">
+             and SignIn_date &lt;=#{signin.eSignIn_date}
+         </if>
+         <if test="signin.sBack_date !=null and signin.sBack_date !=''">
+             and Back_date &gt;=#{signin.sBack_date}
+         </if>
+         <if test="signin.eBack_date !=null and signin.eBack_date !=''">
+             and Back_date &lt;=#{signin.eBack_date}
+         </if>
+         </where> -->
+     </select>
+     <update id="updateAsker" parameterType="asker">
+       update asker 
+       <set>
+          <if test="staff.staff_ID !=null and staff.staff_ID!=''">
+              staff_ID =#{staff.staff_ID},
+          </if>
+          <if test="staff.staff_ID !=null and staff.staff_ID!=''">
+              staff_ID =#{staff.staff_ID},
+          </if>
+          <if test="staff.staff_ID !=null and staff.staff_ID!=''">
+              staff_ID =#{staff.staff_ID},
+          </if>
+       </set>
+     </update>
+     <delete id="deleteAsker" parameterType="int"></delete>
   </mapper>

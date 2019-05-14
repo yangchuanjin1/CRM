@@ -113,7 +113,7 @@
        select count(*) from cust_customer cut,asker ak ,staff sta 
 	where cut.`Cust_ Asker_ID`=ak.Asker_ID and sta.Staff_ID = ak.`Asker_ Staff_ID`
    </select>
-   <!-- <insert id="updateCust_customer" parameterType=""></insert>
+   <!-- <insert id="upzdateCust_customer" parameterType=""></insert>
    <update id="insertCust_customer" parameterType=""></update>
    <delete id="deleteCust_customer" parameterType=""></delete> -->
   </mapper>
