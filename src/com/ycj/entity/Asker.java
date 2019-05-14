@@ -1,10 +1,46 @@
 package com.ycj.entity;
-//×ÉÑ¯Ê¦±í
+
+import org.springframework.stereotype.Component;
+
+//ï¿½ï¿½Ñ¯Ê¦ï¿½ï¿½
+@Component
 public class Asker {
-	private Integer Asker_ID;//×ÉÑ¯Ê¦±àºÅ
-	private String Asker_Name;//×ÉÑ¯Ê¦Ãû³Æ
-	private Integer Asker_Staff_ID;//Ô±¹¤±àºÅ
-	private Integer Asker_Weight;//È¨ÖØ
+	private Integer Asker_ID;//ï¿½ï¿½Ñ¯Ê¦ï¿½ï¿½ï¿½
+	private String Asker_Name;//ï¿½ï¿½Ñ¯Ê¦ï¿½ï¿½ï¿½ï¿½
+	private Integer Asker_Staff_ID;//Ô±ï¿½ï¿½ï¿½ï¿½ï¿½
+	private Integer Asker_Weight;//È¨ï¿½ï¿½
+	
+	private Integer page;
+	private Integer rows;
+	
+	private Staff staff;
+	
+	/*
+	 * private Signin signin;
+	 * 
+	 * 
+	 * 
+	 * public Signin getSignin() { return signin; } public void setSignin(Signin
+	 * signin) { this.signin = signin; }
+	 */
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getRows() {
+		return rows;
+	}
+	public void setRows(Integer rows) {
+		this.rows = rows;
+	}
+	public Staff getStaff() {
+		return staff;
+	}
+	public void setStaff(Staff staff) {
+		this.staff = staff;
+	}
 	public Integer getAsker_ID() {
 		return Asker_ID;
 	}
@@ -28,6 +64,12 @@ public class Asker {
 	}
 	public void setAsker_Weight(Integer asker_Weight) {
 		Asker_Weight = asker_Weight;
+	}
+	@Override
+	public String toString() {
+		return "Asker [Asker_ID=" + Asker_ID + ", Asker_Name=" + Asker_Name + ", Asker_Staff_ID=" + Asker_Staff_ID
+				+ ", Asker_Weight=" + Asker_Weight + ", page=" + page + ", rows=" + rows + ", staff=" + staff
+				 + "]";
 	}
 	
 

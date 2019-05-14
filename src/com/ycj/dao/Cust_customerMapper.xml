@@ -49,7 +49,7 @@
       from cust_customer cut,asker ak 
       where cut.`Cust_ Asker_ID`=ak.Asker_ID
    </select>
-   <!-- <insert id="updateCust_customer" parameterType=""></insert>
+   <!-- <insert id="upzdateCust_customer" parameterType=""></insert>
    <update id="insertCust_customer" parameterType=""></update>
    <delete id="deleteCust_customer" parameterType=""></delete> -->
   </mapper>

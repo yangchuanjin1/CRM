@@ -16,19 +16,17 @@ import com.ycj.service.UsersService;
 
 @Controller
 public class UserviceController {
-	@Autowired
-	private UsersService usersService;
-	@RequestMapping(value="/loginUsers",method=RequestMethod.POST)
-	@ResponseBody
-	public Staff loginUsers(Staff users) {
-		System.out.println(users.getStaff_Name());
-		System.out.println(users.getStaff_Password());
-		Staff selectByCheckUsers = usersService.selectByCheckUsers(users);
-		System.out.println(selectByCheckUsers);
-		List<Roles> roles=selectByCheckUsers.getRoles();
-		for (int i = 0; i < roles.size(); i++) {
-			System.out.println(roles.get(i).getRolesName());
-		}
-		return null;
-	}
+	/*
+	 * @Autowired private UsersService usersService;
+	 * 
+	 * @RequestMapping(value="/loginUsers",method=RequestMethod.POST)
+	 * 
+	 * @ResponseBody public Staff loginUsers(Staff users) {
+	 * System.out.println(users.getStaff_Name());
+	 * System.out.println(users.getStaff_Password()); Staff selectByCheckUsers =
+	 * usersService.selectByCheckUsers(users);
+	 * System.out.println(selectByCheckUsers); List<Roles>
+	 * roles=selectByCheckUsers.getRoles(); for (int i = 0; i < roles.size(); i++) {
+	 * System.out.println(roles.get(i).getRolesName()); } return null; }
+	 */
 }

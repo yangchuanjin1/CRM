@@ -5,17 +5,63 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 @Component
 public class Staff {
-	private Integer Staff_ID;//±àºÅ£¬Ö÷¼ü£¬²»Îª¿Õ×ÔÔö
-	private String Staff_Name;//µÇÂ¼Ãû³Æ
-	private String Staff_Password;//µÇÂ¼ÃÜÂë
-	private String Staff_IsLockout;//ÊÇ·ñËø¶¨
-	private String Staff_Time;//×îºóÒ»´ÎµÇÂ¼Ê±¼ä
-	private String Staff_CreatTime;//ÕË»§´´½¨Ê±¼ä
-	private Integer Staff_PsdWrong;//ÃÜÂë´íÎó´ÎÊý
-	private String Staff_LockTime;//±»Ëø¶¨µÄÊ±¼ä
-	private String Staff_ProtectEmail;//ÃÜ±£ÓÊÏä
-	private String Staff_ProtecMtel;//ÃÜ±£ÊÖ»úºÅ
-	private List<Roles> roles;
+	private Integer Staff_ID;//ï¿½ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String Staff_Name;//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	private String Staff_Password;//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	private String Staff_IsLockout;//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String Staff_Time;//ï¿½ï¿½ï¿½Ò»ï¿½Îµï¿½Â¼Ê±ï¿½ï¿½
+	private String Staff_CreatTime;//ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private Integer Staff_PsdWrong;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String Staff_LockTime;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private String Staff_ProtectEmail;//ï¿½Ü±ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String Staff_ProtecMtel;//ï¿½Ü±ï¿½ï¿½Ö»ï¿½ï¿½ï¿½
+	
+	private Roles roles;
+	
+	private Signin signin;
+	
+	public Signin getSignin() {
+		return signin;
+	}
+	public void setSignin(Signin signin) {
+		this.signin = signin;
+	}
+	public Roles getRoles() {
+		return roles;
+	}
+	public void setRoles(Roles roles) {
+		this.roles = roles;
+	}
+
+	private Integer page;
+	private Integer rows;
+	
+	private String sstaff_CreatTime;
+	private String estaff_CreatTime;
+	public String getSstaff_CreatTime() {
+		return sstaff_CreatTime;
+	}
+	public void setSstaff_CreatTime(String sstaff_CreatTime) {
+		this.sstaff_CreatTime = sstaff_CreatTime;
+	}
+	public String getEstaff_CreatTime() {
+		return estaff_CreatTime;
+	}
+	public void setEstaff_CreatTime(String estaff_CreatTime) {
+		this.estaff_CreatTime = estaff_CreatTime;
+	}
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getRows() {
+		return rows;
+	}
+	public void setRows(Integer rows) {
+		this.rows = rows;
+	}
 	public Integer getStaff_ID() {
 		return Staff_ID;
 	}
@@ -76,11 +122,14 @@ public class Staff {
 	public void setStaff_ProtecMtel(String staff_ProtecMtel) {
 		Staff_ProtecMtel = staff_ProtecMtel;
 	}
-	public List<Roles> getRoles() {
-		return roles;
-	}
-	public void setRoles(List<Roles> roles) {
-		this.roles = roles;
+	
+	@Override
+	public String toString() {
+		return "Staff [Staff_ID=" + Staff_ID + ", Staff_Name=" + Staff_Name + ", Staff_Password=" + Staff_Password
+				+ ", Staff_IsLockout=" + Staff_IsLockout + ", Staff_Time=" + Staff_Time + ", Staff_CreatTime="
+				+ Staff_CreatTime + ", Staff_PsdWrong=" + Staff_PsdWrong + ", Staff_LockTime=" + Staff_LockTime
+				+ ", Staff_ProtectEmail=" + Staff_ProtectEmail + ", Staff_ProtecMtel=" + Staff_ProtecMtel + ", roles="
+				+ roles + ", page=" + page + ", rows=" + rows + "]";
 	}
 	
 	

@@ -1,5 +1,21 @@
 package com.ycj.dao;
-//×ÉÑ¯Ê¦±ídao½Ó¿Ú
-public interface AskerMapper {
+//ï¿½ï¿½Ñ¯Ê¦ï¿½ï¿½daoï¿½Ó¿ï¿½
 
+import java.util.List;
+
+import com.ycj.entity.Asker;
+
+public interface AskerMapper {
+	
+   List<Asker> seleAskers(Asker asker);
+   
+   int selectCount(Asker asker);
+   
+   
+   int insertAsker(Asker asker);
+   
+   int updateAsker(Asker asker);
+   
+   int deleteAsker(int asker_ID);
+   
 }

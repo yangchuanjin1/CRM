@@ -1,13 +1,31 @@
 package com.ycj.dao;
 
+import java.util.List;
+
+import com.ycj.entity.Roles;
 import com.ycj.entity.Staff;
+import com.ycj.entity.Staffroles;
 
 public interface StaffMapper {
 	/**
-	 * ÓÃ»§µÇÂ¼Ê±£¬¸ù¾İÓÃ»§µÄÓÃ»§ÃûºÍÃÜÂë½øĞĞ²éÕÒ
-	 * @param users  ²éÑ¯²ÎÊı
-	 * @return ·µ»ØÕâ¸öÓÃ»§µÄĞÅÏ¢
+	 * ï¿½Ã»ï¿½ï¿½ï¿½Â¼Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ²ï¿½ï¿½ï¿½
+	 * @param users  ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
+	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
-	Staff selectByCheckStaff(Staff Staff);
-
+	
+	  Staff selectByCheckStaff(Staff Staff);
+	  
+	  List<Roles> seleRoles();
+	  
+	  List<Staff> selectStaffs(Staff staff);
+	  
+	  int selectCount(Staff staff);
+	  
+	/*
+	 * int insertStaff(Staff staff); Integer insertRole(Staffroles staffroles); int
+	 * updateStaff(Staff staff);
+	 * 
+	 * int deleteStaff(int Staff_ID);
+	 */
+	 
 }
