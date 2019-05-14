@@ -3,5 +3,39 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.ModulesMapper">
-  
+  	<select id="selectMuesTree" parameterType="int" resultType="modules">
+  		SELECT
+			m.* 
+		FROM
+			staff s
+			INNER JOIN staffroles sr
+			INNER JOIN roles r
+			INNER JOIN rolemodules rm
+			INNER JOIN modules m ON s.Staff_ID = sr.SR_StaffID 
+			AND sr.SR_RolesID = r.RolesId 
+			AND r.RolesId = rm.`RM_RolesID` 
+			AND rm.RM_ModulesID = m.Modules_ID 
+		WHERE
+			s.Staff_ID =#{staffid}
+  	</select>
+  	
+  	<select id="selectmoduct" parameterType="int" resultType="modules">
+  		SELECT
+			m.* 
+		FROM
+			staff s
+			INNER JOIN staffroles sr
+			INNER JOIN roles r
+			INNER JOIN rolemodules rm
+			INNER JOIN modules m ON s.Staff_ID = sr.SR_StaffID 
+			AND sr.SR_RolesID = r.RolesId 
+			AND r.RolesId = rm.`RM_RolesID` 
+			AND rm.RM_ModulesID = m.Modules_ID 
+		WHERE
+			s.Staff_ID =#{staffid} 
+  	</select>
+  	<!-- 查询所有模块 -->
+  	<select id="selectModulesTree" resultType="modules">
+  		select * from modules
+  	</select>
   </mapper>

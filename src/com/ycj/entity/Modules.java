@@ -1,4 +1,9 @@
 package com.ycj.entity;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 //模块表
 public class Modules {
 	private Integer Modules_ID;//模块编号
@@ -8,6 +13,21 @@ public class Modules {
 	private Integer Modules_Weight;//权重
 	private String Modules_Ops;//预留字段
 	private Integer Modules_Int0;//预留字段
+	private Map<String, Object> attributes = new HashMap<String, Object>();// 添加到节点的自定义属性
+    private List<Modules> children; //子节点数据
+    
+	public Map<String, Object> getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Map<String, Object> attributes) {
+		this.attributes = attributes;
+	}
+	public List<Modules> getChildren() {
+		return children;
+	}
+	public void setChildren(List<Modules> children) {
+		this.children = children;
+	}
 	public Integer getModules_ID() {
 		return Modules_ID;
 	}
@@ -49,6 +69,13 @@ public class Modules {
 	}
 	public void setModules_Int0(Integer modules_Int0) {
 		Modules_Int0 = modules_Int0;
+	}
+	@Override
+	public String toString() {
+		return "Modules [Modules_ID=" + Modules_ID + ", Modules_Name=" + Modules_Name + ", Modules_ParentId="
+				+ Modules_ParentId + ", Modules_Path=" + Modules_Path + ", Modules_Weight=" + Modules_Weight
+				+ ", Modules_Ops=" + Modules_Ops + ", Modules_Int0=" + Modules_Int0 + ", attributes=" + attributes
+				+ ", children=" + children + "]";
 	}
 	
 
