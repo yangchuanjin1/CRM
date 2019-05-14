@@ -27,7 +27,8 @@
 			INNER JOIN staffroles sr
 			INNER JOIN roles r
 			INNER JOIN rolemodules rm
-			INNER JOIN modules m ON s.Staff_ID = sr.SR_StaffID 
+			INNER JOIN modules m 
+			ON s.Staff_ID = sr.SR_StaffID 
 			AND sr.SR_RolesID = r.RolesId 
 			AND r.RolesId = rm.`RM_RolesID` 
 			AND rm.RM_ModulesID = m.Modules_ID 
