@@ -26,7 +26,16 @@
   <insert id="insertByRolesYang" parameterType="roles">
   	insert into roles(RolesName) value(#{rolesName})
   </insert>
+  <!-- 删除 -->
   <delete id="deleteRolesYang" parameterType="int">
   	delete from roles where RolesId=#{RolesId}
   </delete>
+  <update id="updateRolesYang" parameterType="roles">
+  	update roles <set>
+  		<if test="RolesName !=null and RolesName !=''">
+  			RolesName=#{RolesName}
+  		</if>
+  	</set>
+  	where RolesId=#{RolesId}
+  </update>
   </mapper>

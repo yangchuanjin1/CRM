@@ -41,4 +41,12 @@ public class RolesServiceImp implements RolesService {
 		return deleteRolesYang;
 	}
 
+	/**
+	 * ÐÞ¸Ä
+	 */
+	public Integer updateRolesYang(Roles roles) {
+		Integer updateRolesYang = rolesmapper.updateRolesYang(roles);
+		return updateRolesYang;
+	}
+
 }

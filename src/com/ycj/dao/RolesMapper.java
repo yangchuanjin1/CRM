@@ -31,5 +31,11 @@ public interface RolesMapper {
 	 * @return
 	 */
 	Integer deleteRolesYang(Integer RolesId);
+	/**
+	 * ÐÞ¸Ä
+	 * @param roles
+	 * @return
+	 */
+	Integer updateRolesYang(Roles roles);
 
 }

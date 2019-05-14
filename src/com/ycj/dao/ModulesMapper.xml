@@ -39,4 +39,36 @@
   	<select id="selectModulesTree" resultType="modules">
   		select * from modules
   	</select>
+  	<!-- 添加 -->
+  	<insert id="insertModulesYang" parameterType="modules">
+  		insert into modules(Modules_Name,Modules_ParentId,Modules_Path,Modules_Weight) 
+  		value(#{Modules_Name},#{Modules_ParentId},#{Modules_Path},#{Modules_Weight})
+  	</insert>
+  	<!-- 删除 -->
+  	<delete id="deleteModulesYang" parameterType="int">
+  		delete from modules where Modules_ID=#{Modules_ID}
+  	</delete>
+  	<!-- 修改 -->
+  	<update id="updateModulesYang" parameterType="modules">
+  		update modules <set>
+  			<if test="Modules_Name != null and Modules_Name!=''">
+  				Modules_Name=#{Modules_Name},
+  			</if>
+  			<if test="Modules_ParentId != null and Modules_ParentId !=''">
+  				Modules_ParentId=#{Modules_ParentId}
+  			</if>
+  			<if test="Modules_Path != null and Modules_Path !=''">
+  				Modules_Path=#{Modules_Path}
+  			</if>
+  			<if test="Modules_Weight != null and Modules_Weight !=''">
+  				Modules_Weight=#{Modules_Weight}
+  			</if>
+  		</set>
+  		where Modules_ID=#{Modules_ID}
+  	</update>
+  	<!-- 根据id进行查询一条数据 -->
+  	<select id="selectModulesAndmodulesidYang" parameterType="int" resultType="modules">
+  		select * from modules where Modules_ID=#{modulesId}
+  	</select>
+  	
   </mapper>

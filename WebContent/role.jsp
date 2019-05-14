@@ -29,6 +29,10 @@
 		})
 	}
 	
+	function formatterquanxian(value,row,index){
+		return "<a href='javascript:quanxian("+index+")'>设置</a>"
+	}
+	
 	//格式化操作列
 	function formattercaozuo(value,row,index){
 		return "<a href='javascript:chakan("+index+")'>查看</a>  <a href='javascript:updateRoles("+index+")'>修改</a>  <a href='javascript:deleteRoles("+index+")'>删除</a>";
@@ -78,7 +82,34 @@
 		    }    
 		});
 	}
+	/* 修改 */
 	function updateRoles(index){
+		var data=$("#role-datagrid").datagrid("getData");
+		var row=data.rows[index];
+		$("#updateRolesForm").form("load",row);
+		$("#updateRoles-window").window("open");
+	}
+	/* 修改提交操作 */
+	function submitJsFrom(){
+       var flag=$("#updateRolesForm").form("validate")
+       var name=$("#update-RolesName").val();
+       var id=$("#update-RolesId").val();
+       if(flag){
+            $.post('updateRolesYang',{
+            	RolesId:id,
+            	RolesName:name
+            	},function(res){
+            		if(res>0){
+            			$.messager.alert('提示','修改成功');
+            			$("#updateRoles-window").window("close");
+            			$("#role-datagrid").datagrid("reload");
+            		}
+            	},"json"
+            );
+          } 
+        }
+	
+	function quanxian(index){
 		
 	}
 </script>
@@ -88,7 +119,8 @@
         <tr>   
             <th data-options="field:'rolesId'">编号</th>   
             <th data-options="field:'rolesName'">角色名称</th>   
-            <th data-options="field:'caozuo',formatter:formattercaozuo">操作</th>   
+            <th data-options="field:'caozuo',formatter:formattercaozuo">操作</th>
+            <th data-options="field:'quanxian',formatter:formatterquanxian">权限</th>     
         </tr>   
     </thead> 
  </table>
@@ -117,6 +149,16 @@
 			</table>
 		</form>
 </div>
- 
+ <!--  修改-->
+ <div id="updateRoles-window" class="easyui-window" data-options="modal:true,closed:true,title:'修改角色'" style="width: 500px;height: 300px;padding: 20px;">
+	<form id="updateRolesForm" style="padding: 20px;">
+		<input type="hidden" name="rolesId" id="update-RolesId" />
+		角色名称:<input type="text" class="easyui-textbox" name="rolesName" id="update-RolesName" value="" required="required"/>
+	</form>
+	<div style="text-align:center;padding:20px">
+         <a href="javascript:void(0)" class="easyui-linkbutton" type="button" onclick="submitJsFrom()">保存</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearJsFrom()">取消</a>        
+     </div>
+ </div>
 </body>
 </html>
