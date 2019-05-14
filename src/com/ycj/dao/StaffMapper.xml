@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.StaffMapper">
+
   <resultMap type="staff" id="staffMap">
         <id property="Staff_ID" column="Staff_ID" />
         <result property="Staff_Name" column="Staff_Name" />
@@ -84,4 +85,26 @@
     <delete id="deleteStaff" parameterType="int">
       delete from staff where Staff_ID =#{Staff_ID}
     </delete>  --> 
+
+ 	<select id="selectByCheckStaff" parameterType="staff" resultType="staff">
+ 		select * from staff where Staff_Name=#{Staff_Name} and Staff_Password=#{Staff_Password}
+ 	</select>
+ 	<!-- 查询用户名是否正确 -->
+ 	<select id="selectByStaff_Name" parameterType="String" resultType="staff">
+ 		select Staff_Name from staff where Staff_Name=#{Staff_name}
+ 	</select>
+ 	<!-- 查询密码是否正确 -->
+ 	<select id="selectByStaff_password" parameterType="String" resultType="staff">
+ 		select Staff_Password from staff where Staff_Password=#{Staff_password}
+ 	</select>
+ 	<!-- 修改错误次数 -->
+ 	<update id="updateByStaff_PsdWrong" parameterType="String">
+ 		update staff set Staff_PsdWrong=Staff_PsdWrong+1 where Staff_Name=#{Staff_name}
+ 	</update>
+ 	<!-- 修改登录时间 -->
+ 	<update id="updateByStaff_Time" parameterType="int">
+ 		update staff set Staff_Time=NOW() where Staff_ID=#{staff_id}
+ 	</update>
+ 	
+ 	
   </mapper>

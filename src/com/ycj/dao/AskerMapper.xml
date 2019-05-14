@@ -85,10 +85,19 @@
          </if>
          </where> -->
      </select>
-     <insert id="insertAsker" parameterType="asker">
-       insert into asker (Staff_ID,Asker_Name,Asker_Weight)
-       values(#{staff.Staff_ID},#{Asker_Name},#{Asker_Weight})
-     </insert>
-     <update id="updateAsker" parameterType="asker"></update>
+     <update id="updateAsker" parameterType="asker">
+       update asker 
+       <set>
+          <if test="staff.staff_ID !=null and staff.staff_ID!=''">
+              staff_ID =#{staff.staff_ID},
+          </if>
+          <if test="staff.staff_ID !=null and staff.staff_ID!=''">
+              staff_ID =#{staff.staff_ID},
+          </if>
+          <if test="staff.staff_ID !=null and staff.staff_ID!=''">
+              staff_ID =#{staff.staff_ID},
+          </if>
+       </set>
+     </update>
      <delete id="deleteAsker" parameterType="int"></delete>
   </mapper>

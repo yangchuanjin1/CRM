@@ -13,7 +13,6 @@ public interface StaffMapper {
 	 * @return ��������û�����Ϣ
 	 */
 	
-	  Staff selectByCheckStaff(Staff Staff);
 	  
 	  List<Roles> seleRoles();
 	  
@@ -28,4 +27,28 @@ public interface StaffMapper {
 	 * int deleteStaff(int Staff_ID);
 	 */
 	 
+
+	Staff selectByCheckStaff(Staff Staff);
+	/**
+	 * ��ѯ�û����Ƿ���ȷ
+	 * @param Staff_name
+	 * @return
+	 */
+	Staff selectByStaff_Name(String Staff_name);
+	/**
+	 * ��ѯ�����Ƿ���ȷ
+	 * @param Staff_password
+	 * @return
+	 */
+	Staff selectByStaff_password(String Staff_password);
+	/**
+	 * �޸Ĵ������
+	 * @return
+	 */
+	Integer updateByStaff_PsdWrong(String Staff_name);
+	/**
+	 * �޸ĵ�¼ʱ��
+	 * @return
+	 */
+	Integer updateByStaff_Time(Integer staff_id);
 }

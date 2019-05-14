@@ -12,41 +12,21 @@
 <script type="text/javascript" src="jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <script type="text/javascript">
-function baocun(){
-	var flag=$("#fmLogin").form("validate");
-	if(flag){
-		$.ajax({
-			type:"post",
-			url:"",
-			data:{
-				:$("#").val(),
-				:$("#").val(),
-				:$("#").val()
-			},
-			datatype:"json",
-			
-		})	
-	}
-	/* if(flag){
-		$.post(globalDate.server+"login",{
-			un:un,
-			pwd:pwd,
-			token:globalDate.myToken
-		},function(res){
-			if(res.success){
-				var obj = eval("("+res.message+")");
-				globalDate.setUserInfo(obj.uid,$("#un").val(),obj.roleNames);
-				window.sessionStorage.setItem("roleNames",obj.roleNames);
-				window.sessionStorage.setItem("loginName",un);
-				window.sessionStorage.setItem("uid",obj.uid)
-				window.location.href="rw7.html";
-			}else{
-				$.messager.alert("出错啦",res.message,"error");
-			}
-		},"json");
-	}else{
-		$.messager.alert("验证","请完善数据","info");
-	} */
+
+var y;
+function denglu(){
+	$.post("loginStaff",{
+		Staff_Name:$("#Staff_Name").val(),
+		Staff_Password:$("#Staff_Password").val(),
+		kaptcha:$("#kaptcha").val()
+	},function(res){
+		if(res.success){
+			 window.location.href="index.jsp";
+		}else{
+			$.messager.alert('提示信息',res.message); 
+			return;
+		}
+	},"json")
 }
 
 /* 验证码刷新 */
@@ -58,6 +38,24 @@ function baocun(){
 }
 
 </script>
+<%
+Cookie []cookies =request.getCookies();
+	String username=null;
+	String password=null;
+	if(cookies!=null){
+		//遍历Cookie
+		for(Cookie cookie:cookies){
+			 String cookieName=cookie.getName();
+			 String cookieValue=cookie.getValue();
+			if("username".equals(cookieName)){
+				username=cookieValue;
+			}else if("password".equals(cookieName)){
+				password=cookieValue;
+			}
+		}
+	}
+
+%>
 <body>
 <center style="margin-top: 150px;">
 	<div id="" class="easyui-panel" data-options="title:'登录页面'" style="width: 400px;height: 300px;">
@@ -67,27 +65,37 @@ function baocun(){
 				<tr>
 					<td>用户名：</td>
 					<td>
-						<input name="un" id="un" class="easyui-textbox" required="required"/>
+						<input name="Staff_Name" id="Staff_Name" class="easyui-textbox" required="required"/>
 					</td>
 				</tr>
 				<tr style="padding: 20px;">
 					<td>密码：</td>
 					<td>
-						<input name="pwd" id="pwd" class="easyui-textbox" required="required"/>
+						<input name="Staff_Password" id="Staff_Password" class="easyui-textbox" required="required"/>
 					</td>
 				</tr>
 				<tr style="padding: 20px;">
 					<td>验证码：</td>
 					<td>
-						<input name="j_code" type="text" id="kaptcha" maxlength="4" class="easyui-textbox" required="required" style="width:60px"/>
+						<input name="kaptcha" type="text" id="kaptcha"  maxlength="4" class="easyui-textbox" required="required" style="width:60px"/>
 						<img src="KaptchaServlet"  id="kaptchaImage" style="height:30px;"/>
    						<a href="javascript:changeCode()">看不清?换一张</a>
+					</td>
+				</tr>
+				<tr>
+					<td>${mesg }</td>
+				</tr>
+				<tr style="padding: 20px;">
+					<td><input name="yes" id="yes" type="checkbox" value="yes" /></td>
+					<td>
+						七天免登陆
 					</td>
 				</tr>
 				<tr style="padding: 20px;">
 					<td></td>
 					<td>
-						<a id="btnLogin" href="javascript:void(0)" class="easyui-linkbutton" onclick="baocun()">登录</a>  
+						<!-- <td rowspan="1"><input type="submit" id="dl" value="登陆"/></td> -->
+						<a id="btn" href="javascript:denglu()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">登录</a>
 					</td>
 				</tr>
 			</table>
