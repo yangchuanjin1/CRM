@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ycj.entity.Communicate_record;
 import com.ycj.entity.Cust_customer;
 import com.ycj.entity.FenYe;
 import com.ycj.service.CustomerServiceImpl;
@@ -24,5 +25,10 @@ public class Cust_customerController {
 	public int insertCust_customer(Cust_customer cust_customer) {
 		// TODO Auto-generated method stub
 		return customerServiceImpl.insertCust_customer(cust_customer);
+	}
+	@RequestMapping(value="/insertCommunicate_record",method=RequestMethod.POST)
+	@ResponseBody
+	public int insertCommunicate_record(Communicate_record communicate_record) {
+		return customerServiceImpl.insertCommunicate_record(communicate_record);
 	}
 }
