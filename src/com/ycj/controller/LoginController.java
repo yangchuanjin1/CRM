@@ -68,7 +68,7 @@ public class LoginController {
         			return Result.toClient(false, "此用户已被锁定，请联系管理员进行解锁");
         		}else {
         			System.out.println(1111);
-        			/*loginService.updateByStaff_Time(staffcha.getStaff_ID());*/
+        			loginService.updateByStaff_Time(staffcha.getStaff_ID());
         			request.getSession().setAttribute("Staff_ID", staffcha.getStaff_ID());
         			request.getSession().setAttribute("Staff_Name", staffcha.getStaff_Name());
         			return Result.toClient(true, "登陆成功");

@@ -15,7 +15,7 @@ public class Modules {
 	private Integer Modules_Int0;//预留字段
 	private Map<String, Object> attributes = new HashMap<String, Object>();// 添加到节点的自定义属性
     private List<Modules> children; //子节点数据
-    
+    private boolean check;
 	public Map<String, Object> getAttributes() {
 		return attributes;
 	}
@@ -69,6 +69,14 @@ public class Modules {
 	}
 	public void setModules_Int0(Integer modules_Int0) {
 		Modules_Int0 = modules_Int0;
+	}
+	
+	
+	public boolean getCheck() {
+		return check;
+	}
+	public void setCheck(boolean b) {
+		this.check = b;
 	}
 	@Override
 	public String toString() {

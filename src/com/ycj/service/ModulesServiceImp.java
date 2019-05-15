@@ -9,9 +9,12 @@ import org.aspectj.weaver.tools.GeneratedClassHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ycj.Util.TreeModel;
+import com.ycj.Util.TreeNode;
 import com.ycj.controller.ModulesConroller;
 import com.ycj.dao.ModulesMapper;
 import com.ycj.entity.Modules;
+import com.ycj.entity.Roles;
 @Service
 public class ModulesServiceImp implements ModulesService {
 	@Autowired
@@ -64,6 +67,8 @@ public class ModulesServiceImp implements ModulesService {
 			if(modulesTree.get(i).getModules_ParentId()==0) {
 				map.put("id", modulesTree.get(i).getModules_ID());
 				map.put("text", modulesTree.get(i).getModules_Name());
+				map.put("modules_Path", modulesTree.get(i).getModules_Path());
+				map.put("modules_Weight", modulesTree.get(i).getModules_Weight());
 				map.put("children", chidrenall(modulesTree.get(i))); 
 				maps1.add(map);
 			}
@@ -80,6 +85,8 @@ public class ModulesServiceImp implements ModulesService {
 			if(modulesTree.get(i).getModules_ParentId()==modules.getModules_ID()) {
 				map.put("id", modulesTree.get(i).getModules_ID());
 				map.put("text", modulesTree.get(i).getModules_Name());
+				map.put("modules_Path", modulesTree.get(i).getModules_Path());
+				map.put("modules_Weight", modulesTree.get(i).getModules_Weight());
 				map.put("children", chidrenall(modulesTree.get(i)));
 				maps.add(map);
 			}
@@ -118,5 +125,49 @@ public class ModulesServiceImp implements ModulesService {
 		Modules selectModulesAndmodulesidYang = modulesMapper.selectModulesAndmodulesidYang(modulesId);
 		return selectModulesAndmodulesidYang;
 	}
+
+	
+	/*public List<Map<String, Object>> selectModulesRolesYang(Integer rolesId) {
+		
+		return null;
+	}*/
+	
+	
+	public ArrayList<TreeModel> selectModulesRolesYang(Integer rolesId) {
+			List<Modules> mod=modulesMapper.selectModulesRolesYang(rolesId);
+			ArrayList<TreeModel> root = new ArrayList<>();
+			ArrayList<TreeModel> tree = new ArrayList<>();
+			   for (Modules mod1:mod) {
+				   TreeModel node = new TreeModel();
+				   node.setId(mod1.getModules_ID());
+	               node.setText(mod1.getModules_Name());             
+	               node.setM_parentid(mod1.getModules_ParentId());
+	               node.setM_path(mod1.getModules_Path());
+	               tree.add(node);
+			   }
+			   root = TreeNode.getTree(tree); 
+			return root;	
+		}
+
+	/**
+	 * 查询所有模块
+	 */
+	public ArrayList<TreeModel> selectRolesModulesYang() {
+		List<Modules> selectModulesTree = modulesMapper.selectModulesTree();
+		ArrayList<TreeModel> root = new ArrayList<>();
+		ArrayList<TreeModel> tree = new ArrayList<>();
+		   for (Modules mod1:selectModulesTree) {
+			   TreeModel node = new TreeModel();
+			   node.setId(mod1.getModules_ID());
+               node.setText(mod1.getModules_Name());             
+               node.setM_parentid(mod1.getModules_ParentId());
+               node.setM_path(mod1.getModules_Path());
+               tree.add(node);
+		   }
+		   root = TreeNode.getTree(tree); 
+		return root;
+	}
+
+	
 	
 }

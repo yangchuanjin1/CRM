@@ -8,6 +8,7 @@ import javax.websocket.server.PathParam;
 import org.apache.ibatis.annotations.Param;
 
 import com.ycj.entity.Modules;
+import com.ycj.entity.Roles;
 
 public interface ModulesMapper {
 	/**
@@ -47,5 +48,11 @@ public interface ModulesMapper {
 	 * @return
 	 */
 	Modules selectModulesAndmodulesidYang(Integer modulesId);
+	/**
+	 * 查询每个角色下的所有模块
+	 * @param roles
+	 * @return
+	 */
+	List<Modules> selectModulesRolesYang(Integer roles);
 
 }

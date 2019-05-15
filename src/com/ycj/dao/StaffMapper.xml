@@ -101,10 +101,84 @@
  	<update id="updateByStaff_PsdWrong" parameterType="String">
  		update staff set Staff_PsdWrong=Staff_PsdWrong+1 where Staff_Name=#{Staff_name}
  	</update>
- 	<!-- 修改登录时间 -->
+ 	<!--杨传锦 修改登录时间 -->
  	<update id="updateByStaff_Time" parameterType="int">
  		update staff set Staff_Time=NOW() where Staff_ID=#{staff_id}
  	</update>
  	
+ 	<!-- 杨传锦   分页带条件查询所有数据 -->
+ 	<select id="selectStaffAllYang" parameterType="fenYeYang" resultType="staff">
+ 		select * from staff
+ 		 <where>
+           <if test="staff_Name !=null and staff_Name !=''">
+              and  Staff_Name like "%"#{staff_Name}"%"
+           </if>
+           <if test="minstaff_CreatTime !=null and minstaff_CreatTime !=''">
+              and  Staff_CreatTime &gt;=#{minstaff_CreatTime}
+           </if>
+           <if test="maxstaff_CreatTime !=null and maxstaff_CreatTime !=''">
+              and  Staff_CreatTime &lt;=#{maxstaff_CreatTime}
+           </if>
+           <if test="Staff_IsLockout !=null and Staff_IsLockout !=''">
+              and  Staff_IsLockout=#{Staff_IsLockout}
+           </if>
+        </where> 
+ 		 limit #{page},#{pageSize}
+ 	</select>
+ 	<!-- 杨传锦   查询总条数 -->
+ 	<select id="selectStaffCountYang" parameterType="fenYeYang" resultType="int">
+ 		select count(*) from staff
+ 		<where>
+           <if test="staff_Name !=null and staff_Name !=''">
+              and  Staff_Name like "%"#{staff_Name}"%"
+           </if>
+           <if test="minstaff_CreatTime !=null and minstaff_CreatTime !=''">
+              and  Staff_CreatTime &gt;=#{minstaff_CreatTime}
+           </if>
+           <if test="maxstaff_CreatTime !=null and maxstaff_CreatTime !=''">
+              and  Staff_CreatTime &lt;=#{maxstaff_CreatTime}
+           </if>
+           <if test="Staff_IsLockout !=null and Staff_IsLockout !=''">
+              and  Staff_IsLockout=#{Staff_IsLockout}
+           </if>
+        </where> 
+ 	</select>
+ 	
+ 	<!-- 杨传锦  添加 -->
+ 	<insert id="insetStaffYang" parameterType="staff">
+ 		insert INTO staff(Staff_Name,Staff_Password)
+ 		value(#{Staff_Name},#{Staff_Password})
+ 	</insert>
+ 	<!--杨传锦   修改  -->
+ 	<update id="updateStaffYang" parameterType="staff">
+ 		update staff <set>
+ 			<if test="Staff_Name !=null and Staff_Name !=''">
+ 				Staff_Name=#{Staff_Name},
+ 			</if>
+ 		</set>
+ 		where Staff_ID=#{Staff_ID}
+ 	</update>
+ 	
+ 	<!-- 杨传锦   解锁用户 -->
+ 	<update id="updateStaffJieIsLockoutYang" parameterType="int">
+ 		update staff set Staff_IsLockout=0 where Staff_ID=#{staffId}
+ 	</update>
+ 	
+ 	<!--杨传锦   锁定用户  -->
+ 	<update id="updateStaffSuoIsLockoutYang" parameterType="int">
+ 		update staff set Staff_IsLockout=1,Staff_LockTime=NOW() where Staff_ID=#{staffId}
+ 	</update>
+ 	<!--杨传锦  设置密保  -->
+ 	<update id="updateStaffMiBaoYang" parameterType="staff">
+ 		update staff set Staff_ProtecMtel=#{Staff_ProtecMtel},Staff_ProtectEmail=#{Staff_ProtectEmail} where Staff_ID=#{Staff_ID}
+ 	</update>
+ 	<!--杨传锦  查询修改密码时输入的旧密码是否正确  -->
+ 	<select id="selectStaffMiMaPasswordYang" parameterType="staff" resultType="int">
+ 		select count(*) from staff where Staff_ID=#{Staff_ID} and Staff_Password=#{Staff_Password}
+ 	</select>
+ 	<!--杨传锦  修改密码  -->
+ 	<update id="updateStaffMiMaPasswordYang" parameterType="staff">
+ 		update staff set Staff_Password=#{Staff_Password} where Staff_ID=#{Staff_ID}
+ 	</update>
  	
   </mapper>

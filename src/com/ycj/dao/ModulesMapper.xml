@@ -54,9 +54,6 @@
   			<if test="Modules_Name != null and Modules_Name!=''">
   				Modules_Name=#{Modules_Name},
   			</if>
-  			<if test="Modules_ParentId != null and Modules_ParentId !=''">
-  				Modules_ParentId=#{Modules_ParentId}
-  			</if>
   			<if test="Modules_Path != null and Modules_Path !=''">
   				Modules_Path=#{Modules_Path}
   			</if>
@@ -70,5 +67,18 @@
   	<select id="selectModulesAndmodulesidYang" parameterType="int" resultType="modules">
   		select * from modules where Modules_ID=#{modulesId}
   	</select>
+  	
+  	<select id="selectModulesRolesYang" parameterType="int" resultType="modules">
+  		SELECT
+			m.* 
+		FROM
+			roles r
+			INNER JOIN rolemodules rm
+			INNER JOIN modules m ON rm.RM_ModulesID = m.Modules_ID 
+			AND r.RolesId = rm.RM_RolesID 
+		WHERE
+			r.RolesId =#{rolesId}
+  	</select>
+  	
   	
   </mapper>

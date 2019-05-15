@@ -9,6 +9,40 @@ public class FenYeYang {
 	private Integer total;
 	
 	private String rolesName;
+	
+	private String staff_Name;
+	private String minstaff_CreatTime;
+	private String maxstaff_CreatTime;
+	private String Staff_IsLockout;
+	
+	
+	
+	
+	
+	public String getStaff_Name() {
+		return staff_Name;
+	}
+	public void setStaff_Name(String staff_Name) {
+		this.staff_Name = staff_Name;
+	}
+	public String getMinstaff_CreatTime() {
+		return minstaff_CreatTime;
+	}
+	public void setMinstaff_CreatTime(String minstaff_CreatTime) {
+		this.minstaff_CreatTime = minstaff_CreatTime;
+	}
+	public String getMaxstaff_CreatTime() {
+		return maxstaff_CreatTime;
+	}
+	public void setMaxstaff_CreatTime(String maxstaff_CreatTime) {
+		this.maxstaff_CreatTime = maxstaff_CreatTime;
+	}
+	public String getStaff_IsLockout() {
+		return Staff_IsLockout;
+	}
+	public void setStaff_IsLockout(String staff_IsLockout) {
+		Staff_IsLockout = staff_IsLockout;
+	}
 	public Integer getPage() {
 		return page;
 	}

@@ -1,5 +1,7 @@
 package com.ycj.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,5 +49,26 @@ public class RolesController {
 	public Integer updateRolesYang(Roles roles) {
 		Integer updateRolesYang = rolesService.updateRolesYang(roles);
 		return updateRolesYang;
+	}
+	/**
+	 * 杨传锦    查询一个用户下的角色
+	 * @param StaffId
+	 * @return
+	 */
+	@RequestMapping(value="/selectStaffRolesIdYang",method=RequestMethod.POST)
+	@ResponseBody
+	public List<Roles> selectStaffRolesIdYang(Integer StaffId){
+		List<Roles> seleseStaffRolesRolesIdYang = rolesService.seleseStaffRolesRolesIdYang(StaffId);
+		return seleseStaffRolesRolesIdYang;
+	}
+	/**
+	 * 杨传锦     查询所有角色
+	 * @return
+	 */
+	@RequestMapping(value="/selectStaffRolesYang",method=RequestMethod.POST)
+	@ResponseBody
+	public List<Roles> selectStaffRolesYang(){
+		List<Roles> selectStaffRolesYang = rolesService.selectStaffRolesYang();
+		return selectStaffRolesYang;
 	}
 }

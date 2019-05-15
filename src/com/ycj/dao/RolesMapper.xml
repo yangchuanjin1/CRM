@@ -38,4 +38,20 @@
   	</set>
   	where RolesId=#{RolesId}
   </update>
+  <!--杨传锦    查询所有角色 -->
+  <select id="selectStaffRolesYang" resultType="roles">
+  	select * from roles
+  </select>
+  <!-- 查询一个用户下的所有角色 -->
+  <select id="seleseStaffRolesRolesIdYang" parameterType="int" resultType="roles">
+  	SELECT
+		r.* 
+	FROM
+		staff s
+		INNER JOIN staffroles sr
+		INNER JOIN roles r ON s.Staff_ID = sr.SR_StaffID 
+		AND sr.SR_RolesID = r.RolesId 
+	WHERE
+		s.Staff_ID =#{StaffId}
+  </select>
   </mapper>

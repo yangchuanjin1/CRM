@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ycj.Util.Result;
+import com.ycj.Util.TreeModel;
+import com.ycj.Util.TreeNode;
 import com.ycj.entity.Modules;
 import com.ycj.service.ModulesService;
 
@@ -33,7 +35,6 @@ public class ModulesConroller {
 	@ResponseBody
 	public List<Map<String,Object>> selectMenuTreesYangAll() {
 		List<Map<String,Object>> modulesTreeYang = modulesService.selectModulesTreeYang();
-		System.out.println(modulesTreeYang+"muestree");
 		return modulesTreeYang;
 	}
 	//添加
@@ -50,6 +51,20 @@ public class ModulesConroller {
 		Integer deleteModulesYang = modulesService.deleteModulesYang(Modules_ID);
 		return deleteModulesYang;
 	}
+	/**
+	 * 杨传锦     修改模块
+	 * @param modules
+	 * @return
+	 */
+	@RequestMapping(value="/updateModulesYang",method=RequestMethod.POST)
+	@ResponseBody
+	public Integer updateModulesYang(Modules modules) {
+		Integer updateModulesYang = modulesService.updateModulesYang(modules);
+		return updateModulesYang;
+	}
+	
+	
+	
 	//根据id查询一条数据
 	@RequestMapping(value="selectModulesAndModulesIdYang",method=RequestMethod.POST)
 	@ResponseBody
@@ -58,5 +73,19 @@ public class ModulesConroller {
 		Modules selectModulesAndmodulesidYang = modulesService.selectModulesAndmodulesidYang(modulesId);
 		System.out.println(Result.toClient(true, selectModulesAndmodulesidYang));
 		return Result.toClient(true, selectModulesAndmodulesidYang);
+	}
+	
+	
+	
+	
+	@RequestMapping(value="selectModulesRolesYang",method=RequestMethod.POST)
+	@ResponseBody
+	public ArrayList<TreeModel> selectModulesRolesYang(Integer RolesId) {
+		ArrayList<TreeModel> selectRolesModulesYang = modulesService.selectRolesModulesYang();
+		ArrayList<TreeModel> selectModulesRolesYang = modulesService.selectModulesRolesYang(RolesId);
+		System.out.println(selectRolesModulesYang+"all");
+		System.out.println(selectModulesRolesYang+"private");
+		return TreeNode.checkTree(selectRolesModulesYang, selectModulesRolesYang);
+		
 	}
 }

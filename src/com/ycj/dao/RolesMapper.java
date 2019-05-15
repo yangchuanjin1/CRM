@@ -37,5 +37,16 @@ public interface RolesMapper {
 	 * @return
 	 */
 	Integer updateRolesYang(Roles roles);
+	/**
+	 * 杨传锦     查询所有角色
+	 * @return
+	 */
+	List<Roles> selectStaffRolesYang();
+	/**
+	 * 杨传锦    查询一个用户下的角色
+	 * @param StaffId
+	 * @return
+	 */
+	List<Roles> seleseStaffRolesRolesIdYang(Integer StaffId);
 
 }
