@@ -1,13 +1,19 @@
 package com.ycj.entity;
 
+<<<<<<< HEAD
 
 import org.springframework.stereotype.Component;
 //������¼��
 @Component
+=======
+import java.util.Date;
+//������¼��
+>>>>>>> 27dbf327342df5ddfb0f0ed6029a0962ebd05633
 public class Communicate_record {
 	private Integer Comm_ID;//��¼���
 	private Integer Comm_cust_ID;//�ͻ����
 	private Integer Comm_Staff_ID;//Ա�����
+<<<<<<< HEAD
 	private String  Comm_date;//������ʱ��
 	private Integer Comm_way;//������ʱ��
 	private String comm_title;//���ݸ�Ҫ
@@ -97,6 +103,20 @@ public class Communicate_record {
 	}
 	public void setRows(Integer rows) {
 		this.rows = rows;
+=======
+	private Date Comm_date;//������ʱ��
+	private String Comm_way;//������ʱ��
+	private String comm_title;//���ݸ�Ҫ
+	private String comm_detail;//������ϸ��Ϣ
+	private String comm_nextdate;
+	
+	
+	public String getComm_nextdate() {
+		return comm_nextdate;
+	}
+	public void setComm_nextdate(String comm_nextdate) {
+		this.comm_nextdate = comm_nextdate;
+>>>>>>> 27dbf327342df5ddfb0f0ed6029a0962ebd05633
 	}
 	public Integer getComm_ID() {
 		return Comm_ID;

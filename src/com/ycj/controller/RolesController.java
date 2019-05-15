@@ -40,4 +40,12 @@ public class RolesController {
 		Integer deleteRolesYang = rolesService.deleteRolesYang(RolesId);
 		return deleteRolesYang;
 	}
+	//ÐÞ¸Ä
+	
+	@RequestMapping(value="/updateRolesYang",method=RequestMethod.POST)
+	@ResponseBody
+	public Integer updateRolesYang(Roles roles) {
+		Integer updateRolesYang = rolesService.updateRolesYang(roles);
+		return updateRolesYang;
+	}
 }

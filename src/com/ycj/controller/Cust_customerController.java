@@ -18,4 +18,11 @@ public class Cust_customerController {
 	public FenYe<Cust_customer> selectCust_customers(Cust_customer cust_customer) {
 			return customerServiceImpl.selectCust_customers(cust_customer);
 		}
+	//添加
+	@RequestMapping(value="/insertCust_customer",method=RequestMethod.POST)
+	@ResponseBody
+	public int insertCust_customer(Cust_customer cust_customer) {
+		// TODO Auto-generated method stub
+		return customerServiceImpl.insertCust_customer(cust_customer);
+	}
 }

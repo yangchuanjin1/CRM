@@ -86,5 +86,37 @@ public class ModulesServiceImp implements ModulesService {
 		}
 		return maps;
 	}
+
+	/**
+	 * 添加
+	 */
+	public Integer insertModulesYang(Modules modules) {
+		Integer insertmodulesYang = modulesMapper.insertModulesYang(modules);
+		return insertmodulesYang;
+	}
+
+	/**
+	 * 删除
+	 */
+	public Integer deleteModulesYang(Integer modulesId) {
+		Integer deleteModulesYang = modulesMapper.deleteModulesYang(modulesId);
+		return deleteModulesYang;
+	}
+
+	/**
+	 * 修改
+	 */
+	public Integer updateModulesYang(Modules modules) {
+		Integer updateModulesYang = modulesMapper.updateModulesYang(modules);
+		return updateModulesYang;
+	}
+
+	/**
+	 * 根据id查询一条数据
+	 */
+	public Modules selectModulesAndmodulesidYang(Integer modulesId) {
+		Modules selectModulesAndmodulesidYang = modulesMapper.selectModulesAndmodulesidYang(modulesId);
+		return selectModulesAndmodulesidYang;
+	}
 	
 }

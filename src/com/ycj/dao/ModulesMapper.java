@@ -23,5 +23,29 @@ public interface ModulesMapper {
 	 * @return
 	 */
 	List<Modules> selectModulesTree();
+	/**
+	 * 添加
+	 * @param modules
+	 * @return
+	 */
+	Integer insertModulesYang(Modules modules);
+	/**
+	 * 删除操作
+	 * @param modulesId
+	 * @return
+	 */
+	Integer deleteModulesYang(Integer modulesId);
+	/**
+	 * 修改操作
+	 * @param modules
+	 * @return
+	 */
+	Integer updateModulesYang(Modules modules);
+	/**
+	 * 根据id查询模块
+	 * @param modulesId
+	 * @return
+	 */
+	Modules selectModulesAndmodulesidYang(Integer modulesId);
 
 }

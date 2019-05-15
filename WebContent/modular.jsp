@@ -37,6 +37,7 @@
 		      alert("请选择父节点");
 		   }
 	}
+	/* 添加 */
 	function submitModal(){
 		  var flag=$("#addModalForm").form("validate");
 		  var node=$("#t").tree("getSelected"); 
@@ -48,13 +49,12 @@
 		  var ModalURL=$("#ModalURL").val();
 		  var ModalName=$("#ModalName").val();
 		  if(flag){
-				  $.post('',
+				  $.post('insertModulesYang',
 				   {
-				        name:ModalName,
-						parentId:node.id,
-						path:ModalURL,
-						weight:ModalWeight,
-						token:token
+					  Modules_Name:ModalName,
+				      Modules_ParentId:node.id,
+				      Modules_Path:ModalURL,
+				      Modules_Weight:ModalWeight
 				   },function(res){
 				      $("#addModalWindow").window("close");
 				      $("#t").tree("reload");
@@ -63,6 +63,47 @@
 				  );
 		         }
 		}
+	/* 删除 */
+	function deleteTree(){
+		$.messager.confirm("确定","确定要删除吗？",function(r){
+			if(r){
+				var row=$("#t").tree("getSelected");
+				if(row!=""&&row!=null){
+				var id=row.id;
+				if(row.text==""){
+					alert("请选择节点");
+				   }
+				else{
+					$.post('deleteModulesYang',{
+						Modules_ID:id
+						},function(res){
+							if(res>0){
+								 $("#t").tree("reload");
+								 alert("删除成功");
+							}
+						},"json"
+					);
+				}
+			}else{
+		   	alert("请选择要删除的节点");
+		   }
+		   }});
+	}
+	/*  修改*/
+	function updateTree(){
+	     var node=$("#t").tree("getSelected");
+	     $.post('selectModulesAndModulesIdYang',{
+	    	 modulesId:node.id
+	     },function(res){
+	    	 if(res.success){
+	    		 var mes=eval("("+res.message+")");
+		         alert(mes.Modules_Path);
+		         $("#updateModalForm").form("load",mes);
+		         $("#updateModalWindow").window("open");
+	    	 }
+	         
+	     },"json");
+	  }
 </script>
 <body>
 	<div class="" data-options="title:'模块管理'" style="width:500px;height: 700px;">
@@ -70,7 +111,8 @@
 	</div>
 		<div id="mm" class="easyui-menu" style="width:120px;">
 		<div onclick="append()" data-options="iconCls:'icon-add'">追加</div>
-		<div onclick="remove()" data-options="iconCls:'icon-remove'">移除</div>
+		<div onclick="updateTree()" data-options="iconCls:'icon-add'">修改</div>
+		<div onclick="deleteTree()" data-options="iconCls:'icon-remove'">移除</div>
 	</div>
 	
 	<!-- 新增模块 -->
@@ -98,6 +140,30 @@
 		      <div style="text-align:center;padding:20px">
                 <a href="javascript:void(0)" class="easyui-linkbutton" type="button" onclick="submitModal()">保存</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearModal()">取消</a>        
+              </div>
+		</div>
+	<!--修改  -->
+	<div id="updateModalWindow" class="easyui-window" style="width: 500px;height: 300px;padding: 10px;" data-options="modal:true,closed:true,title:'修改模块信息'"> 
+		      <form id="updateModalForm">
+		            <table cellpadding="5">
+		               <input type="hidden" name="modules_ParentId" id="parentId"/>
+		               <tr>
+		                 <td>权重：</td>
+		                 <td><input type="text" class="easyui-textbox" name="modules_ParentId" id="weight" value="" required="required"/></td>
+		               </tr>
+		               <tr>
+		                 <td>URL：</td>
+		                 <td><input type="text" class="easyui-textbox" name="modules_Path" id="url" value="" required="required"/></td>
+		               </tr>
+		               <tr>
+		                 <td>模块名称：</td>
+		                 <td><input type="text" class="easyui-textbox" name="modules_Name" id="name" value="" required="required"/></td>
+		               </tr>
+		            </table>
+		      </form>
+		      <div style="text-align:center;padding:20px">
+                <a href="javascript:void(0)" class="easyui-linkbutton" type="button" onclick="submitModalFrom()">保存</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearModalFrom()">取消</a>        
               </div>
 		</div>
 	
