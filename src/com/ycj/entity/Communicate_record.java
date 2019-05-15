@@ -1,15 +1,24 @@
 package com.ycj.entity;
 
 import java.util.Date;
-//½»Íù¼ÇÂ¼±í
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
 public class Communicate_record {
-	private Integer Comm_ID;//¼ÇÂ¼±àºÅ
-	private Integer Comm_cust_ID;//¿Í»§±àºÅ
-	private Integer Comm_Staff_ID;//Ô±¹¤±àºÅ
-	private Date Comm_date;//½»ÍùµÄÊ±¼ä
-	private String Comm_way;//½»ÍùµÄÊ±¼ä
-	private String comm_title;//ÄÚÈÝ¸ÅÒª
-	private String comm_detail;//ÄÚÈÝÏêÏ¸ÐÅÏ¢
+	private Integer Comm_ID;//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½
+	private Integer Comm_cust_ID;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½
+	private Integer Comm_Staff_ID;//Ô±ï¿½ï¿½ï¿½ï¿½ï¿½
+	private Date Comm_date;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private String Comm_way;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private String comm_title;//ï¿½ï¿½ï¿½Ý¸ï¿½Òª
+	private String comm_detail;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ï¢
+	private String comm_nextdate;
+	
+	
+	public String getComm_nextdate() {
+		return comm_nextdate;
+	}
+	public void setComm_nextdate(String comm_nextdate) {
+		this.comm_nextdate = comm_nextdate;
+	}
 	public Integer getComm_ID() {
 		return Comm_ID;
 	}

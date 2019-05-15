@@ -3,5 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.Communicate_recordMapper">
-  
+  <resultMap type="Communicate_record" id="communicate_recordMAP">
+  	 <id column="Comm_ID" property="Comm_ID"/>
+     <result column="Comm_cust_ID" property="Comm_cust_ID"/>
+
+  </resultMap>
+  		<select id="selectCommunicate_record" parameterType="communicate_record" resultType="communicate_record">
+  			select * from communicate_record
+  		</select>
   </mapper>
