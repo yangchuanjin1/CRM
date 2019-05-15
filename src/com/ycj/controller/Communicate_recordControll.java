@@ -18,8 +18,6 @@ public class Communicate_recordControll {
 	@RequestMapping(value="selectCommunicate_record",method=RequestMethod.POST)
 	@ResponseBody
 	public FenYe<Communicate_record> selectCommunicate_record(Communicate_record communicate_record,Staff staff,Cust_customer cust_customer) {
-		communicate_record.setCust_customer(cust_customer);
-		communicate_record.setStaff(staff);
 		return communicate_recordService.selectCommunicate_record(communicate_record);
 	}
 }
