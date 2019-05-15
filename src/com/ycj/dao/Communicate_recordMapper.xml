@@ -3,6 +3,128 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.Communicate_recordMapper">
+<<<<<<< HEAD
+  <resultMap type="communicate_record" id="communicate_recordMapperMap">
+      <id property="Comm_ID" column="Comm_ID"/>
+      <result property="Comm_cust_ID" column="Comm_cust_ID"/>
+      <result property="Comm_Staff_ID" column="Comm_Staff_ID"/>
+      <result property="Comm_date" column="Comm_date"/>
+      <result property="Comm_way" column="Comm_way"/>
+      <result property="comm_title" column="comm_title"/>
+      <result property="comm_detail" column="comm_detail"/>
+      <result property="comm_huifang" column="comm_huifang"/>
+      <result property="comm_endData" column="comm_endData"/>
+      
+     <result column="Cust_ID" property="cust_customer.Cust_ID"/>
+     <result column="Cust_Name" property="cust_customer.Cust_Name"/>
+     <result column="Cust_Age" property="cust_customer.Cust_Age"/>
+     <result column="Cust_Gender" property="cust_customer.Cust_Gender"/>
+     <result column="Cust_Telephone" property="cust_customer.Cust_Telephone"/>
+     <result column="Cust_Education" property="cust_customer.Cust_Education"/>
+     <result column="Cust_state" property="cust_customer.Cust_state"/>
+     <result column="Cust_channel" property="cust_customer.Cust_channel"/>
+     <result column="Cust_website" property="cust_customer.Cust_website"/>
+     <result column="Cust_QQ" property="cust_customer.Cust_QQ"/>
+     <result column="Cust_WeChat" property="cust_customer.Cust_WeChat"/>
+     <result column="Cust_mailbox" property="cust_customer.Cust_mailbox"/>
+     <result column="Cust_Creationtime" property="cust_customer.Cust_Creationtime"/>
+     <result column="Cust_Course" property="cust_customer.Cust_Course"/>
+     <result column="Cust_Scoring" property="cust_customer.Cust_Scoring"/>
+     <result column="Cust_Revisit" property="cust_customer.Cust_Revisit"/>
+     <result column="Cust_RevisitDays" property="cust_customer.Cust_RevisitDays"/>
+     <result column="Cust_Door" property="cust_customer.Cust_Door"/>
+     <result column="Cust_Doortime" property="cust_customer.Cust_Doortime"/>
+     <result column="Cust_Pay" property="cust_customer.Cust_Pay"/>
+     <result column="Cust_Paytime" property="cust_customer.Cust_Paytime"/>
+     <result column="Cust_money" property="cust_customer.Cust_money"/>
+     <result column="Cust_Refund" property="cust_customer.Cust_Refund"/>
+     <result column="Cust_Refundreason" property="cust_customer.Cust_Refundreason"/>
+     <result column="Cust_entry" property="cust_customer.Cust_entry"/>
+     <result column="Cust_entrytime" property="cust_customer.Cust_entrytime"/>
+     <result column="Cust_notes" property="cust_customer.Cust_notes"/>
+     <result column="Cust_Region" property="cust_customer.Cust_Region"/>
+     <result column="Cust_preparation" property="cust_customer.Cust_preparation"/>
+     <result column="Cust_Asker_ID" property="cust_customer.Cust_Asker_ID"/>
+     
+      <result property="staff.Staff_ID" column="Staff_ID" />
+        <result property="staff.Staff_Name" column="Staff_Name" />
+        <result property="staff.Staff_Password" column="Staff_Password" />
+        <result property="staff.Staff_IsLockout" column="Staff_IsLockout" />
+        <result property="staff.Staff_Time" column="Staff_Time" />
+        <result property="staff.Staff_CreatTime" column="Staff_CreatTime" />
+        <result property="staff.Staff_PsdWrong" column="Staff_PsdWrong" />
+        <result property="staff.Staff_LockTime" column="Staff_LockTime" />
+        <result property="staff.Staff_ProtectEmail" column="Staff_ProtectEmail" />
+        <result property="staff.Staff_ProtecMtel" column="Staff_ProtecMtel" />
+  </resultMap>
+    <select id="selectCommunicate_recordMappers" parameterType="communicate_record" resultMap="communicate_recordMapperMap">
+       select com.*,cust.Cust_Name,sta.Staff_Name 
+       from communicate_record com,cust_customer cust,staff sta 
+			   <where>
+			     com.`Comm_ cust_ID`=Cust_ID 
+			     and Staff_ID=com.`Comm_ Staff_ID`
+			     <if test="cust_customer.cust_Name !=null and cust_customer.cust_Name !=''">
+			        and Cust_Name like "%"#{cust_customer.cust_Name}"%"
+			     </if>
+			     <if test="staff.staff_Name !=null and staff.staff_Name !=''">
+			        and Staff_Name like "%"#{staff.staff_Name}"%"
+			     </if>
+			     <if test="sComm_date !=null and sComm_date !=''">
+			        and Comm_date &gt;=#{sComm_date}
+			     </if>
+			     <if test="eComm_date !=null and eComm_date !=''">
+			        and Comm_date &lt;=#{eComm_date}
+			     </if>
+			     <if test="scomm_endData !=null and scomm_endData !=''">
+			        and comm_endData &gt;=#{scomm_endData}
+			     </if>
+			     <if test="ecomm_endData !=null and ecomm_endData !=''">
+			        and comm_endData &lt;=#{ecomm_endData}
+			     </if>
+			     
+			     <if test="comm_huifang !=null">
+			        and comm_huifang =#{comm_huifang}
+			     </if>
+			     <if test="comm_way !=null">
+			        and Comm_way =#{comm_way}
+			     </if>
+			   </where>
+			   limit #{page},#{rows}
+    </select>
+    <select id="selectCount" parameterType="communicate_record" resultType="int">
+    select count(Comm_ID) 
+       from communicate_record com,cust_customer cust,staff sta 
+       <where>
+			     com.`Comm_ cust_ID`=Cust_ID 
+			     and Staff_ID=com.`Comm_ Staff_ID`
+			     <if test="cust_customer.cust_Name !=null and cust_customer.cust_Name !=''">
+			        and Cust_Name like "%"#{cust_customer.cust_Name}"%"
+			     </if>
+			     <if test="staff.staff_Name !=null and staff.staff_Name !=''">
+			        and Staff_Name like "%"#{staff.staff_Name}"%"
+			     </if>
+			     <if test="sComm_date !=null and sComm_date !=''">
+			        and Comm_date &gt;=#{sComm_date}
+			     </if>
+			     <if test="eComm_date !=null and eComm_date !=''">
+			        and Comm_date &lt;=#{eComm_date}
+			     </if>
+			     <if test="scomm_endData !=null and scomm_endData !=''">
+			        and comm_endData &gt;=#{scomm_endData}
+			     </if>
+			     <if test="ecomm_endData !=null and ecomm_endData !=''">
+			        and comm_endData &lt;=#{ecomm_endData}
+			     </if>
+			     
+			     <if test="comm_huifang !=null ">
+			        and comm_huifang =#{comm_huifang}
+			     </if>
+			     <if test="comm_way !=null ">
+			        and Comm_way =#{comm_way}
+			     </if>
+			   </where>
+    </select>
+=======
   <resultMap type="Communicate_record" id="communicate_recordMAP">
   	 <id column="Comm_ID" property="Comm_ID"/>
      <result column="Comm_cust_ID" property="Comm_cust_ID"/>
@@ -11,4 +133,5 @@
   		<select id="selectCommunicate_record" parameterType="communicate_record" resultType="communicate_record">
   			select * from communicate_record
   		</select>
+>>>>>>> 27dbf327342df5ddfb0f0ed6029a0962ebd05633
   </mapper>
