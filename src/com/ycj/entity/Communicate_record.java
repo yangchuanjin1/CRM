@@ -22,6 +22,23 @@ public class Communicate_record {
 	
 	private Integer page;
 	private Integer rows;
+	
+	private Staff staff;
+	private Cust_customer cust_customer;
+	
+	
+	public Staff getStaff() {
+		return staff;
+	}
+	public void setStaff(Staff staff) {
+		this.staff = staff;
+	}
+	public Cust_customer getCust_customer() {
+		return cust_customer;
+	}
+	public void setCust_customer(Cust_customer cust_customer) {
+		this.cust_customer = cust_customer;
+	}
 	public Integer getComm_ID() {
 		return Comm_ID;
 	}

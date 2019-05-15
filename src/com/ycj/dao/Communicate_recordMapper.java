@@ -6,7 +6,6 @@ import java.util.List;
 import com.ycj.entity.Communicate_record;
 
 
-import com.ycj.entity.Communicate_record;
 
 public interface Communicate_recordMapper {
 	List<Communicate_record> selectCommunicate_recordMappers(Communicate_record communicate_record);
