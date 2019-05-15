@@ -167,6 +167,7 @@
 	  		</if>
 	  </where>
    </select>
+<<<<<<< HEAD
    
     <insert id="insertCust_customer" parameterType="cust_customer">
     	insert into cust_customer (Cust_Name,Cust_Gender,Cust_Age,Cust_QQ,Cust_WeChat,Cust_Telephone,Cust_Education,Cust_state,Cust_channel,Cust_website,Cust_laiyuanguanjianzi,Cust_preparation,Cust_zaixianbeizhu,Cust_Creationtime) 
@@ -176,6 +177,10 @@
    		
    </update> -->
    <!--
+=======
+   <!-- <insert id="upzdateCust_customer" parameterType=""></insert>
+   <update id="insertCust_customer" parameterType=""></update>
+>>>>>>> 2d07a7308e5c6c1b9681857233b436341cdb5c9e
    <delete id="deleteCust_customer" parameterType=""></delete> -->
    <insert id="insertCommunicate_record" parameterType="int">
    		INSERT INTO communicate_record(Comm_ cust_ID,Comm_ Staff_ID,Comm_date,Comm_ way,comm_title,comm_detail,comm_nextdate) 

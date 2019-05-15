@@ -1,9 +1,10 @@
 package com.ycj.entity;
-//ÓÃ»§½ÇÉ«ÖÐ¼ä±í
+//ï¿½Ã»ï¿½ï¿½ï¿½É«ï¿½Ð¼ï¿½ï¿½
 public class Staffroles {
-	private Integer SR_ID;//±àºÅ
-	private Integer SR_StaffID;//ÓÃ»§±àºÅ
-	private Integer SR_RolesID;//½ÇÉ«±àºÅ
+	private Integer SR_ID;//ï¿½ï¿½ï¿½
+	private Integer SR_StaffID;//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
+	private Integer SR_RolesID;//ï¿½ï¿½É«ï¿½ï¿½ï¿½
+	
 	public Integer getSR_ID() {
 		return SR_ID;
 	}

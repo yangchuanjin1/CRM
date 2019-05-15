@@ -3,5 +3,39 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.RolesMapper">
-  
+  <!-- 分页带条件查询所有 -->
+  <select id="selectByRolesAll" parameterType="fenYeYang" resultType="roles">
+  	select * from roles
+  		<where>
+  			<if test="rolesName !=null and rolesName !=''">
+  				RolesName like "%"#{rolesName}"%"
+  			</if>
+  		</where>
+  	 limit #{page},#{pageSize}
+  </select>
+  <!-- 查询总条数 -->
+  <select id="selectByRolesCount" parameterType="fenYeYang" resultType="int">
+  	select count(*) from roles
+  	<where>
+  		<if test="rolesName !=null and rolesName !=''">
+  			RolesName like "%"#{rolesName}"%"
+  		</if>
+  	</where>
+  </select>
+  <!-- 添加 -->
+  <insert id="insertByRolesYang" parameterType="roles">
+  	insert into roles(RolesName) value(#{rolesName})
+  </insert>
+  <!-- 删除 -->
+  <delete id="deleteRolesYang" parameterType="int">
+  	delete from roles where RolesId=#{RolesId}
+  </delete>
+  <update id="updateRolesYang" parameterType="roles">
+  	update roles <set>
+  		<if test="RolesName !=null and RolesName !=''">
+  			RolesName=#{RolesName}
+  		</if>
+  	</set>
+  	where RolesId=#{RolesId}
+  </update>
   </mapper>

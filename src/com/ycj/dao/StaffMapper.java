@@ -1,13 +1,54 @@
 package com.ycj.dao;
 
+import java.util.List;
+
+import com.ycj.entity.Roles;
 import com.ycj.entity.Staff;
+import com.ycj.entity.Staffroles;
 
 public interface StaffMapper {
 	/**
-	 * ÓÃ»§µÇÂ¼Ê±£¬¸ù¾ÝÓÃ»§µÄÓÃ»§ÃûºÍÃÜÂë½øÐÐ²éÕÒ
-	 * @param users  ²éÑ¯²ÎÊý
-	 * @return ·µ»ØÕâ¸öÓÃ»§µÄÐÅÏ¢
+	 * ï¿½Ã»ï¿½ï¿½ï¿½Â¼Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½
+	 * @param users  ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
+	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
-	Staff selectByCheckStaff(Staff Staff);
+	
+	  
+	  List<Roles> seleRoles();
+	  
+	  List<Staff> selectStaffs(Staff staff);
+	  
+	  int selectCount(Staff staff);
+	  
+	/*
+	 * int insertStaff(Staff staff); Integer insertRole(Staffroles staffroles); int
+	 * updateStaff(Staff staff);
+	 * 
+	 * int deleteStaff(int Staff_ID);
+	 */
+	 
 
+	Staff selectByCheckStaff(Staff Staff);
+	/**
+	 * ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½È·
+	 * @param Staff_name
+	 * @return
+	 */
+	Staff selectByStaff_Name(String Staff_name);
+	/**
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½È·
+	 * @param Staff_password
+	 * @return
+	 */
+	Staff selectByStaff_password(String Staff_password);
+	/**
+	 * ï¿½Þ¸Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @return
+	 */
+	Integer updateByStaff_PsdWrong(String Staff_name);
+	/**
+	 * ï¿½Þ¸Äµï¿½Â¼Ê±ï¿½ï¿½
+	 * @return
+	 */
+	Integer updateByStaff_Time(Integer staff_id);
 }

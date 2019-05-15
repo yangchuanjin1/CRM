@@ -3,7 +3,108 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.StaffMapper">
+
+  <resultMap type="staff" id="staffMap">
+        <id property="Staff_ID" column="Staff_ID" />
+        <result property="Staff_Name" column="Staff_Name" />
+        <result property="Staff_Password" column="Staff_Password" />
+        <result property="Staff_IsLockout" column="Staff_IsLockout" />
+        <result property="Staff_Time" column="Staff_Time" />
+        <result property="Staff_CreatTime" column="Staff_CreatTime" />
+        <result property="Staff_PsdWrong" column="Staff_PsdWrong" />
+        <result property="Staff_LockTime" column="Staff_LockTime" />
+        <result property="Staff_ProtectEmail" column="Staff_ProtectEmail" />
+        <result property="Staff_ProtecMtel" column="Staff_ProtecMtel" />
+        <result property="roles.RolesId" column="RolesId" />
+        <result property="roles.RolesName" column="RolesName" />
+    </resultMap>
+
+    <select id="selectStaffs" parameterType="staff" resultMap="staffMap">
+        SELECT s.*,r.* 
+        from staff s,staffroles sta,roles r  
+       <where>
+           s.Staff_ID=sta.SR_StaffID 
+           and r.RolesId=sta.SR_RolesID
+           <if test="staff_Name !=null and staff_Name !=''">
+              and  Staff_Name like "%"#{staff_Name}"%"
+           </if>
+           <if test="sstaff_CreatTime !=null and sstaff_CreatTime !=''">
+              and  Staff_CreatTime &gt;=#{sstaff_CreatTime}
+           </if>
+           <if test="estaff_CreatTime !=null and estaff_CreatTime !=''">
+              and  Staff_CreatTime &lt;=#{estaff_CreatTime}
+           </if>
+           <if test="staff_IsLockout !=null and staff_IsLockout !=''">
+              and  Staff_IsLockout=#{staff_IsLockout}
+           </if>
+           <if test="roles.rolesId !=null and roles.rolesId !=''">
+              and  r.RolesId=#{roles.RolesId}
+           </if>  
+           
+        </where> 
+        limit #{page},#{rows}
+    </select>
+    <select id="selectCount" parameterType="staff" resultType="int">
+        SELECT count(Staff_ID)
+        from staff s,staffroles sta,roles r 
+        <where>
+        s.Staff_ID=sta.SR_StaffID 
+           and r.RolesId=sta.SR_RolesID
+           <if test="staff_Name !=null and staff_Name !=''">
+              and  Staff_Name like "%"#{staff_Name}"%"
+           </if>
+           <if test="sstaff_CreatTime !=null and sstaff_CreatTime !=''">
+              and  Staff_CreatTime &gt;=#{sstaff_CreatTime}
+           </if>
+           <if test="estaff_CreatTime !=null and estaff_CreatTime !=''">
+              and  Staff_CreatTime &lt;=#{estaff_CreatTime}
+           </if>
+           <if test="staff_IsLockout !=null and staff_IsLockout !=''">
+              and  Staff_IsLockout=#{staff_IsLockout}
+           </if>
+             <if test="roles.rolesId !=null and roles.rolesId !=''">
+              and  r.RolesId=#{roles.rolesId}
+           </if> 
+        </where> 
+       
+    </select>
+    <select id="seleRoles" resultType="roles">
+        	SELECT * from roles
+    </select>
+     <!-- <insert id="insertStaff" parameterType="staff">
+      insert into staff(staff_Name,staff_Password,staff_ProtectEmail,staff_ProtecMtel,Staff_IsLockou)
+      values(#{staff_Name},#{staff_Password},#{staff_ProtectEmail},#{staff_ProtecMtel},#{Staff_IsLockout});
+    </insert>
+    <insert id="insertRole" parameterType="staffroles">
+       insert INTO staffroles(SR_RolesID)
+       values(#{rolesId})
+    </insert> -->
+    <!-- <update id="updateStaff" parameterType="staff">
+      
+    </update>
+    <delete id="deleteStaff" parameterType="int">
+      delete from staff where Staff_ID =#{Staff_ID}
+    </delete>  --> 
+
  	<select id="selectByCheckStaff" parameterType="staff" resultType="staff">
  		select * from staff where Staff_Name=#{Staff_Name} and Staff_Password=#{Staff_Password}
  	</select>
+ 	<!-- 查询用户名是否正确 -->
+ 	<select id="selectByStaff_Name" parameterType="String" resultType="staff">
+ 		select Staff_Name from staff where Staff_Name=#{Staff_name}
+ 	</select>
+ 	<!-- 查询密码是否正确 -->
+ 	<select id="selectByStaff_password" parameterType="String" resultType="staff">
+ 		select Staff_Password from staff where Staff_Password=#{Staff_password}
+ 	</select>
+ 	<!-- 修改错误次数 -->
+ 	<update id="updateByStaff_PsdWrong" parameterType="String">
+ 		update staff set Staff_PsdWrong=Staff_PsdWrong+1 where Staff_Name=#{Staff_name}
+ 	</update>
+ 	<!-- 修改登录时间 -->
+ 	<update id="updateByStaff_Time" parameterType="int">
+ 		update staff set Staff_Time=NOW() where Staff_ID=#{staff_id}
+ 	</update>
+ 	
+ 	
   </mapper>
