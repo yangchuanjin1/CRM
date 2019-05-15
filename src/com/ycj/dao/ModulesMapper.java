@@ -1,9 +1,8 @@
 package com.ycj.dao;
-//Ä£¿é±í
+//Ä£ï¿½ï¿½ï¿½
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -12,38 +11,38 @@ import com.ycj.entity.Roles;
 
 public interface ModulesMapper {
 	/**
-	 * ²éÑ¯Ã¿¸öÓÃ»§ÏÂµÄÄ£¿é
-	 * @param staffid  ÓÃ»§±àºÅ
+	 * ï¿½ï¿½Ñ¯Ã¿ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Âµï¿½Ä£ï¿½ï¿½
+	 * @param staffid  ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	List<Modules> selectMuesTree(Integer staffid);
 	//,@Param("moduleid")Integer moduleid
 	List<Modules> selectmoduct(@Param("staffid")Integer staffid);
 	/**
-	 * ²éÑ¯ËùÓÐÄ£¿é
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 	 * @return
 	 */
 	List<Modules> selectModulesTree();
 	/**
-	 * Ìí¼Ó
+	 * ï¿½ï¿½ï¿½
 	 * @param modules
 	 * @return
 	 */
 	Integer insertModulesYang(Modules modules);
 	/**
-	 * É¾³ý²Ù×÷
+	 * É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param modulesId
 	 * @return
 	 */
 	Integer deleteModulesYang(Integer modulesId);
 	/**
-	 * ÐÞ¸Ä²Ù×÷
+	 * ï¿½Þ¸Ä²ï¿½ï¿½ï¿½
 	 * @param modules
 	 * @return
 	 */
 	Integer updateModulesYang(Modules modules);
 	/**
-	 * ¸ù¾Ýid²éÑ¯Ä£¿é
+	 * ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯Ä£ï¿½ï¿½
 	 * @param modulesId
 	 * @return
 	 */

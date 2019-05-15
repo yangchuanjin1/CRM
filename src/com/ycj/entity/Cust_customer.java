@@ -46,14 +46,27 @@ public class Cust_customer {
 	private String Cust_Region;//客户所在地区
 	private String Cust_preparation;//是否报备（0.是1.否）
 	private String Cust_youxiao;//是否有效（0.是1.否）
-	//private Integer Cust_Asker_ID;//咨询师编号
+	private String Cust_zaixianbeizhu;//在线备注（0.是1.否）
+	private String Cust_laiyuanguanjianzi;//来源关键词（0.是1.否）
+	private Integer Cust_Asker_ID;//咨询师编号
 	private Asker asker;
 	
 	private Cust_customer cust_customer;
 	private Integer page;
 	private Integer rows;
 	
-	
+	public String getCust_zaixianbeizhu() {
+		return Cust_zaixianbeizhu;
+	}
+	public void setCust_zaixianbeizhu(String cust_zaixianbeizhu) {
+		Cust_zaixianbeizhu = cust_zaixianbeizhu;
+	}
+	public String getCust_laiyuanguanjianzi() {
+		return Cust_laiyuanguanjianzi;
+	}
+	public void setCust_laiyuanguanjianzi(String cust_laiyuanguanjianzi) {
+		Cust_laiyuanguanjianzi = cust_laiyuanguanjianzi;
+	}
 	public String getMinCust_Creationtime() {
 		return minCust_Creationtime;
 	}
@@ -288,12 +301,12 @@ public class Cust_customer {
 	public void setCust_preparation(String cust_preparation) {
 		Cust_preparation = cust_preparation;
 	}
-	/*public Integer getCust_Asker_ID() {
+	public Integer getCust_Asker_ID() {
 		return Cust_Asker_ID;
 	}
 	public void setCust_Asker_ID(Integer cust_Asker_ID) {
 		Cust_Asker_ID = cust_Asker_ID;
-	}*/
+	}
 	public String getCust_Creationtime() {
 		return Cust_Creationtime;
 	}

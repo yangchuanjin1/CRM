@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ycj.dao.Cust_customerMapper;
+import com.ycj.entity.Communicate_record;
 import com.ycj.entity.Cust_customer;
 import com.ycj.entity.FenYe;
 @Service
@@ -36,13 +37,19 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public int insertCust_customer(Cust_customer cust_customer) {
 		// TODO Auto-generated method stub
-		return 0;
+		return cust_customerMapper.insertCust_customer(cust_customer);
 	}
 
 	@Override
 	public int deleteCust_customer(int cust_ID) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public int insertCommunicate_record(Communicate_record communicate_record) {
+		
+		return cust_customerMapper.insertCommunicate_record(communicate_record);
 	}
 
 }
