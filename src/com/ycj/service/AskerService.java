@@ -6,4 +6,5 @@ import com.ycj.entity.FenYe;
 public interface AskerService {
 	
    FenYe<Asker> selectAskers(Asker asker);
+   
 }

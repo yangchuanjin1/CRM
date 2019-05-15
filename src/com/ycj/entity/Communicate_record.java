@@ -1,15 +1,103 @@
 package com.ycj.entity;
 
-import java.util.Date;
-//½»Íù¼ÇÂ¼±í
+
+import org.springframework.stereotype.Component;
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
+@Component
 public class Communicate_record {
-	private Integer Comm_ID;//¼ÇÂ¼±àºÅ
-	private Integer Comm_cust_ID;//¿Í»§±àºÅ
-	private Integer Comm_Staff_ID;//Ô±¹¤±àºÅ
-	private Date Comm_date;//½»ÍùµÄÊ±¼ä
-	private String Comm_way;//½»ÍùµÄÊ±¼ä
-	private String comm_title;//ÄÚÈÝ¸ÅÒª
-	private String comm_detail;//ÄÚÈÝÏêÏ¸ÐÅÏ¢
+	private Integer Comm_ID;//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½
+	private Integer Comm_cust_ID;//ï¿½Í»ï¿½ï¿½ï¿½ï¿½
+	private Integer Comm_Staff_ID;//Ô±ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String  Comm_date;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private Integer Comm_way;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private String comm_title;//ï¿½ï¿½ï¿½Ý¸ï¿½Òª
+	private String comm_detail;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ï¢
+    private Integer comm_huifang;
+    
+    private String comm_endData;
+    
+    private String scomm_endData;
+	private String ecomm_endData;
+	private String sComm_date;
+	private String eComm_date;
+	
+	private Integer page;
+	private Integer rows;
+	
+	
+	
+	public String getComm_endData() {
+		return comm_endData;
+	}
+	public void setComm_endData(String comm_endData) {
+		this.comm_endData = comm_endData;
+	}
+	public String getScomm_endData() {
+		return scomm_endData;
+	}
+	public void setScomm_endData(String scomm_endData) {
+		this.scomm_endData = scomm_endData;
+	}
+	public String getEcomm_endData() {
+		return ecomm_endData;
+	}
+	public void setEcomm_endData(String ecomm_endData) {
+		this.ecomm_endData = ecomm_endData;
+	}
+	public Integer getComm_huifang() {
+		return comm_huifang;
+	}
+	public void setComm_huifang(Integer comm_huifang) {
+		this.comm_huifang = comm_huifang;
+	}
+	private Staff staff;
+	private Cust_customer cust_customer;
+	
+	public Staff getStaff() {
+		return staff;
+	}
+	public void setStaff(Staff staff) {
+		this.staff = staff;
+	}
+	public Cust_customer getCust_customer() {
+		return cust_customer;
+	}
+	public void setCust_customer(Cust_customer cust_customer) {
+		this.cust_customer = cust_customer;
+	}
+	
+	
+	
+	public String getComm_date() {
+		return Comm_date;
+	}
+	public void setComm_date(String comm_date) {
+		Comm_date = comm_date;
+	}
+	public String getsComm_date() {
+		return sComm_date;
+	}
+	public void setsComm_date(String sComm_date) {
+		this.sComm_date = sComm_date;
+	}
+	public String geteComm_date() {
+		return eComm_date;
+	}
+	public void seteComm_date(String eComm_date) {
+		this.eComm_date = eComm_date;
+	}
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getRows() {
+		return rows;
+	}
+	public void setRows(Integer rows) {
+		this.rows = rows;
+	}
 	public Integer getComm_ID() {
 		return Comm_ID;
 	}
@@ -28,16 +116,11 @@ public class Communicate_record {
 	public void setComm_Staff_ID(Integer comm_Staff_ID) {
 		Comm_Staff_ID = comm_Staff_ID;
 	}
-	public Date getComm_date() {
-		return Comm_date;
-	}
-	public void setComm_date(Date comm_date) {
-		Comm_date = comm_date;
-	}
-	public String getComm_way() {
+	
+	public Integer getComm_way() {
 		return Comm_way;
 	}
-	public void setComm_way(String comm_way) {
+	public void setComm_way(Integer comm_way) {
 		Comm_way = comm_way;
 	}
 	public String getComm_title() {

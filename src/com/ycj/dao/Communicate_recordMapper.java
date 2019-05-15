@@ -1,5 +1,12 @@
 package com.ycj.dao;
-//½»Íù¼ÇÂ¼±í
-public interface Communicate_recordMapper {
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
 
+import java.util.List;
+
+import com.ycj.entity.Communicate_record;
+
+public interface Communicate_recordMapper {
+   List<Communicate_record> selectCommunicate_recordMappers(Communicate_record Communicate_record);
+ 
+   Integer selectCount(Communicate_record communicate_record);
 }
