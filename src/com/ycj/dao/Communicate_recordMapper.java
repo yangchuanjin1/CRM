@@ -17,4 +17,7 @@ public interface Communicate_recordMapper {
 	int insertCommunicate_record(Communicate_record communicate_record);
 	
 	int deleteCommunicate_record(int Comm_ID);
+	
+	
+	
 }

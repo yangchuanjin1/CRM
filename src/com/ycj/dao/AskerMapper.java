@@ -9,6 +9,8 @@ public interface AskerMapper {
 	
    List<Asker> seleAskers(Asker asker);
    
+   List<Asker> selectAskers();
+   
    int selectCount(Asker asker);
    
    

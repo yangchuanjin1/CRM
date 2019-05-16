@@ -23,38 +23,47 @@ public class Cust_customer {
 	private String maxCust_Creationtime;//客户创建的时间
 	private String Cust_Course;//课程方向
 	private Integer Cust_Scoring;//客户的质量
-	private String Cust_Revisit;//是否回访（0.未回访1.回访）
+	private Integer Cust_Revisit;//是否回访（0.未回访1.回访）
 	private String Cust_RevisitDays;//回访时间
 	private String minCust_RevisitDays;//回访时间
 	private String maxCust_RevisitDays;//回访时间
-	private String Cust_Door;//是否上门（0.上门1.未上门）
+	private Integer Cust_Door;//是否上门（0.上门1.未上门）
 	private String Cust_Doortime;//上门时间
 	private String minCust_Doortime;//上门时间
 	private String maxCust_Doortime;//上门时间
-	private String Cust_Pay;//是否缴费（0.缴费1.未交费）
+	private Integer Cust_Pay;//是否缴费（0.缴费1.未交费）
 	private String Cust_Paytime;//缴费时间
 	private String minCust_Paytime;//缴费时间
 	private String maxCust_Paytime;//缴费时间
 	private Double Cust_money;//缴费金额
-	private String Cust_Refund;//是否退费（0.是1.否）
+	private Integer Cust_Refund;//是否退费（0.是1.否）
 	private String Cust_Refundreason;//退费原因
-	private String Cust_entry;//是否进班（0.是1.否）p-
+	private Integer Cust_entry;//是否进班（0.是1.否）p-
 	private String Cust_entrytime;//进班时间
 	private String minCust_entrytime;//进班时间
 	private String maxCust_entrytime;//进班时间
 	private String Cust_notes;//进班备注
 	private String Cust_Region;//客户所在地区
-	private String Cust_preparation;//是否报备（0.是1.否）
-	private String Cust_youxiao;//是否有效（0.是1.否）
+	private Integer Cust_preparation;//是否报备（0.是1.否）
+	private Integer Cust_youxiao;//是否有效（0.是1.否）
 	private String Cust_zaixianbeizhu;//在线备注（0.是1.否）
 	private String Cust_laiyuanguanjianzi;//来源关键词（0.是1.否）
 	private Integer Cust_Asker_ID;//咨询师编号
+	
 	private Asker asker;
 	
-	private Cust_customer cust_customer;
+	private Staff staff;
+	
 	private Integer page;
 	private Integer rows;
 	
+	
+	public Staff getStaff() {
+		return staff;
+	}
+	public void setStaff(Staff staff) {
+		this.staff = staff;
+	}
 	public String getCust_zaixianbeizhu() {
 		return Cust_zaixianbeizhu;
 	}
@@ -127,36 +136,7 @@ public class Cust_customer {
 	public void setMaxCust_entrytime(String maxCust_entrytime) {
 		this.maxCust_entrytime = maxCust_entrytime;
 	}
-	public String getCust_youxiao() {
-		return Cust_youxiao;
-	}
-	public void setCust_youxiao(String cust_youxiao) {
-		Cust_youxiao = cust_youxiao;
-	}
-	public Asker getAsker() {
-		return asker;
-	}
-	public void setAsker(Asker asker) {
-		this.asker = asker;
-	}
-	public Cust_customer getCust_customer() {
-		return cust_customer;
-	}
-	public void setCust_customer(Cust_customer cust_customer) {
-		this.cust_customer = cust_customer;
-	}
-	public Integer getPage() {
-		return page;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public Integer getRows() {
-		return rows;
-	}
-	public void setRows(Integer rows) {
-		this.rows = rows;
-	}
+	
 	public Integer getCust_ID() {
 		return Cust_ID;
 	}
@@ -229,6 +209,12 @@ public class Cust_customer {
 	public void setCust_mailbox(String cust_mailbox) {
 		Cust_mailbox = cust_mailbox;
 	}
+	public String getCust_Creationtime() {
+		return Cust_Creationtime;
+	}
+	public void setCust_Creationtime(String cust_Creationtime) {
+		Cust_Creationtime = cust_Creationtime;
+	}
 	public String getCust_Course() {
 		return Cust_Course;
 	}
@@ -241,23 +227,41 @@ public class Cust_customer {
 	public void setCust_Scoring(Integer cust_Scoring) {
 		Cust_Scoring = cust_Scoring;
 	}
-	public String getCust_Revisit() {
+	public Integer getCust_Revisit() {
 		return Cust_Revisit;
 	}
-	public void setCust_Revisit(String cust_Revisit) {
+	public void setCust_Revisit(Integer cust_Revisit) {
 		Cust_Revisit = cust_Revisit;
 	}
-	public String getCust_Door() {
+	public String getCust_RevisitDays() {
+		return Cust_RevisitDays;
+	}
+	public void setCust_RevisitDays(String cust_RevisitDays) {
+		Cust_RevisitDays = cust_RevisitDays;
+	}
+	public Integer getCust_Door() {
 		return Cust_Door;
 	}
-	public void setCust_Door(String cust_Door) {
+	public void setCust_Door(Integer cust_Door) {
 		Cust_Door = cust_Door;
 	}
-	public String getCust_Pay() {
+	public String getCust_Doortime() {
+		return Cust_Doortime;
+	}
+	public void setCust_Doortime(String cust_Doortime) {
+		Cust_Doortime = cust_Doortime;
+	}
+	public Integer getCust_Pay() {
 		return Cust_Pay;
 	}
-	public void setCust_Pay(String cust_Pay) {
+	public void setCust_Pay(Integer cust_Pay) {
 		Cust_Pay = cust_Pay;
+	}
+	public String getCust_Paytime() {
+		return Cust_Paytime;
+	}
+	public void setCust_Paytime(String cust_Paytime) {
+		Cust_Paytime = cust_Paytime;
 	}
 	public Double getCust_money() {
 		return Cust_money;
@@ -265,10 +269,10 @@ public class Cust_customer {
 	public void setCust_money(Double cust_money) {
 		Cust_money = cust_money;
 	}
-	public String getCust_Refund() {
+	public Integer getCust_Refund() {
 		return Cust_Refund;
 	}
-	public void setCust_Refund(String cust_Refund) {
+	public void setCust_Refund(Integer cust_Refund) {
 		Cust_Refund = cust_Refund;
 	}
 	public String getCust_Refundreason() {
@@ -277,11 +281,17 @@ public class Cust_customer {
 	public void setCust_Refundreason(String cust_Refundreason) {
 		Cust_Refundreason = cust_Refundreason;
 	}
-	public String getCust_entry() {
+	public Integer getCust_entry() {
 		return Cust_entry;
 	}
-	public void setCust_entry(String cust_entry) {
+	public void setCust_entry(Integer cust_entry) {
 		Cust_entry = cust_entry;
+	}
+	public String getCust_entrytime() {
+		return Cust_entrytime;
+	}
+	public void setCust_entrytime(String cust_entrytime) {
+		Cust_entrytime = cust_entrytime;
 	}
 	public String getCust_notes() {
 		return Cust_notes;
@@ -295,11 +305,17 @@ public class Cust_customer {
 	public void setCust_Region(String cust_Region) {
 		Cust_Region = cust_Region;
 	}
-	public String getCust_preparation() {
+	public Integer getCust_preparation() {
 		return Cust_preparation;
 	}
-	public void setCust_preparation(String cust_preparation) {
+	public void setCust_preparation(Integer cust_preparation) {
 		Cust_preparation = cust_preparation;
+	}
+	public Integer getCust_youxiao() {
+		return Cust_youxiao;
+	}
+	public void setCust_youxiao(Integer cust_youxiao) {
+		Cust_youxiao = cust_youxiao;
 	}
 	public Integer getCust_Asker_ID() {
 		return Cust_Asker_ID;
@@ -307,35 +323,23 @@ public class Cust_customer {
 	public void setCust_Asker_ID(Integer cust_Asker_ID) {
 		Cust_Asker_ID = cust_Asker_ID;
 	}
-	public String getCust_Creationtime() {
-		return Cust_Creationtime;
+	public Asker getAsker() {
+		return asker;
 	}
-	public void setCust_Creationtime(String cust_Creationtime) {
-		Cust_Creationtime = cust_Creationtime;
+	public void setAsker(Asker asker) {
+		this.asker = asker;
 	}
-	public String getCust_RevisitDays() {
-		return Cust_RevisitDays;
+	public Integer getPage() {
+		return page;
 	}
-	public void setCust_RevisitDays(String cust_RevisitDays) {
-		Cust_RevisitDays = cust_RevisitDays;
+	public void setPage(Integer page) {
+		this.page = page;
 	}
-	public String getCust_Doortime() {
-		return Cust_Doortime;
+	public Integer getRows() {
+		return rows;
 	}
-	public void setCust_Doortime(String cust_Doortime) {
-		Cust_Doortime = cust_Doortime;
-	}
-	public String getCust_Paytime() {
-		return Cust_Paytime;
-	}
-	public void setCust_Paytime(String cust_Paytime) {
-		Cust_Paytime = cust_Paytime;
-	}
-	public String getCust_entrytime() {
-		return Cust_entrytime;
-	}
-	public void setCust_entrytime(String cust_entrytime) {
-		Cust_entrytime = cust_entrytime;
+	public void setRows(Integer rows) {
+		this.rows = rows;
 	}
 	@Override
 	public String toString() {
@@ -343,15 +347,22 @@ public class Cust_customer {
 				+ ", Cust_Gender=" + Cust_Gender + ", Cust_Telephone=" + Cust_Telephone + ", Cust_Education="
 				+ Cust_Education + ", Cust_state=" + Cust_state + ", Cust_channel=" + Cust_channel + ", Cust_website="
 				+ Cust_website + ", Cust_QQ=" + Cust_QQ + ", Cust_WeChat=" + Cust_WeChat + ", Cust_mailbox="
-				+ Cust_mailbox + ", Cust_Creationtime=" + Cust_Creationtime + ", Cust_Course=" + Cust_Course
-				+ ", Cust_Scoring=" + Cust_Scoring + ", Cust_Revisit=" + Cust_Revisit + ", Cust_RevisitDays="
-				+ Cust_RevisitDays + ", Cust_Door=" + Cust_Door + ", Cust_Doortime=" + Cust_Doortime + ", Cust_Pay="
-				+ Cust_Pay + ", Cust_Paytime=" + Cust_Paytime + ", Cust_money=" + Cust_money + ", Cust_Refund="
-				+ Cust_Refund + ", Cust_Refundreason=" + Cust_Refundreason + ", Cust_entry=" + Cust_entry
-				+ ", Cust_entrytime=" + Cust_entrytime + ", Cust_notes=" + Cust_notes + ", Cust_Region=" + Cust_Region
-				+ ", Cust_preparation=" + Cust_preparation + ", Cust_Asker_ID="  + ", asker=" + asker
-				+ ", cust_customer=" + cust_customer + ", page=" + page + ", rows=" + rows + "]";
+				+ Cust_mailbox + ", Cust_Creationtime=" + Cust_Creationtime + ", minCust_Creationtime="
+				+ minCust_Creationtime + ", maxCust_Creationtime=" + maxCust_Creationtime + ", Cust_Course="
+				+ Cust_Course + ", Cust_Scoring=" + Cust_Scoring + ", Cust_Revisit=" + Cust_Revisit
+				+ ", Cust_RevisitDays=" + Cust_RevisitDays + ", minCust_RevisitDays=" + minCust_RevisitDays
+				+ ", maxCust_RevisitDays=" + maxCust_RevisitDays + ", Cust_Door=" + Cust_Door + ", Cust_Doortime="
+				+ Cust_Doortime + ", minCust_Doortime=" + minCust_Doortime + ", maxCust_Doortime=" + maxCust_Doortime
+				+ ", Cust_Pay=" + Cust_Pay + ", Cust_Paytime=" + Cust_Paytime + ", minCust_Paytime=" + minCust_Paytime
+				+ ", maxCust_Paytime=" + maxCust_Paytime + ", Cust_money=" + Cust_money + ", Cust_Refund=" + Cust_Refund
+				+ ", Cust_Refundreason=" + Cust_Refundreason + ", Cust_entry=" + Cust_entry + ", Cust_entrytime="
+				+ Cust_entrytime + ", minCust_entrytime=" + minCust_entrytime + ", maxCust_entrytime="
+				+ maxCust_entrytime + ", Cust_notes=" + Cust_notes + ", Cust_Region=" + Cust_Region
+				+ ", Cust_preparation=" + Cust_preparation + ", Cust_youxiao=" + Cust_youxiao + ", Cust_zaixianbeizhu="
+				+ Cust_zaixianbeizhu + ", Cust_laiyuanguanjianzi=" + Cust_laiyuanguanjianzi + ", Cust_Asker_ID="
+				+ Cust_Asker_ID + ", asker=" + asker + ", staff=" + staff + ", page=" + page + ", rows=" + rows + "]";
 	}
+	
 	
 
 }
