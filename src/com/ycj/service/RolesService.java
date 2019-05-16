@@ -1,5 +1,7 @@
 package com.ycj.service;
 
+import java.util.List;
+
 import com.ycj.entity.FenYeYang;
 import com.ycj.entity.Roles;
 
@@ -28,5 +30,18 @@ public interface RolesService {
 	 * @return
 	 */
 	Integer updateRolesYang(Roles roles);
+	
+	
+	/**
+	 * 杨传锦     查询所有角色
+	 * @return
+	 */
+	List<Roles> selectStaffRolesYang();
+	/**
+	 * 杨传锦    查询一个用户下的角色
+	 * @param StaffId
+	 * @return
+	 */
+	List<Roles> seleseStaffRolesRolesIdYang(Integer StaffId);
 	
 }

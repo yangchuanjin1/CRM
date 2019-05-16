@@ -34,7 +34,7 @@
 		      $("#addModalWindow").window("open");
 		   }
 		   else{
-		      alert("请选择父节点");
+		      $.messager.alert('提示','请选择父节点');
 		   }
 	}
 	/* 添加 */
@@ -43,7 +43,7 @@
 		  var node=$("#t").tree("getSelected"); 
 		  var ModalWeight=$("#ModalWeight").val();
 		  if(/^[-]\d+$/i.test(ModalWeight)){
-		  	alert("权重不能为负");
+		  	$.messager.alert('提示','权重不能为负');
 		  	return false;
 		  }
 		  var ModalURL=$("#ModalURL").val();
@@ -58,7 +58,7 @@
 				   },function(res){
 				      $("#addModalWindow").window("close");
 				      $("#t").tree("reload");
-				       alert("新增成功");
+				       $.messager.alert('提示','新增成功');
 				   },"json"
 				  );
 		         }
@@ -71,7 +71,7 @@
 				if(row!=""&&row!=null){
 				var id=row.id;
 				if(row.text==""){
-					alert("请选择节点");
+					 $.messager.alert('提示','请选择节点');
 				   }
 				else{
 					$.post('deleteModulesYang',{
@@ -79,31 +79,44 @@
 						},function(res){
 							if(res>0){
 								 $("#t").tree("reload");
-								 alert("删除成功");
+								 $.messager.alert('提示','删除成功');
 							}
 						},"json"
 					);
 				}
 			}else{
-		   	alert("请选择要删除的节点");
+		    $.messager.alert('提示','请选择要删除的节点');
 		   }
 		   }});
 	}
 	/*  修改*/
 	function updateTree(){
 	     var node=$("#t").tree("getSelected");
-	     $.post('selectModulesAndModulesIdYang',{
-	    	 modulesId:node.id
-	     },function(res){
-	    	 if(res.success){
-	    		 var mes=eval("("+res.message+")");
-		         alert(mes.Modules_Path);
-		         $("#updateModalForm").form("load",mes);
-		         $("#updateModalWindow").window("open");
-	    	 }
-	         
-	     },"json");
+	     alert(node.modules_Path);
+	     document.getElementById("modules_Id").value=node.id;
+	     document.getElementById("modules_weight").value=node.modules_Weight;
+	     document.getElementById("modules_Name").value = node.text;
+	     document.getElementById("modules_Path").value=node.modules_Path;
+	     alert($("#modules_Path").val());
+	     $("#updateModalWindow").window("open");
 	  }
+	function submitModalFrom(){
+		$.post('updateModulesYang',
+				   {
+					  Modules_Name:$("#modules_Name").val(),
+					  Modules_ID:$("#modules_Id").val(),
+				      Modules_Path:$("#modules_Path").val(),
+				      Modules_Weight:$("#modules_weight").val()
+				   },function(res){
+					   if(res>0){
+						   $("#updateModalWindow").window("close");
+						      $("#t").tree("reload");
+						       $.messager.alert('提示','修改成功');
+					   }
+				      
+				   },"json"
+				  );
+		         }
 </script>
 <body>
 	<div class="" data-options="title:'模块管理'" style="width:500px;height: 700px;">
@@ -146,18 +159,18 @@
 	<div id="updateModalWindow" class="easyui-window" style="width: 500px;height: 300px;padding: 10px;" data-options="modal:true,closed:true,title:'修改模块信息'"> 
 		      <form id="updateModalForm">
 		            <table cellpadding="5">
-		               <input type="hidden" name="modules_ParentId" id="parentId"/>
+		               <input type="hidden" id="modules_Id"/>
 		               <tr>
 		                 <td>权重：</td>
-		                 <td><input type="text" class="easyui-textbox" name="modules_ParentId" id="weight" value="" required="required"/></td>
+		                 <td><input type="text" id="modules_weight" value="" required="required"/></td>
 		               </tr>
 		               <tr>
 		                 <td>URL：</td>
-		                 <td><input type="text" class="easyui-textbox" name="modules_Path" id="url" value="" required="required"/></td>
+		                 <td><input type="text" id="modules_Path" value="" required="required"/></td>
 		               </tr>
 		               <tr>
 		                 <td>模块名称：</td>
-		                 <td><input type="text" class="easyui-textbox" name="modules_Name" id="name" value="" required="required"/></td>
+		                 <td><input type="text" id="modules_Name" value="" required="required"/></td>
 		               </tr>
 		            </table>
 		      </form>

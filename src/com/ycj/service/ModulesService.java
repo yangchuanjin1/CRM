@@ -1,8 +1,10 @@
 package com.ycj.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.ycj.Util.TreeModel;
 import com.ycj.entity.Modules;
 
 public interface ModulesService {
@@ -41,5 +43,16 @@ public interface ModulesService {
 	 * @return
 	 */
 	Modules selectModulesAndmodulesidYang(Integer modulesId);
+	/**
+	 * 查询所有模块和每个角色下的所有模块
+	 * @param rolesId
+	 * @return
+	 */
+	ArrayList<TreeModel> selectModulesRolesYang(Integer rolesId);
+	/**
+	 * 查询所有模块
+	 * @return
+	 */
+	ArrayList<TreeModel> selectRolesModulesYang();
 
 }

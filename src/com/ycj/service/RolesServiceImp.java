@@ -49,4 +49,20 @@ public class RolesServiceImp implements RolesService {
 		return updateRolesYang;
 	}
 
+/**
+ * 杨传锦     查询所有角色
+ */
+	public List<Roles> selectStaffRolesYang() {
+		List<Roles> selectStaffRolesYang = rolesmapper.selectStaffRolesYang();
+		return selectStaffRolesYang;
+	}
+
+	/**
+	 * 杨传锦     查询一个用户下的所有角色
+	 */
+	public List<Roles> seleseStaffRolesRolesIdYang(Integer StaffId) {
+		List<Roles> seleseStaffRolesRolesIdYang = rolesmapper.seleseStaffRolesRolesIdYang(StaffId);
+		return seleseStaffRolesRolesIdYang;
+	}
+
 }

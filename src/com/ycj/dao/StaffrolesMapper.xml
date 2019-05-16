@@ -3,5 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.StaffrolesMapper">
-  
+  		<!--杨传锦  添加  -->
+  		<insert id="insertStaffRolesAndYang" parameterType="staffroles">
+  			insert into staffroles(SR_StaffID,SR_RolesID) 
+  			value(#{SR_StaffID},#{SR_RolesID})
+  		</insert>
+  		<!--杨传锦  删除  -->
+  		<delete id="deleteStaffRolesAndYang" parameterType="staffroles">
+  			delete from staffroles where SR_StaffID=#{SR_StaffID} and SR_RolesID=#{SR_RolesID}
+  		</delete>
   </mapper>

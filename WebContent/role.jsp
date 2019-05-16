@@ -110,8 +110,21 @@
         }
 	
 	function quanxian(index){
-		
-	}
+		var data=$("#role-datagrid").datagrid("getRows");//获取表格里所有的数据
+		$("#shezhi-window").dialog({
+			closed:false,
+			title:"您正在设置"+data[index].rolesName
+		});
+		var qxId=data[index].rolesId;
+		$("#shezhiTree").tree({
+			url:'selectModulesRolesYang',
+			lines: true,
+			checkbox:true,
+			queryParams: {
+				RolesId:qxId,
+		}
+	});
+}
 </script>
 <body>
  <table id="role-datagrid" class="easyui-datagrid">
@@ -160,5 +173,10 @@
          <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearJsFrom()">取消</a>        
      </div>
  </div>
+ <!-- 设置权限 -->
+ <div id="shezhi-window" class="easyui-window" data-options="modal:true,closed:true" style="width: 500px;height: 600px;">
+	<ul id="shezhiTree" class="easyui-tree"></ul>
+	<a href="javascript:void(0)" class="easyui-linkbutton" type="button" onclick="baocunTree()">保存</a>
+</div>
 </body>
 </html>
