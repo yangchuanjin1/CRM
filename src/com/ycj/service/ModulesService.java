@@ -60,11 +60,18 @@ public interface ModulesService {
 	 * @param rolesId
 	 * @return
 	 */
-	ArrayList<TreeModel> selectModulesRolesYang(Integer rolesId);
+	List<Modules> selectModulesRolesYang(Integer rolesId);
 	/**
 	 * 查询所有模块
 	 * @return
 	 */
-	ArrayList<TreeModel> selectRolesModulesYang();
+	List<Modules> selectRolesModulesYang();
 
+	
+	/**
+	 * YangChuanJin  给角色分配权限查询所有模块和选中角色拥有的
+	 * @param rolesId
+	 * @return
+	 */
+	List<Map<String, Object>> selectModulesRolesYang1(Integer rolesId);
 }

@@ -185,4 +185,10 @@
  	<select id="selectStaffNameYang" parameterType="String" resultType="int">
  		select count(*) from staff where Staff_Name=#{Staff_Name}
  	</select>
+ 	
+ 	<!--YangChuanJIn 用户删除  -->
+ 	<delete id="deleteStaff_IdYang" parameterType="int">
+ 		delete from staff where Staff_ID=#{Staff_ID}
+ 	</delete>
+ 	
   </mapper>

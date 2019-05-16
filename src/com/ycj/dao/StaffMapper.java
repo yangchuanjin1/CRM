@@ -114,5 +114,11 @@ public interface StaffMapper {
 	 * @return
 	 */
 	Integer selectStaffNameYang(String Staff_Name);
+	/**
+	 * YangChuanJin   删除用户
+	 * @param Staff_ID
+	 * @return
+	 */
+	Integer deleteStaff_IdYang(Integer Staff_ID);
 	
 }

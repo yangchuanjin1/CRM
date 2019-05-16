@@ -15,11 +15,15 @@ import com.ycj.entity.Roles;
 import com.ycj.entity.Signin;
 import com.ycj.entity.Staff;
 import com.ycj.entity.Staffroles;
+import com.ycj.service.RolemodulesService;
 import com.ycj.service.StaffService;
+import com.ycj.service.StaffrolesService;
 @Controller
 public class StaffControll {
 	@Autowired
 	private StaffService staffService;
+	@Autowired
+	private StaffrolesService staffrolesService;
 	@Autowired 
 	private Staff staff;
 	
@@ -160,4 +164,17 @@ public class StaffControll {
 		  Integer selectStaffNameYang = staffService.selectStaffNameYang(Staff_Name);
 		  return selectStaffNameYang;
 	  }
+	  /**
+	   * YangChuanJin  É¾³ýÓÃ»§
+	   * @param Staff_ID
+	   * @return
+	   */
+	  @RequestMapping(value="/deleteStaff_ID",method=RequestMethod.POST)
+	  @ResponseBody
+	  public Integer deleteStaff_ID(Integer Staff_ID) {
+		  Integer deleteStaffRolesStaff_IDYang = staffrolesService.deleteStaffRolesStaff_IDYang(Staff_ID);
+		  Integer deleteStaff_IdYang = staffService.deleteStaff_IdYang(Staff_ID);
+		  return deleteStaffRolesStaff_IDYang+deleteStaff_IdYang;
+	  }
+	  
 }

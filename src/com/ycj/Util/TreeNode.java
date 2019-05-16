@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+
+import com.ycj.entity.Modules;
 @Component
 public class TreeNode {
 		/**
@@ -67,18 +69,32 @@ public class TreeNode {
 	 * @param list
 	 * @return
 	 */
-	public static  ArrayList<TreeModel> checkTree(ArrayList<TreeModel> totalList,ArrayList<TreeModel> Roleslist){
+	public static  List<Modules> checkTree(List<Modules> totalList,List<Modules> Roleslist){
 		for (int i = 0; i < Roleslist.size(); i++) {
 			 for (int j = 0; j < totalList.size(); j++) {
-				if(totalList.get(j).getId()==Roleslist.get(i).getId()) {
-					/*if(totalList.get(j).getM_parentid()!=0) {
+				if(totalList.get(j).getModules_ID()==Roleslist.get(i).getModules_ID()) {
+					if(totalList.get(j).getModules_ParentId()!=0) {
 					/*Roleslist.get(i).getM_parentid()!=0*/
-						totalList.get(j).setChecked(true);					  					
-				/*}*/
+						totalList.get(j).setChecked(true);;					  					
+				}
 			}
 		}
 	}
-		return totalList;}
-		
+		return totalList;
+		}
+	public static  ArrayList<TreeModel> checkTree1(List<Modules> totalList){
+		ArrayList<TreeModel> root = new ArrayList<>();
+		ArrayList<TreeModel> tree = new ArrayList<>();
+		   for (Modules mod1:totalList) {
+			   TreeModel node = new TreeModel();
+			   node.setId(mod1.getModules_ID());
+               node.setText(mod1.getModules_Name());             
+               node.setM_parentid(mod1.getModules_ParentId());
+               node.setM_path(mod1.getModules_Path());
+               node.setChecked(mod1.getChecked());
+               tree.add(node);
+		   }
+		   return root = TreeNode.getTree(tree); 
+	}
 }
 

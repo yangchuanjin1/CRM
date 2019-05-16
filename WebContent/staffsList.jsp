@@ -80,7 +80,7 @@
 			if (r) {
 				$.ajax({
 					type : "post",//提交方式
-					url : "",//提交路径
+					url : "deleteStaff_ID",//提交路径
 					datatype : "json",//格式
 					data : {//传递的参数
 						Staff_ID : row.staff_ID

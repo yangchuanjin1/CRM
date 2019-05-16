@@ -138,6 +138,16 @@ public class StaffServiceImpl implements StaffService{
 		Integer selectStaffNameYang = staffMapper.selectStaffNameYang(Staff_Name);
 		return selectStaffNameYang;
 	}
+
+
+
+	/**
+	 * YangChuanJin   É¾³ýÓÃ»§
+	 */
+	public Integer deleteStaff_IdYang(Integer Staff_ID) {
+		Integer deleteStaff_IdYang = staffMapper.deleteStaff_IdYang(Staff_ID);
+		return deleteStaff_IdYang;
+	}
 	  
 	  
 

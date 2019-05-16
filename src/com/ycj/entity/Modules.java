@@ -15,7 +15,7 @@ public class Modules {
 	private Integer Modules_Int0;//预留字段
 	private Map<String, Object> attributes = new HashMap<String, Object>();// 添加到节点的自定义属性
     private List<Modules> children; //子节点数据
-    private boolean check;
+    private boolean checked;
 	public Map<String, Object> getAttributes() {
 		return attributes;
 	}
@@ -72,11 +72,11 @@ public class Modules {
 	}
 	
 	
-	public boolean getCheck() {
-		return check;
+	public boolean getChecked() {
+		return checked;
 	}
-	public void setCheck(boolean b) {
-		this.check = b;
+	public void setChecked(boolean b) {
+		this.checked = b;
 	}
 	@Override
 	public String toString() {

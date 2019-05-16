@@ -77,5 +77,11 @@ public interface StaffService {
 		 * @return
 		 */
 		Integer selectStaffNameYang(String Staff_Name);
+		/**
+		 * YangChuanJin   É¾³ýÓÃ»§
+		 * @param Staff_ID
+		 * @return
+		 */
+		Integer deleteStaff_IdYang(Integer Staff_ID);
 	 
 }

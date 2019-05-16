@@ -4,4 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.RolemodulesMapper">
   
+  <!--  -->
+  <delete id="delectRolesModules" parameterType="int">
+  	delete from rolemodules where RM_RolesID=#{rolesId}
+  </delete>
+  <!--  -->
+  <insert id="insertRolesModulesYang" parameterType="rolemodules">
+  	insert into rolemodules(RM_RolesID,RM_ModulesID) value(#{RM_RolesID},#{RM_ModulesID})
+  </insert>
+  
+  
+  
   </mapper>

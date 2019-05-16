@@ -144,6 +144,33 @@
 		}
 	});
 }
+	function baocunTree(){
+		var data=$("#role-datagrid").datagrid("getSelected"); 
+		alert(data.rolesId);
+		var nodes=$("#shezhiTree").tree("getChecked",["checked","indeterminate"]);
+		alert(nodes);
+		var s="";
+		for(var i=0;i<nodes.length;i++){
+			if(s==""){
+				s+=nodes[i].id;
+			}else{
+				s+=",";
+				s+=nodes[i].id;
+			}
+		}
+		alert(s);
+		$.post('insertAnddeleteYang',{
+				parentIds:s,
+				rolesId:data.rolesId
+			},function(res){
+				if(res>0){
+					alert("权限保存成功");
+					$("#shezhi-window").window("close");
+				}else{
+					alert("权限保存失败");
+				}
+			});
+	}
 </script>
 <body>
 	<table id="role-datagrid" class="easyui-datagrid">
