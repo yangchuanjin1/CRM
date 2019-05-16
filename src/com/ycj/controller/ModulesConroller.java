@@ -44,12 +44,33 @@ public class ModulesConroller {
 		Integer insertModulesYang = modulesService.insertModulesYang(modules);
 		return insertModulesYang;
 	}
-	//删除
+	//YangChuanJin 删除模块和模块角色中间表的数据  
+	@RequestMapping(value="/deleteRolesAndModulesYang",method=RequestMethod.POST)
+	@ResponseBody
+	public Integer deleteRolesAndModulesYang(Integer Modules_ID) {
+		Integer deleteModulesYang = modulesService.deleteModulesandRolesYang(Modules_ID);
+		return deleteModulesYang;
+	}
+	/**
+	 * YangChuanJin  删除模块
+	 * @param Modules_ID
+	 * @return
+	 */
 	@RequestMapping(value="/deleteModulesYang",method=RequestMethod.POST)
 	@ResponseBody
 	public Integer deleteModulesYang(Integer Modules_ID) {
 		Integer deleteModulesYang = modulesService.deleteModulesYang(Modules_ID);
 		return deleteModulesYang;
+	}
+	/**
+	 * YangChuanJin    查询这个模块是否有分配给了角色
+	 * @return
+	 */
+	@RequestMapping(value="/selectRolesModulesYang",method=RequestMethod.POST)
+	@ResponseBody
+	public Integer selectRolesModulesYang(Integer Modules_ID) {
+		Integer selectRolesModules = modulesService.selectRolesModules(Modules_ID);
+		return selectRolesModules;
 	}
 	/**
 	 * 杨传锦     修改模块

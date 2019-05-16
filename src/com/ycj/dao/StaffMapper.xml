@@ -181,5 +181,8 @@
  	<update id="updateStaffMiMaPasswordYang" parameterType="staff">
  		update staff set Staff_Password=#{Staff_Password} where Staff_ID=#{Staff_ID}
  	</update>
- 	
+ 	<!--YangChuanJin   查询要添加的用户名是否存在  -->
+ 	<select id="selectStaffNameYang" parameterType="String" resultType="int">
+ 		select count(*) from staff where Staff_Name=#{Staff_Name}
+ 	</select>
   </mapper>

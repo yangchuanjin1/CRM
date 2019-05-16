@@ -71,5 +71,11 @@ public interface StaffService {
 		 * @return
 		 */
 		Integer updateStaffMiMaPasswordYang(Staff staff);
+		/**
+		 * YangChuanJin   查询要添加的用户名是否存在
+		 * @param Staff_Name
+		 * @return
+		 */
+		Integer selectStaffNameYang(String Staff_Name);
 	 
 }

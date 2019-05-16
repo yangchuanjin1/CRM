@@ -35,13 +35,25 @@ public class RolesController {
 		Integer rolesYang = rolesService.insetRolesYang(roles);
 		return rolesYang;
 	}
-	//删除
+	//YangChuanJin 删除角色表  和 删除用户与角色中间表的数据
 	@RequestMapping(value="/deletectRolesYang",method=RequestMethod.POST)
 	@ResponseBody
 	public Integer deletectRolesYang(Integer RolesId) {
 		Integer deleteRolesYang = rolesService.deleteRolesYang(RolesId);
 		return deleteRolesYang;
 	}
+	/**
+	 * 杨传锦    查询这个角色是否有用户在使用这个角色
+	 * @param RolesId
+	 * @return
+	 */
+	@RequestMapping(value="/selectRolesStaff",method=RequestMethod.POST)
+	@ResponseBody
+	public Integer selectRolesStaff(Integer RolesId) {
+		Integer selectRolesStaffYang = rolesService.selectRolesStaffYang(RolesId);
+		return selectRolesStaffYang;
+	}
+	
 	//修改
 	
 	@RequestMapping(value="/updateRolesYang",method=RequestMethod.POST)

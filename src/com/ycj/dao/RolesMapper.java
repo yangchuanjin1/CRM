@@ -32,6 +32,18 @@ public interface RolesMapper {
 	 */
 	Integer deleteRolesYang(Integer RolesId);
 	/**
+	 * 杨传锦    查询这个角色是否有用户在使用这个角色
+	 * @param RolesId
+	 * @return
+	 */
+	Integer selectRolesStaffYang(Integer RolesId);
+	/**
+	 * 杨传锦   删除用户与角色中间表的数据
+	 * @param RolesId
+	 * @return
+	 */
+	Integer delectStaffRolesYang(Integer RolesId);
+	/**
 	 * 修改
 	 * @param roles
 	 * @return

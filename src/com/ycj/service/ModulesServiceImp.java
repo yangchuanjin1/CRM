@@ -101,13 +101,20 @@ public class ModulesServiceImp implements ModulesService {
 		Integer insertmodulesYang = modulesMapper.insertModulesYang(modules);
 		return insertmodulesYang;
 	}
-
 	/**
-	 * 删除
+	 * 删除模块
 	 */
 	public Integer deleteModulesYang(Integer modulesId) {
 		Integer deleteModulesYang = modulesMapper.deleteModulesYang(modulesId);
 		return deleteModulesYang;
+	}
+	/**
+	 * YangChuanJin 删除模块和模块角色中间表的数据  
+	 */
+	public Integer deleteModulesandRolesYang(Integer modulesId) {
+		Integer deleteModulesYang = modulesMapper.deleteModulesYang(modulesId);
+		Integer deleteRolesModules = modulesMapper.deleteRolesModules(modulesId);
+		return deleteModulesYang+deleteRolesModules;
 	}
 
 	/**
@@ -166,6 +173,14 @@ public class ModulesServiceImp implements ModulesService {
 		   }
 		   root = TreeNode.getTree(tree); 
 		return root;
+	}
+
+	/**
+	 * YangChuanJin    查询这个模块是否有分配给了角色
+	 */
+	public Integer selectRolesModules(Integer modulesId) {
+		Integer selectRolesModules = modulesMapper.selectRolesModules(modulesId);
+		return selectRolesModules;
 	}
 
 	

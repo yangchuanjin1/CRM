@@ -26,11 +26,23 @@ public interface ModulesService {
 	 */
 	Integer insertModulesYang(Modules modules);
 	/**
-	 * 删除
+	 *YangChuanJin 删除模块和模块角色中间表的数据  
+	 * @param modulesId
+	 * @return
+	 */
+	Integer deleteModulesandRolesYang(Integer modulesId);
+	/**
+	 * 删除模块
 	 * @param modulesId
 	 * @return
 	 */
 	Integer deleteModulesYang(Integer modulesId);
+	/**
+	 * YangChuanJin    查询这个模块是否有分配给了角色
+	 * @param modulesId
+	 * @return
+	 */
+	Integer selectRolesModules(Integer modulesId);
 	/**
 	 * 修改
 	 * @param modules

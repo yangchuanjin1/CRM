@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ycj.Util.MD5;
 import com.ycj.entity.FenYe;
 import com.ycj.entity.FenYeYang;
 import com.ycj.entity.Roles;
@@ -19,7 +20,8 @@ import com.ycj.service.StaffService;
 public class StaffControll {
 	@Autowired
 	private StaffService staffService;
-	
+	@Autowired 
+	private Staff staff;
 	
 	  @RequestMapping(value="/selectStaffs",method=RequestMethod.POST)
 	  @ResponseBody 
@@ -121,18 +123,41 @@ public class StaffControll {
 		  System.out.println(updateStaffMiBaoYang);
 		  return updateStaffMiBaoYang;
 	  }
+	  /**
+	   * 杨传锦   查询用户修改密码时输入的旧密码是否正确
+	   * @param staff
+	   * @return
+	   */
 	  @RequestMapping(value="/selectStaffMiMaPassYang",method=RequestMethod.POST)
 	  @ResponseBody
-	  public Integer selectStaffMiMaPassYang(Staff staff) {
+	  public Integer selectStaffMiMaPassYang(Integer Staff_ID,String Staff_Password) {
+		  staff.setStaff_Password(MD5.MD5jia(Staff_Password));
+		  staff.setStaff_ID(Staff_ID);
 		  Integer selectStaffMiMaPasswordYang = staffService.selectStaffMiMaPasswordYang(staff);
 		  return selectStaffMiMaPasswordYang;
 	  }
+	  /**
+	   * 杨传锦    修改密码
+	   * @param staff
+	   * @return
+	   */
 	  @RequestMapping(value="/updateStaffMiMaPassYang",method=RequestMethod.POST)
 	  @ResponseBody
-	  public Integer updateStaffMiMaPassYang(Staff staff) {
+	  public Integer updateStaffMiMaPassYang(Integer Staff_ID,String Staff_Password) {
+		  staff.setStaff_Password(MD5.MD5jia(Staff_Password));
+		  staff.setStaff_ID(Staff_ID);
 		  Integer updateStaffMiMaPasswordYang = staffService.updateStaffMiMaPasswordYang(staff);
 		  return updateStaffMiMaPasswordYang;
 	  }
-	  
-	  
+	  /**
+	   * YangChuanJin   查询要添加的用户名是否存在
+	   * @param Staff_Name
+	   * @return
+	   */
+	  @RequestMapping(value="/selectStaffNamrYang",method=RequestMethod.POST)
+	  @ResponseBody
+	  public Integer selectStaffNamrYang(String Staff_Name) {
+		  Integer selectStaffNameYang = staffService.selectStaffNameYang(Staff_Name);
+		  return selectStaffNameYang;
+	  }
 }

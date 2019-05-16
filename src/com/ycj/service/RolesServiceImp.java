@@ -34,11 +34,13 @@ public class RolesServiceImp implements RolesService {
 
 
 	/**
-	 * 删除
+	 * 删除角色表  和 删除用户与角色中间表的数据
 	 */
 	public Integer deleteRolesYang(Integer RolesId) {
 		Integer deleteRolesYang = rolesmapper.deleteRolesYang(RolesId);
-		return deleteRolesYang;
+		Integer delectStaffRolesYang = rolesmapper.delectStaffRolesYang(RolesId);
+		
+		return deleteRolesYang+delectStaffRolesYang;
 	}
 
 	/**
@@ -63,6 +65,14 @@ public class RolesServiceImp implements RolesService {
 	public List<Roles> seleseStaffRolesRolesIdYang(Integer StaffId) {
 		List<Roles> seleseStaffRolesRolesIdYang = rolesmapper.seleseStaffRolesRolesIdYang(StaffId);
 		return seleseStaffRolesRolesIdYang;
+	}
+
+	/**
+	 * 杨传锦    查询这个角色是否有用户在使用这个角色
+	 */
+	public Integer selectRolesStaffYang(Integer RolesId) {
+		Integer selectRolesStaffYang = rolesmapper.selectRolesStaffYang(RolesId);
+		return selectRolesStaffYang;
 	}
 
 }
