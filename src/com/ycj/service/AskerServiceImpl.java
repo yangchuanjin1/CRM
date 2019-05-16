@@ -24,5 +24,10 @@ public class AskerServiceImpl implements AskerService{
 		fenYe.setRows(seleAskers);
 		return fenYe;
 	}
+	@Override
+	public List<Asker> seleAskers() {
+		// TODO Auto-generated method stub
+		return askerMapper.selectAskers();
+	}
 
 }

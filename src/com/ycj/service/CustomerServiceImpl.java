@@ -1,10 +1,13 @@
 package com.ycj.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ycj.dao.Cust_customerMapper;
+import com.ycj.entity.Asker;
 import com.ycj.entity.Communicate_record;
 import com.ycj.entity.Cust_customer;
 import com.ycj.entity.FenYe;
@@ -20,7 +23,6 @@ public class CustomerServiceImpl implements CustomerService {
 	 * 模糊查询所有用户，以及用户总条数
 	 */
 	public FenYe<Cust_customer> selectCust_customers(Cust_customer cust_customer) {
-		
 		cust_customer.setPage((cust_customer.getPage()-1)*cust_customer.getRows());
 		cust_customer.setRows(cust_customer.getRows());
 		fenYe.setRows(cust_customerMapper.selectCust_customers(cust_customer));
@@ -50,6 +52,11 @@ public class CustomerServiceImpl implements CustomerService {
 	public int insertCommunicate_record(Communicate_record communicate_record) {
 		
 		return cust_customerMapper.insertCommunicate_record(communicate_record);
+	}
+
+	@Override
+	public List<Asker> selectAskers() {
+		return cust_customerMapper.selectAskers();
 	}
 
 }

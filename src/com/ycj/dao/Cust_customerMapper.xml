@@ -34,26 +34,30 @@
      <result column="Cust_Region" property="Cust_Region"/>
      <result column="Cust_preparation" property="Cust_preparation"/>
      <result column="Cust_Asker_ID" property="Cust_Asker_ID"/>
+     <result column="Cust_youxiao" property="Cust_youxiao"/>
      
      <association property="asker" javaType="com.ycj.entity.Asker">
      <result column="Asker_ID" property="Asker_ID"/>
      <result column="Asker_Name" property="Asker_Name"/>
      <result column="Asker_Staff_ID" property="Asker_Staff_ID"/>
      <result column="Asker_Weight" property="Asker_Weight"/>
-	  	<association property="staff" javaType="com.ycj.entity.Staff">
-	  		 <result column="Staff_ID" property="Staff_ID"/>
-	  		 <result column="Staff_Name" property="Staff_Name"/>
-	  		 <result column="Staff_Password" property="Staff_Password"/>
-	  	</association>
   	</association>
-  </resultMap>
+  	<association property="staff" javaType="com.ycj.entity.Staff">
+		 <result column="Staff_ID" property="Staff_ID"/>
+		 <result column="Staff_Name" property="Staff_Name"/>
+		 <result column="Staff_Password" property="Staff_Password"/>
+	 </association>
+    </resultMap>
   
    <select id="selectCust_customers" parameterType="cust_customer" resultMap="cutMap">
-      select cut.*,ak.*,sta.* from (cust_customer cut INNER JOIN asker ak on cut.`Cust_Asker_ID`=ak.Asker_ID)
-	  INNER JOIN staff sta on sta.Staff_ID = ak.`Asker_Staff_ID`
+      select cut.*,cut.Cust_youxiao,ak.*,sta.* from (cust_customer cut INNER JOIN asker ak on cut.`Cust_Asker_ID`=ak.Asker_ID)
+	  INNER JOIN staff sta on sta.Staff_ID = ak.Asker_Staff_ID
 	  <where>
 	  		<if test=" Cust_Name !='' and Cust_Name !=null ">
 	  			and Cust_Name like "%"#{Cust_Name}"%"
+	  		</if>
+	  		<if test=" asker.asker_ID !='' and asker.asker_ID !=null ">
+	  			and Cust_Asker_ID =#{asker.asker_ID}
 	  		</if>
 	  		<if test=" Cust_QQ !='' and Cust_QQ !=null ">
 	  			and Cust_QQ =#{Cust_QQ}
@@ -61,14 +65,14 @@
 	  		<if test=" Cust_Telephone !='' and Cust_Telephone !=null ">
 	  			and Cust_Telephone =#{Cust_Telephone}
 	  		</if>
-	  		<if test=" Cust_Pay !='' and Cust_Pay !=null ">
-	  			and Cust_Pay =#{Cust_Pay}
+	  		<if test=" cust_Pay !=null ">
+	  			and Cust_Pay =#{cust_Pay}
 	  		</if>
-	  		<if test=" Cust_youxiao !='' and Cust_youxiao !=null ">
-	  			and Cust_youxiao =#{Cust_youxiao}
+	  		<if test="  cust_youxiao !=null ">
+	  			and Cust_youxiao =#{cust_youxiao}
 	  		</if>
-	  		<if test=" Cust_Revisit !='' and Cust_Revisit !=null ">
-	  			and Cust_Revisit =#{Cust_Revisit}
+	  		<if test=" cust_Revisit !=null ">
+	  			and Cust_Revisit =#{cust_Revisit}
 	  		</if>
 	  		<!-- 客户创建的时间 -->
 	  		<if test=" minCust_Creationtime !='' and minCust_Creationtime !=null ">
@@ -115,20 +119,26 @@
 	  		<if test=" Cust_Name !='' and Cust_Name !=null ">
 	  			and Cust_Name like "%"#{Cust_Name}"%"
 	  		</if>
+	  		<if test=" asker.asker_ID !='' and asker.asker_ID !=null ">
+	  			and Cust_Asker_ID =#{asker.asker_ID}
+	  		</if>
 	  		<if test=" Cust_QQ !='' and Cust_QQ !=null ">
 	  			and Cust_QQ =#{Cust_QQ}
+	  		</if>
+	  		<if test=" asker.asker_ID !='' and asker.asker_ID !=null ">
+	  			and Cust_Asker_ID =#{asker.asker_ID}
 	  		</if>
 	  		<if test=" Cust_Telephone !='' and Cust_Telephone !=null ">
 	  			and Cust_Telephone =#{Cust_Telephone}
 	  		</if>
-	  		<if test=" Cust_Pay !='' and Cust_Pay !=null ">
-	  			and Cust_Pay =#{Cust_Pay}
+	  		<if test=" cust_Pay !=null ">
+	  			and Cust_Pay =#{cust_Pay}
 	  		</if>
-	  		<if test=" Cust_youxiao !='' and Cust_youxiao !=null ">
-	  			and Cust_youxiao =#{Cust_youxiao}
+	  		<if test=" cust_youxiao !=null ">
+	  			and Cust_youxiao =#{cust_youxiao}
 	  		</if>
-	  		<if test=" Cust_Revisit !='' and Cust_Revisit !=null ">
-	  			and Cust_Revisit =#{Cust_Revisit}
+	  		<if test=" cust_Revisit !=null ">
+	  			and Cust_Revisit =#{cust_Revisit}
 	  		</if>
 	  		<!-- 客户创建的时间 -->
 	  		<if test=" minCust_Creationtime !='' and minCust_Creationtime !=null ">
@@ -167,10 +177,13 @@
 	  		</if>
 	  </where>
    </select>
-   
+   <select id="selectAskers" resultType="asker">
+     select * from asker
+   </select>
+    
     <insert id="insertCust_customer" parameterType="cust_customer">
-    	insert into cust_customer (Cust_Name,Cust_Gender,Cust_Age,Cust_QQ,Cust_WeChat,Cust_Telephone,Cust_Education,Cust_state,Cust_channel,Cust_website,Cust_laiyuanguanjianzi,Cust_preparation,Cust_zaixianbeizhu,Cust_Creationtime) 
-    	value(#{Cust_Name},#{Cust_Gender},#{Cust_Age},#{Cust_QQ},#{Cust_WeChat},#{Cust_Telephone},#{Cust_Education},#{Cust_state},#{Cust_channel},#{Cust_website},#{Cust_laiyuanguanjianzi},#{Cust_preparation},#{Cust_zaixianbeizhu},NOW())
+    	insert into cust_customer (Cust_Name,Cust_Gender,Cust_Age,Cust_QQ,Cust_WeChat,Cust_Telephone,Cust_Education,Cust_state,Cust_channel,Cust_website,Cust_laiyuanguanjianzi,Cust_preparation,Cust_zaixianbeizhu,Cust_Creationtime,Cust_Asker_ID) 
+    	value(#{Cust_Name},#{Cust_Gender},#{Cust_Age},#{Cust_QQ},#{Cust_WeChat},#{Cust_Telephone},#{Cust_Education},#{Cust_state},#{Cust_channel},#{Cust_website},#{Cust_laiyuanguanjianzi},#{Cust_preparation},#{Cust_zaixianbeizhu},NOW(),#{cust_Asker_ID})
     </insert>
     
    <insert id="insertCommunicate_record" parameterType="communicate_record">

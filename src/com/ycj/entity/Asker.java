@@ -15,14 +15,6 @@ public class Asker {
 	
 	private Staff staff;
 	
-	/*
-	 * private Signin signin;
-	 * 
-	 * 
-	 * 
-	 * public Signin getSignin() { return signin; } public void setSignin(Signin
-	 * signin) { this.signin = signin; }
-	 */
 	public Integer getPage() {
 		return page;
 	}

@@ -12,10 +12,16 @@
 <script type="text/javascript" src="jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
 	$(function(){
+		$("#Staff_Name").combobox({
+			   url:'selectAskers',
+			   method:'post',
+			   valueField: 'id',
+			   textField: 'text'
+		   });
 		init();
 	});
 	function Staff_Name(value,row,index){
-		return row.asker.staff.staff_Name;
+		return row.staff.staff_Name;
 	}
 	function Cust_Asker_ID(value,row,index){
 		return row.asker.asker_Name;
@@ -23,16 +29,28 @@
 	function caozuo(value,row,index){
 		return "<a onclick='updateCustomer("+index+")'>跟踪</a><a onclick='chakanCustomer("+index+")'>查看</a>";
 	}
+	function chakanCustomer(index){
+		$("#win1").window("open");
+		
+	}
 	function huifang(value,row,index){
-		 return row.cust_Revisit==0?"否":"是";
+		 return row.cust_Revisit==0?"是":"否";
 	}
 	function youxiao(value,row,index){
-		 return row.cust_youxiao==0?"否":"是";
+		 return row.cust_youxiao==0?"是":"否";
 	}
 	function jiaofei(value,row,index){
-		 return row.cust_Pay==0?"否":"是";
+		 return row.cust_Pay==0?"是":"否";
 	}
+	function cust_Gender(value,row,index){
+		 return row.cust_Gender==1?"男":"女";
+	}
+	
 	function init(){
+		var asker_ID=$("#Staff_Name").combobox("getValue");
+	     if(asker_ID=="--请选择--"){
+	    	 asker_ID='';
+	     }  
 		$('#tab').datagrid({  
 		    url:'selectCust_customers',  
 		    method:"post",
@@ -40,15 +58,13 @@
 		    singleSelect:true,
 		    toolbar:'#f',
 		    queryParams:{
-		    	
 		    	Cust_Name:$("#Cust_Name").val(),
 		    	Cust_QQ:$("#Cust_QQ").val(),
 		    	Cust_Telephone:$("#Cust_Telephone").val(),
-		    	Cust_Name:$("#Cust_Name").val(),
-		    	
-		    	Cust_Pay:$("#Cust_Pay").combobox("getValue"),
-		    	Cust_youxiao:$("#Cust_youxiao").combobox("getValue"),
-		    	Cust_Revisit:$("#Cust_Revisit").combobox("getValue"),
+		    	cust_Pay:$("#Cust_Pay").combobox("getValue"),
+		    	cust_youxiao:$("#Cust_youxiao").combobox("getValue"),
+		    	cust_Revisit:$("#Cust_Revisit").combobox("getValue"),
+		    	asker_ID:asker_ID,
 		    	
 		    	minCust_Creationtime:$("#minCust_Creationtime").datebox("getValue"),
 		    	maxCust_Creationtime:$("#maxCust_Creationtime").datebox("getValue"),
@@ -65,23 +81,31 @@
 	}
 	//添加
 	function addCustomer(){
+		$("#cust_Asker_ID").combobox({
+			   url:'selectAskers',
+			   method:'post',
+			   valueField: 'id',
+			   textField: 'text'
+		   });
 		$("#win").window("open");
 	}
 	function tianjia(){
+		alert($("#cust_Asker_ID").combobox("getValue"));
 		$.post('insertCust_customer',{
 			Cust_Name:$("#Cust_Name1").val(),
-			Cust_Gender:$("#Cust_Gender1").val(),
+			Cust_Gender:$("#Cust_Gender1").combobox("getValue"),
 			Cust_Age:$("#Cust_Age1").val(),
 			Cust_QQ:$("#Cust_QQ1").val(),
 			Cust_WeChat:$("#Cust_WeChat1").val(),
 			Cust_Telephone:$("#Cust_Telephone1").val(),
 			Cust_Education:$("#Cust_Education1").val(),
-			Cust_state:$("#Cust_state1").val(),
+			Cust_state:$("#Cust_state1").combobox("getValue"),
 			Cust_channel:$("#Cust_channel1").val(),
 			Cust_website:$("#Cust_website1").val(),
 			Cust_laiyuanguanjianzi:$("#Cust_laiyuanguanjianzi1").val(),
-			Cust_preparation:$("#Cust_preparation1").val(),
-			Cust_zaixianbeizhu:$("#Cust_zaixianbeizhu1").val()
+			Cust_preparation:$("#Cust_preparation1").combobox("getValue"),
+			Cust_zaixianbeizhu:$("#Cust_zaixianbeizhu1").val(),
+			cust_Asker_ID:$("#cust_Asker_ID").combobox("getValue")
 		},function(res){
 			if(res){
 				alert("添加成功");
@@ -109,7 +133,7 @@
             <th data-options="field:'cust_ID',width:100">客户编码</th>   
             <th data-options="field:'cust_Name',width:100">客户名称</th>   
             <th data-options="field:'cust_Age',width:100">客户年龄</th>   
-            <th data-options="field:'cust_Gender',width:100">客户性别</th>   
+            <th data-options="field:'cust_Gender',width:100,formatter:cust_Gender">客户性别</th>   
             <th data-options="field:'cust_Telephone',width:100">客户电话</th>   
             <th data-options="field:'cust_Education',width:100">客户学历</th>   
             <th data-options="field:'cust_QQ',width:100">客户QQ</th>   
@@ -133,23 +157,25 @@
 		客户名称:<input class="easyui-textbox"  style="width:150px" id="Cust_Name" > 
 		客户QQ:<input class="easyui-textbox"  style="width:150px" id="Cust_QQ"> 
 		电话:<input class="easyui-textbox"  style="width:150px" id="Cust_Telephone"> 
-		咨询师:<input class="easyui-textbox"  style="width:150px" id="Staff_Name"> 
+		咨询师:
+		 <select id="Staff_Name" class="easyui-combobox" style="width:150px;">   
+				    <option >--请选择--</option>  
+				</select>
 		是否缴费:<select id="Cust_Pay" class="easyui-combobox"  style="width:150px;">   
 		   <option value="">--请选择--</option>   
-		    <option value="1">是</option>   
-		    <option value="0">否</option>   
-		   <select> 
+		   <option value="1">否</option>   
+		    <option value="0">是</option> 
+		   </select> 
 		是否有效:<select id="Cust_youxiao" class="easyui-combobox"  style="width:150px;">   
 		   <option value="">--请选择--</option>   
-		    <option value="1">是</option>   
-		    <option value="0">否</option>   
-		   <select> 
+		    <option value="1">否</option>   
+		    <option value="0">是</option>   
+		   </select> 
 		是否回访:<select id="Cust_Revisit" class="easyui-combobox"  style="width:150px;">   
 		   <option value="">--请选择--</option>   
-		    <option value="1">是</option>   
-		    <option value="0">否</option>   
-		   <select>
-		<a onclick="addCustomer()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a> <br/>
+		    <option value="1">否</option>   
+		    <option value="0">是</option>  
+		   </select>
 		客户创建的时间:<input class="easyui-datebox"  style="width:100px" id="minCust_Creationtime"> 
 		~:<input class="easyui-datebox"  style="width:100px" id="maxCust_Creationtime"> 
 		上门时间:<input class="easyui-datebox"  style="width:100px" id="minCust_Doortime"> 
@@ -161,24 +187,42 @@
 		进班时间:<input class="easyui-datebox"  style="width:100px" id="minCust_entrytime"> 
 		~:<input class="easyui-datebox"  style="width:105px" id="maxCust_entrytime"> &nbsp;
 		<a onclick="init()"  class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a> 
+		<a onclick="addCustomer()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
 	</form>
 </div>
 <div id="win" class="easyui-window" title="添加" style="width:300px;height:400px"   
         data-options="iconCls:'icon-save',modal:true,closed:true">   
        <div id="ff" style="margin-left:20px" >
 				客户名称:<input class="easyui-textbox" style="width:150px" prompt="121" id="Cust_Name1"> <br/>
-				客户性别:<input class="easyui-textbox"  style="width:150px" id="Cust_Gender1"><br/> 
+				客户性别:<select id="Cust_Gender1" class="easyui-combobox"  style="width:150px;">   
+						   <option value="">--请选择--</option>   
+						    <option value="1">否</option>   
+		                    <option value="0">是</option>   
+						  </select><br/>
 				客户年龄:<input class="easyui-textbox"  style="width:150px" id="Cust_Age1"> <br/>
 				客户QQ:<input class="easyui-textbox"  style="width:150px" id="Cust_QQ1"> <br/>
 				客户微信:<input class="easyui-textbox"  style="width:150px" id="Cust_WeChat1"> <br/>
 				客户电话:<input class="easyui-textbox"  style="width:150px" id="Cust_Telephone1"> <br/>
 				客户学历:<input class="easyui-textbox"  style="width:150px" id="Cust_Education1"> <br/>
-				客户状态:<input class="easyui-textbox"  style="width:150px" id="Cust_state1"> <br/>
+				客户状态:
+				    <select id="Cust_state1" class="easyui-combobox"  style="width:150px;">   
+						   <option value="">--请选择--</option>   
+						    <option value="1">上学</option>   
+						    <option value="0">下学</option>   
+						   </select><br/>
 				来源渠道:<input class="easyui-textbox"  style="width:150px" id="Cust_channel1"> <br/>
 				来源网站:<input class="easyui-textbox"  style="width:150px" id="Cust_website1"> <br/>
 				来源关键词:<input class="easyui-textbox"  style="width:150px" id="Cust_laiyuanguanjianzi1"><br/> 
-				是否报备:<input class="easyui-textbox"  style="width:150px" id="Cust_preparation1"> <br/>
+				是否报备:<select id="Cust_preparation1" class="easyui-combobox"  style="width:150px;">   
+						   <option value="">--请选择--</option>   
+						    <option value="1">是</option>   
+						    <option value="0">否</option>   
+						   </select><br/>
 				在线备注:<input class="easyui-textbox"  style="width:150px" id="Cust_zaixianbeizhu1"> <br/>
+				咨询师：
+				<select id="cust_Asker_ID" class="easyui-combobox" style="width:150px;">   
+				    <option >--请选择--</option>  
+				</select><br/>
 				<a onclick="tianjia()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a> 
 				<a onclick="closeTianjia()"  class="easyui-linkbutton" data-options="iconCls:'icon-search'">关闭</a> 
 	</div>
@@ -196,5 +240,56 @@
 				<a onclick="closegenzhong()"  class="easyui-linkbutton" data-options="iconCls:'icon-search'">关闭</a> 
 	</div>
 </div> 
+
+<div id="win1" class="easyui-window" title="查看" style="width:600px;height:400px"   
+        data-options="modal:true,closed:true,resizable:true">   
+    <div class="easyui-layout" data-options="fit:true">   
+        <div data-options="region:'north',split:true,title:'在线录入'" style="height:500px">   
+               <form id="f1">
+                 <table>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                     <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                 </table>
+               </form>
+        </div>   
+        <div data-options="region:'center',split:true,collapsed:true,title:'咨询师录入'" style="height:500px">   
+               hjdgghk
+        </div>
+    </div>   
+</div>
 </body>
 </html>
