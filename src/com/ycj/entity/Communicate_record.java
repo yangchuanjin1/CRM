@@ -14,6 +14,8 @@ public class Communicate_record {
     private Integer comm_huifang;
     
     private String comm_endData;
+    private String comm_xiacihuifang;
+    private String comm_zaixianbeizhu;
     
     private String scomm_endData;
 	private String ecomm_endData;
@@ -23,10 +25,25 @@ public class Communicate_record {
 	private Integer page;
 	private Integer rows;
 	
+	
+	
+	
 	private Staff staff;
 	private Cust_customer cust_customer;
 	
 	
+	public String getComm_xiacihuifang() {
+		return comm_xiacihuifang;
+	}
+	public void setComm_xiacihuifang(String comm_xiacihuifang) {
+		this.comm_xiacihuifang = comm_xiacihuifang;
+	}
+	public String getComm_zaixianbeizhu() {
+		return comm_zaixianbeizhu;
+	}
+	public void setComm_zaixianbeizhu(String comm_zaixianbeizhu) {
+		this.comm_zaixianbeizhu = comm_zaixianbeizhu;
+	}
 	public Staff getStaff() {
 		return staff;
 	}

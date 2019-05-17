@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ycj.entity.Asker;
 import com.ycj.entity.FenYe;
+import com.ycj.entity.FenYeYang;
 import com.ycj.entity.Signin;
 import com.ycj.entity.Staff;
 import com.ycj.service.AskerService;
@@ -40,5 +41,45 @@ public class AskerController {
 		}
 		return list;
 	}
+	
+	
+	/**
+	 * YangChuanJIn    分页带条件输出数据和总条数
+	 */
+	@RequestMapping(value="/selectAskerAllCountYang",method=RequestMethod.POST)
+	@ResponseBody
+	public FenYeYang selectAskerAllCountYangChuanJin(Integer page,Integer rows,FenYeYang fenYeYang) {
+		fenYeYang.setPage((page-1)*rows);
+		fenYeYang.setPageSize(rows);
+		FenYeYang selectAskerAllAndCount = askerService.selectAskerAllAndCount(fenYeYang);
+		return selectAskerAllAndCount;
+	}
+	/**
+	 * 添加
+	 * @param asker
+	 * @return
+	 */
+	@RequestMapping(value="/insertAskerYang",method=RequestMethod.POST)
+	@ResponseBody
+	public Integer insertAskerYang(Asker asker) {
+		Integer insertAsker = askerService.insertAsker(asker);
+		return insertAsker;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

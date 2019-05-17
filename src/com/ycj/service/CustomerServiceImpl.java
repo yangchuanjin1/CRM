@@ -46,16 +46,52 @@ public class CustomerServiceImpl implements CustomerService {
 	public int deleteCust_customer(int cust_ID) {
 		return cust_customerMapper.deleteCust_customer(cust_ID);
 	}
-
+	
 	@Override
-	public int insertCommunicate_record(Communicate_record communicate_record) {
+	public Asker selectAskers(int asker_ID) {
+		// TODO Auto-generated method stub
+		return cust_customerMapper.selectAskers(asker_ID);
 		
-		return cust_customerMapper.insertCommunicate_record(communicate_record);
+	}
+	
+	/**
+	 * fanxiangbin
+	 * 
+	 * 	咨询师
+	 */
+	
+	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer) {
+		cust_customer.setPage((cust_customer.getPage()-1)*cust_customer.getRows());
+		cust_customer.setRows(cust_customer.getRows());
+		fenYe.setRows((cust_customerMapper.selectCust_customersFan(cust_customer)));
+		fenYe.setTotal(cust_customerMapper.selectCountFan(cust_customer));
+		System.out.println(fenYe+"fhgfjghkhj");
+		return fenYe;
 	}
 
 	@Override
-	public List<Asker> selectAskers() {
-		return cust_customerMapper.selectAskers();
+	public int updateCust_customergenzhongFan(Cust_customer cust_customer) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
+	@Override
+	public int insertCust_customerFan(Cust_customer cust_customer) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteCust_customerFan(int cust_ID) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+	
+	/**
+	 * fanxiangbin
+	 * 
+	 * 	咨询师
+	 */
 }

@@ -2,17 +2,18 @@ package com.ycj.entity;
 
 import org.springframework.stereotype.Component;
 
-//��ѯʦ��
+//锟斤拷询师锟斤拷
 @Component
 public class Asker {
-	private Integer Asker_ID;//��ѯʦ���
-	private String Asker_Name;//��ѯʦ����
-	private Integer Asker_Staff_ID;//Ա�����
-	private Integer Asker_Weight;//Ȩ��
+	private Integer Asker_ID;//锟斤拷询师锟斤拷锟�
+	private String Asker_Name;//锟斤拷询师锟斤拷锟斤拷
+	private Integer Asker_Staff_ID;//员锟斤拷锟斤拷锟�
+	private Integer Asker_Weight;//权锟斤拷
+
 	
 	private Integer page;
 	private Integer rows;
-	
+//	维护的员工对象
 	private Staff staff;
 	
 	public Integer getPage() {

@@ -181,5 +181,22 @@
  	<update id="updateStaffMiMaPasswordYang" parameterType="staff">
  		update staff set Staff_Password=#{Staff_Password} where Staff_ID=#{Staff_ID}
  	</update>
+ 	<!--YangChuanJin   查询要添加的用户名是否存在  -->
+ 	<select id="selectStaffNameYang" parameterType="String" resultType="int">
+ 		select count(*) from staff where Staff_Name=#{Staff_Name}
+ 	</select>
  	
+ 	<!--YangChuanJIn 用户删除  -->
+ 	<delete id="deleteStaff_IdYang" parameterType="int">
+ 		delete from staff where Staff_ID=#{Staff_ID}
+ 	</delete>
+ 	<!--YangChuanJin    查询不是咨询师的员工  -->
+ 	<select id="selectStaffAndAsker" resultType="staff">
+ 		SELECT
+			s.* 
+		FROM
+			staff s 
+		WHERE
+			s.Staff_ID NOT IN ( SELECT a.`Asker_Staff_ID` FROM staff s, asker a WHERE s.Staff_ID = a.`Asker_Staff_ID` )
+ 	</select>
   </mapper>

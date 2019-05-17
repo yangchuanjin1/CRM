@@ -15,7 +15,17 @@ public class FenYeYang {
 	private String maxstaff_CreatTime;
 	private String Staff_IsLockout;
 	
+//	签到查询条件
+
+	private Integer signln_status;
+	private String sBack_date;
+	private String eBack_date;
+	private String sSignIn_date;
+	private String eSignIn_date;
 	
+	
+	
+	private String zixunshiName;
 	
 	
 	
@@ -73,5 +83,42 @@ public class FenYeYang {
 	public void setRolesName(String rolesName) {
 		this.rolesName = rolesName;
 	}
+	public Integer getSignln_status() {
+		return signln_status;
+	}
+	public void setSignln_status(Integer signln_status) {
+		this.signln_status = signln_status;
+	}
+	public String getsBack_date() {
+		return sBack_date;
+	}
+	public void setsBack_date(String sBack_date) {
+		this.sBack_date = sBack_date;
+	}
+	public String geteBack_date() {
+		return eBack_date;
+	}
+	public void seteBack_date(String eBack_date) {
+		this.eBack_date = eBack_date;
+	}
+	public String getsSignIn_date() {
+		return sSignIn_date;
+	}
+	public void setsSignIn_date(String sSignIn_date) {
+		this.sSignIn_date = sSignIn_date;
+	}
+	public String geteSignIn_date() {
+		return eSignIn_date;
+	}
+	public void seteSignIn_date(String eSignIn_date) {
+		this.eSignIn_date = eSignIn_date;
+	}
+	public String getZixunshiName() {
+		return zixunshiName;
+	}
+	public void setZixunshiName(String zixunshiName) {
+		this.zixunshiName = zixunshiName;
+	}
 
+	
 }

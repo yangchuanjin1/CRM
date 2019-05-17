@@ -35,6 +35,7 @@ public class Cust_customerController {
 		cust_customer.setStaff(staff); 
 		return customerService.insertCust_customer(cust_customer);
 	}
+<<<<<<< HEAD
 	@RequestMapping(value="/insertCommunicate_record",method=RequestMethod.POST)
 	@ResponseBody
 	public int insertCommunicate_record(Communicate_record communicate_record) {
@@ -52,10 +53,28 @@ public class Cust_customerController {
 		// TODO Auto-generated method stub
 		return customerService.deleteCust_customer(cust_ID);
 	}
+=======
+	
+>>>>>>> 76e3e62b317a687a7c6813dfe04237ce33aabef5
 	/*
 	 * @RequestMapping(value="/selectAskers",method=RequestMethod.POST)
 	 * 
 	 * @ResponseBody public List<Asker> selectAskers() { return
 	 * customerService.selectAskers(); }
 	 */
+	
+	/**
+	 * 	fanxiangbin
+	 * 
+	 * 	咨询师
+	 */
+	
+	@RequestMapping(value="/selectCust_customersFan",method=RequestMethod.POST)
+	@ResponseBody
+	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer,Asker asker,Staff staff) {
+		cust_customer.setAsker(asker);
+		cust_customer.setStaff(staff); 
+	
+		return customerService.selectCust_customersFan(cust_customer);
+	}
 }

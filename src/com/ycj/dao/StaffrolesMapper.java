@@ -16,4 +16,11 @@ public interface StaffrolesMapper {
 	 * @return
 	 */
 	Integer deleteStaffRolesAndYang(Staffroles staffroles);
+	
+	/**
+	 * YangChuanJIn 在删除用户时删除中间表的记录
+	 * @param Staff_ID
+	 * @return
+	 */
+	Integer deleteStaffRolesStaff_IDYang(Integer Staff_ID);
 }

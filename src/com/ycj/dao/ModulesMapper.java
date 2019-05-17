@@ -1,5 +1,5 @@
 package com.ycj.dao;
-//ģ���
+//模锟斤拷锟�
 
 import java.util.List;
 
@@ -7,51 +7,63 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.ycj.entity.Modules;
-import com.ycj.entity.Roles;
 
 public interface ModulesMapper {
 	/**
-	 * ��ѯÿ���û��µ�ģ��
-	 * @param staffid  �û����
+	 * 锟斤拷询每锟斤拷锟矫伙拷锟铰碉拷模锟斤拷
+	 * @param staffid  锟矫伙拷锟斤拷锟�
 	 * @return
 	 */
 	List<Modules> selectMuesTree(Integer staffid);
 	//,@Param("moduleid")Integer moduleid
 	List<Modules> selectmoduct(@Param("staffid")Integer staffid);
 	/**
-	 * ��ѯ����ģ��
+	 * 锟斤拷询锟斤拷锟斤拷模锟斤拷
 	 * @return
 	 */
 	List<Modules> selectModulesTree();
 	/**
-	 * ���
+	 * 锟斤拷锟�
 	 * @param modules
 	 * @return
 	 */
 	Integer insertModulesYang(Modules modules);
 	/**
-	 * ɾ������
+	 * 删锟斤拷锟斤拷锟斤拷
 	 * @param modulesId
 	 * @return
 	 */
 	Integer deleteModulesYang(Integer modulesId);
 	/**
-	 * �޸Ĳ���
+	 * YangChuanJin    查询这个模块是否有分配给了角色
+	 * @param modulesId
+	 * @return
+	 */
+	Integer selectRolesModules(Integer modulesId);
+	/**
+	 * YangChuanJin  删除模块和角色表中的数据
+	 * @param modulesId
+	 * @return
+	 */
+	Integer deleteRolesModules(Integer modulesId);
+	/**
+	 * 锟睫改诧拷锟斤拷
 	 * @param modules
 	 * @return
 	 */
 	Integer updateModulesYang(Modules modules);
 	/**
-	 * ����id��ѯģ��
+	 * 锟斤拷锟斤拷id锟斤拷询模锟斤拷
 	 * @param modulesId
 	 * @return
 	 */
 	Modules selectModulesAndmodulesidYang(Integer modulesId);
 	/**
-	 * ��ѯÿ����ɫ�µ�����ģ��
+	 * 查询每个角色下的所有模块
 	 * @param roles
 	 * @return
 	 */
 	List<Modules> selectModulesRolesYang(Integer roles);
+	
 
 }

@@ -3,5 +3,69 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ycj.dao.SigninMapper">
+  <resultMap type="signin" id="signinMap">
+  	 	<id property="signIn_ID" column="signIn_ID"/>
+        <result property="SignIn_date" column="SignIn_date"/>
+        <result property="Back_date" column="Back_date"/>
+        <result property="Sign_StaffID" column="Sign_StaffID" />
+        <result property="Signln_status" column="Signln_status" />
+        <result property="staff.Staff_Name" column="Staff_Name" />
+  </resultMap>
+  
+  
+  <!-- YangChuanJin   在员工登录的时候签到 -->
+  <insert id="insertSigninYang" parameterType="int">
+  	insert into signin(SignIn_date,Sign_StaffID) value(NOW(),#{Staff_ID})
+  </insert>
+  <!--  -->
+  <select id="selectSiginAllYang" parameterType="fenYeYang" resultMap="signinMap">
+  	SELECT s.*,sf.Staff_Name FROM signin s INNER JOIN staff sf ON s.`Sign_StaffID`=sf.Staff_ID
+  	<where>
+  		<if test="staff_Name !=null and staff_Name!=''">
+  			and sf.Staff_Name like "%"#{staff_Name}"%"
+  		</if>
+  		<if test="signln_status !=null and signln_status !=''">
+  			and s.Signln_status=#{signln_status}
+  		</if>
+  		<if test="sBack_date !=null and sBack_date !=''">
+  			and s.Back_date &gt;=#{sBack_date}
+  		</if>
+  		<if test="eBack_date !=null and eBack_date !=''">
+  			and s.Back_date &lt;=#{eBack_date}
+  		</if>
+  		<if test="sSignIn_date !=null and sSignIn_date !=''">
+  			and s.SignIn_date &gt;=#{sSignIn_date}
+  		</if>
+  		<if test="sSignIn_date !=null and sSignIn_date !=''">
+  			and s.SignIn_date &lt;=#{sSignIn_date}
+  		</if>
+  	</where>
+  	limit #{page},#{pageSize}
+  </select>
+  
+  <select id="selectSigninCountYang" parameterType="fenYeYang" resultType="int">
+  	SELECT count(*) FROM signin s INNER JOIN staff sf ON s.`Sign_StaffID`=sf.Staff_ID
+  	<where>
+  		<if test="staff_Name !=null and staff_Name!=''">
+  			and sf.Staff_Name like "%"#{staff_Name}"%"
+  		</if>
+  		<if test="signln_status !=null and signln_status !=''">
+  			and s.Signln_status=#{signln_status}
+  		</if>
+  		<if test="sBack_date !=null and sBack_date !=''">
+  			and s.Back_date &gt;=#{sBack_date}
+  		</if>
+  		<if test="eBack_date !=null and eBack_date !=''">
+  			and s.Back_date &lt;=#{eBack_date}
+  		</if>
+  		<if test="sSignIn_date !=null and sSignIn_date !=''">
+  			and s.SignIn_date &gt;=#{sSignIn_date}
+  		</if>
+  		<if test="sSignIn_date !=null and sSignIn_date !=''">
+  			and s.SignIn_date &lt;=#{sSignIn_date}
+  		</if>
+  	</where>
+  </select>
+  
   
   </mapper>

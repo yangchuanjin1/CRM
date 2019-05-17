@@ -18,6 +18,11 @@ public interface Communicate_recordMapper {
 	
 	int deleteCommunicate_record(int Comm_ID);
 	
+	//fanxiangbin 
 	
+	int insertCommunicate_recordFan(Communicate_record communicate_record);
+	
+	
+	//fanxiangbin
 	
 }

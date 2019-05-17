@@ -48,6 +48,14 @@
   	<delete id="deleteModulesYang" parameterType="int">
   		delete from modules where Modules_ID=#{Modules_ID}
   	</delete>
+  	<!-- YangChuanJin    查询这个模块是否有分配给了角色 -->
+  	<select id="selectRolesModules" parameterType="int" resultType="int">
+  		SELECT COUNT(*) FROM rolemodules WHERE RM_RolesID=#{modulesId}
+  	</select>
+  	<!--YangChuanJin  删除模块和角色表中的数据  -->
+  	<delete id="deleteRolesModules" parameterType="int">
+  		delete from rolemodules where RM_RolesID=#{modulesId}
+  	</delete>
   	<!-- 修改 -->
   	<update id="updateModulesYang" parameterType="modules">
   		update modules <set>
