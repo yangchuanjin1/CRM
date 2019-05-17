@@ -128,6 +128,26 @@ public class StaffServiceImpl implements StaffService{
 		Integer updateStaffMiMaPasswordYang = staffMapper.updateStaffMiMaPasswordYang(staff);
 		return updateStaffMiMaPasswordYang;
 	}
+
+
+
+	/**
+	 * YangChuanJin   查询要添加的用户名是否存在
+	 */
+	public Integer selectStaffNameYang(String Staff_Name) {
+		Integer selectStaffNameYang = staffMapper.selectStaffNameYang(Staff_Name);
+		return selectStaffNameYang;
+	}
+
+
+
+	/**
+	 * YangChuanJin   删除用户
+	 */
+	public Integer deleteStaff_IdYang(Integer Staff_ID) {
+		Integer deleteStaff_IdYang = staffMapper.deleteStaff_IdYang(Staff_ID);
+		return deleteStaff_IdYang;
+	}
 	  
 	  
 

@@ -108,5 +108,17 @@ public interface StaffMapper {
 	 * @return
 	 */
 	Integer updateStaffMiMaPasswordYang(Staff staff);
+	/**
+	 * YangChuanJin   查询要添加的用户名是否存在
+	 * @param Staff_Name
+	 * @return
+	 */
+	Integer selectStaffNameYang(String Staff_Name);
+	/**
+	 * YangChuanJin   删除用户
+	 * @param Staff_ID
+	 * @return
+	 */
+	Integer deleteStaff_IdYang(Integer Staff_ID);
 	
 }

@@ -65,11 +65,9 @@ function init(){
         <tr>   
             <th data-options="field:'asker_ID',width:100">编号</th>   
             <th data-options="field:'staff',width:100,formatter:staff">姓名</th>   
-            <th data-options="field:'asker_Name',width:100">评价</th>   
-            <!-- <th data-options="field:'asker_Weight',width:100">权重</th>   --> 
-            <!-- <th data-options="field:'SignIn_date',width:100,formatter:SignIn_date">签到时间</th> 
+            <th data-options="field:'SignIn_date',width:100,formatter:SignIn_date">签到时间</th> 
             <th data-options="field:'Back_date',width:100,formatter:Back_date">签退时间</th> 
-            <th data-options="field:'Signln_status',width:100,formatter:Signln_status">是否签到</th> --> 
+            <th data-options="field:'Signln_status',width:100,formatter:Signln_status">是否签到</th>
             <th data-options="field:'caozuo',width:100,formatter:caozuo">操作</th>   
         </tr>
     </thead>

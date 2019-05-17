@@ -12,4 +12,8 @@
   		<delete id="deleteStaffRolesAndYang" parameterType="staffroles">
   			delete from staffroles where SR_StaffID=#{SR_StaffID} and SR_RolesID=#{SR_RolesID}
   		</delete>
+  		<!--YangChuanJIn 在删除用户时删除中间表的记录  -->
+  		<delete id="deleteStaffRolesStaff_IDYang" parameterType="int">
+  		delete from staffroles where SR_StaffID=#{SR_StaffID}
+  		</delete>
   </mapper>

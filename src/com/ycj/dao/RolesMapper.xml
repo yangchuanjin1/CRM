@@ -30,6 +30,14 @@
   <delete id="deleteRolesYang" parameterType="int">
   	delete from roles where RolesId=#{RolesId}
   </delete>
+  <!--杨传锦    查询这个角色是否有用户在使用这个角色  -->
+  <select id="selectRolesStaffYang" parameterType="int" resultType="int">
+  	SELECT COUNT(*) FROM staffroles WHERE SR_RolesID=#{RolesId}
+  </select>
+  <!--杨传锦   删除用户与角色中间表的数据  -->
+  <delete id="delectStaffRolesYang" parameterType="int">
+  	delete from staffroles where SR_RolesID=#{RolesId}
+  </delete>
   <update id="updateRolesYang" parameterType="roles">
   	update roles <set>
   		<if test="RolesName !=null and RolesName !=''">

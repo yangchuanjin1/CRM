@@ -22,4 +22,12 @@ public class StaffrolesServiceImp implements StaffrolesService {
 		return deleteStaffRolesAndYang;
 	}
 
+	/**
+	 * YangChuanJIn 在删除用户时删除中间表的记录
+	 */
+	public Integer deleteStaffRolesStaff_IDYang(Integer Staff_ID) {
+		Integer deleteStaffRolesStaff_IDYang = staffrolesMapper.deleteStaffRolesStaff_IDYang(Staff_ID);
+		return deleteStaffRolesStaff_IDYang;
+	}
+
 }

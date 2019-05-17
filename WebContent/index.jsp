@@ -1,15 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>龙行天下集团</title>
-<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.3/themes/icon.css">
-<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.3/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+	href="jquery-easyui-1.4.3/themes/icon.css">
+<link rel="stylesheet" type="text/css"
+	href="jquery-easyui-1.4.3/themes/default/easyui.css">
 <script type="text/javascript" src="jquery-easyui-1.4.3/jquery.min.js"></script>
-<script type="text/javascript" src="jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript"
+	src="jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>
 <script>
 	function tuichu(){
 		$.messager.confirm("确定","您确定要退出吗？",function(r){
@@ -108,52 +112,67 @@
 </script>
 </head>
 <body>
-		
-    <div class="easyui-layout" style="width:100%;height:700px;">
-        <div data-options="region:'north'" style="height:50px">
-        	CRM系统&nbsp;&nbsp;&nbsp;  欢迎您:&nbsp;&nbsp;<span id="spUName">
-        	</span>
-        	<a href="javascript:tuichu()">&nbsp;安全退出</a>
-        	<a href="javascript:shezhimibao()" class="easyui-linkbutton">&nbsp;设置密保</a>
-        	<a href="javascript:shezhimima()" class="easyui-linkbutton">&nbsp;重置密码</a>
-        </div>
-        <div data-options="region:'south',split:true" style="height:50px;"></div>
-        <!--<div data-options="region:'east',split:true" title="East" style="width:100px;"></div>-->
-        <div data-options="region:'west',split:true" title="导航应用" style="width:150px;">
-           <div><!--这个地方显示树状结构-->
-             	<ul id="menuTree" class="easyui-tree"></ul>
-           </div>
-        </div>
-        <div id="centerTabs" data-options="region:'center',iconCls:'icon-ok'" style="width: 530px;">
-            <div id="tt" class="easyui-tabs"> <!--这个地方采用tabs控件进行布局-->
-            
-            </div>
-        </div>
-    </div>
-    <!-- 设置密保 -->
-    <div id="congzhimibao-window" class="easyui-window" data-options="modal:true,closed:true,title:'重置密码'" style="width: 500px;height: 300px;padding: 20px;">
+
+	<div class="easyui-layout" style="width: 100%; height: 700px;">
+		<div data-options="region:'north'" style="height: 50px">
+			CRM系统&nbsp;&nbsp;&nbsp; 欢迎您:&nbsp;&nbsp;<span id="spUName"> </span> <a
+				href="javascript:tuichu()">&nbsp;安全退出</a> <a
+				href="javascript:shezhimibao()" class="easyui-linkbutton">&nbsp;设置密保</a>
+			<a href="javascript:shezhimima()" class="easyui-linkbutton">&nbsp;重置密码</a>
+		</div>
+		<div data-options="region:'south',split:true" style="height: 50px;"></div>
+		<!--<div data-options="region:'east',split:true" title="East" style="width:100px;"></div>-->
+		<div data-options="region:'west',split:true" title="导航应用"
+			style="width: 150px;">
+			<div>
+				<!--这个地方显示树状结构-->
+				<ul id="menuTree" class="easyui-tree"></ul>
+			</div>
+		</div>
+		<div id="centerTabs" data-options="region:'center',iconCls:'icon-ok'"
+			style="width: 530px;">
+			<div id="tt" class="easyui-tabs">
+				<!--这个地方采用tabs控件进行布局-->
+
+			</div>
+		</div>
+	</div>
+	<!-- 设置密保 -->
+	<div id="congzhimibao-window" class="easyui-window"
+		data-options="modal:true,closed:true,title:'重置密码'"
+		style="width: 500px; height: 300px; padding: 20px;">
 		<form id="congzhimibao" style="padding: 20px;">
 			<input type="hidden" name="staff_ID" id="chong-staff_ID" />
-			请输入密保手机号:<input type="text" class="easyui-textbox" id="Staff_ProtecMtel" value="" required="required"/><br>
-			请输入密保邮箱:<input type="text" class="easyui-textbox" id="Staff_ProtectEmail" value="" required="required"/>
+			请输入密保手机号:<input type="text" class="easyui-textbox"
+				id="Staff_ProtecMtel" value="" required="required" /><br>
+			请输入密保邮箱:<input type="text" class="easyui-textbox"
+				id="Staff_ProtectEmail" value="" required="required" />
 		</form>
-		<div style="text-align:center;padding:20px">
-         	<a href="javascript:void(0)" class="easyui-linkbutton" type="button" onclick="Chongzhimibao()">保存</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       	  	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearJsFrom()">取消</a>        
-    	 </div>
-	 </div>
-    <!-- 重置密码 -->
-    <div id="congzhimima-window" class="easyui-window" data-options="modal:true,closed:true,title:'重置密码'" style="width: 500px;height: 300px;padding: 20px;">
+		<div style="text-align: center; padding: 20px">
+			<a href="javascript:void(0)" class="easyui-linkbutton" type="button"
+				onclick="Chongzhimibao()">保存</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+				href="javascript:void(0)" class="easyui-linkbutton"
+				onclick="clearJsFrom()">取消</a>
+		</div>
+	</div>
+	<!-- 重置密码 -->
+	<div id="congzhimima-window" class="easyui-window"
+		data-options="modal:true,closed:true,title:'重置密码'"
+		style="width: 500px; height: 300px; padding: 20px;">
 		<form id="congzhimima" style="padding: 20px;">
-			<input type="hidden" name="staff_ID" id="chong-staff_ID" />
-			请输入旧密码:<input type="text" class="easyui-textbox" id="Staff_Password" value="" required="required"/><br>
-			请输入新密码:<input type="text" class="easyui-textbox" id="Staff_Passwordxin" value="" required="required"/>
+			<input type="hidden" name="staff_ID" id="chong-staff_ID" /> 请输入旧密码:<input
+				type="text" class="easyui-textbox" id="Staff_Password" value=""
+				required="required" /><br> 请输入新密码:<input type="text"
+				class="easyui-textbox" id="Staff_Passwordxin" value=""
+				required="required" />
 		</form>
-		<div style="text-align:center;padding:20px">
-         	<a href="javascript:void(0)" class="easyui-linkbutton" type="button" onclick="Chongzhimima()">保存</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       	  	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearJsFrom()">取消</a>        
-    	 </div>
-	 </div>
-    
-	</body>
+		<div style="text-align: center; padding: 20px">
+			<a href="javascript:void(0)" class="easyui-linkbutton" type="button"
+				onclick="Chongzhimima()">保存</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+				href="javascript:void(0)" class="easyui-linkbutton"
+				onclick="clearJsFrom()">取消</a>
+		</div>
+	</div>
+
+</body>
 </html>
