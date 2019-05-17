@@ -1,16 +1,17 @@
 package com.ycj.dao;
-//�ͻ���
+//锟酵伙拷锟斤拷
 
 import java.util.List;
 
 import com.ycj.entity.Asker;
 import com.ycj.entity.Communicate_record;
 import com.ycj.entity.Cust_customer;
+import com.ycj.entity.FenyeJiang;
 
 public interface Cust_customerMapper {
     List<Cust_customer> selectCust_customers(Cust_customer cust_customer);
     /**
-     * 查询所有咨询师
+     * 鏌ヨ鎵�鏈夊挩璇㈠笀
      * @return
      */
     Asker selectAskers(int asker_ID);
@@ -23,8 +24,8 @@ public interface Cust_customerMapper {
     
     int deleteCust_customer(int cust_ID);
     /**
-     * 添加跟踪
-     * @param communicate_record 跟踪记录表
+     * 娣诲姞璺熻釜
+     * @param communicate_record 璺熻釜璁板綍琛�
      * @return
      */
     int insertCommunicate_record(Communicate_record communicate_record);
@@ -44,4 +45,26 @@ public interface Cust_customerMapper {
     
     //fanxiangbin
     
+    	 //姜亚龙
+    	  
+        /**
+         *   查询总数据
+        * @param fenye
+        * @return
+        */
+       List<Cust_customer> selectAllCust_customer(FenyeJiang fenye);
+      /**
+          * 查询总条数
+        * @param fenye
+        * @return
+        */
+       int selectCountCust_customer(FenyeJiang fenye);  
+        //添加
+       /**
+        * 
+        * @param cust_customer
+        * @return
+        */
+       int insertCust_customerJ(Cust_customer cust_customer);
+
 }

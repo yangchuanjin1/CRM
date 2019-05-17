@@ -11,6 +11,7 @@ import com.ycj.entity.Asker;
 import com.ycj.entity.Communicate_record;
 import com.ycj.entity.Cust_customer;
 import com.ycj.entity.FenYe;
+import com.ycj.entity.FenyeJiang;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 	@Autowired
@@ -20,7 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Override
 	/**
-	 * 模糊查询所有用户，以及用户总条数
+	 * 妯＄硦鏌ヨ鎵�鏈夌敤鎴凤紝浠ュ強鐢ㄦ埛鎬绘潯鏁�
 	 */
 	public FenYe<Cust_customer> selectCust_customers(Cust_customer cust_customer) {
 		cust_customer.setPage((cust_customer.getPage()-1)*cust_customer.getRows());
@@ -58,7 +59,7 @@ public class CustomerServiceImpl implements CustomerService {
 	/**
 	 * fanxiangbin
 	 * 
-	 * 	咨询师
+	 * 	鍜ㄨ甯�
 	 */
 	
 	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer) {
@@ -88,11 +89,29 @@ public class CustomerServiceImpl implements CustomerService {
 		return 0;
 	}
 
+	@Override
+	public FenyeJiang selectCust_customer(FenyeJiang fenye) {
+		List<Cust_customer> selectAllCust_customer = cust_customerMapper.selectAllCust_customer(fenye);
+		int selectCountCust_customer = cust_customerMapper.selectCountCust_customer(fenye);
+		fenye.setRows(selectAllCust_customer);
+		fenye.setTotal(selectCountCust_customer);
+		return fenye;
+
+	}
+
+	@Override
+	public int insertCust_customerJ(Cust_customer cust_customer) {
+		// TODO Auto-generated method stub
+		int insertCust_customerJ = cust_customerMapper.insertCust_customerJ(cust_customer);
+		return insertCust_customerJ;
+		
+	}
+
 	
 	
 	/**
 	 * fanxiangbin
 	 * 
-	 * 	咨询师
+	 * 	鍜ㄨ甯�
 	 */
 }

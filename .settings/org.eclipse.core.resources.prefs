@@ -1,7 +1,12 @@
 eclipse.preferences.version=1
 encoding//WebContent/role.jsp=UTF-8
 encoding//src/com/ycj/Util/TreeNode.java=UTF-8
+encoding//src/com/ycj/controller/Cust_customerController.java=UTF-8
+encoding//src/com/ycj/dao/Cust_customerMapper.java=UTF-8
 encoding//src/com/ycj/dao/ModulesMapper.java=UTF-8
 encoding//src/com/ycj/dao/StaffMapper.java=UTF-8
 encoding//src/com/ycj/entity/Asker.java=UTF-8
+encoding//src/com/ycj/entity/Cust_customer.java=UTF-8
 encoding//src/com/ycj/entity/Signin.java=UTF-8
+encoding//src/com/ycj/service/CustomerService.java=UTF-8
+encoding//src/com/ycj/service/CustomerServiceImpl.java=UTF-8

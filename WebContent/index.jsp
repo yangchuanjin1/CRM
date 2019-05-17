@@ -34,7 +34,6 @@
 			    	staffid:staffid
 			    },
 			    onClick:function(node){
-					 alert(node.modules_Path);  // 在用户点击的时候提示
 					var flag = $("#tt").tabs('exists', node.text);
 					var isLeaf = $('#menuTree').tree('isLeaf',node.target);
 					if (isLeaf) {

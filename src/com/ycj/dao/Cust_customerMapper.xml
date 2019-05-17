@@ -36,6 +36,17 @@
      <result column="Cust_Asker_ID" property="Cust_Asker_ID"/>
      <result column="Cust_youxiao" property="Cust_youxiao"/>
      
+     <result column="Cust_zaixianbeizhu" property="Cust_zaixianbeizhu"/>
+     <result column="Cust_laiyuanguanjianzi" property="Cust_laiyuanguanjianzi"/>
+     <result column="Cust_quyu" property="Cust_quyu"/>
+     <result column="Cust_guanzhu" property="Cust_guanzhu"/>
+     <result column="Cust_laiyuanbumen" property="Cust_laiyuanbumen"/>
+     <result column="Cust_wuxiaoyuanyin" property="Cust_wuxiaoyuanyin"/>
+     <result column="Cust_dingjin" property="Cust_dingjin"/>
+     <result column="Cust_dingjinDay" property="Cust_dingjinDay"/>
+     <result column="Cust_askerbeizhu" property="Cust_askerbeizhu"/>
+     
+     
      <association property="asker" javaType="com.ycj.entity.Asker">
      <result column="Asker_ID" property="Asker_ID"/>
      <result column="Asker_Name" property="Asker_Name"/>
@@ -315,5 +326,56 @@
    </select>
    
    <!-- fanxiangbin -->
+  
+  <!-- 查询 J -->
+   <!-- 多条件查询 -->
+   <select id="selectAllCust_customer" parameterType="fenye" resultType="cust_customer">
+   select * from cust_customer
+   <where>
+   <if test="Cust_Name!=null and Cust_Name!=''">
+   and Cust_Name like "%"#{Cust_Name}"%"
+   </if>
+   <if test="Cust_Telephone !=null and Cust_Telephone !=''">
+   and Cust_Telephone like "%"#{Cust_Telephone}"%"
+   </if>
+    <if test="Cust_QQ !=null and Cust_QQ !=''">
+   and Cust_QQ like "%"#{Cust_QQ}"%"
+   </if>
+   <if test="minCust_Doortime>0">
+   and Cust_Doortime&gt;=#{minCust_Doortime}
+   </if>
+   <if test="maxCust_Doortime>0">
+   and Cust_Doortime&lt;=#{maxCust_Doortime}
+   </if>
+   </where>
+   limit #{page},#{pageSize}
+   </select>
+   <!-- 查询条数 -->
+    <select id="selectCountCust_customer" parameterType="fenye" resultType="int">
+      select count(*) from cust_customer
+   <where>
+   <if test="Cust_Name!=null and Cust_Name!=''">
+   and Cust_Name like "%"#{Cust_Name}"%"
+   </if>
+   <if test="Cust_Telephone !=null and Cust_Telephone !=''">
+   and Cust_Telephone like "%"#{Cust_Telephone}"%"
+   </if>
+    <if test="Cust_QQ !=null and Cust_QQ !=''">
+   and Cust_QQ like "%"#{Cust_QQ}"%"
+   </if>
+   <if test="minCust_Doortime>0">
+   and Cust_Doortime&gt;=#{minCust_Doortime}
+   </if>
+   <if test="maxCust_Doortime>0">
+   and Cust_Doortime&lt;=#{maxCust_Doortime}
+   </if>
+   </where>
+   </select>
+   <!--  添加-->
+   	
+   <insert id="insertCust_customerJ" parameterType="cust_customer">
+   insert into cust_customer (Cust_Name,Cust_Age,Cust_Gender,Cust_Telephone,Cust_Education,Cust_state,Cust_channel,Cust_website,Cust_QQ,Cust_WeChat,Cust_preparation,Cust_zaixianbeizhu)
+   values (#{Cust_Name},#{Cust_Age},#{Cust_Gender},#{Cust_Telephone},#{Cust_Education},#{Cust_state},#{Cust_channel},#{Cust_website},#{Cust_QQ},#{Cust_WeChat},#{Cust_preparation},#{Cust_zaixianbeizhu})
+   </insert>
    
   </mapper>

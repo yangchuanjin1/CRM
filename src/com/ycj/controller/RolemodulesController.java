@@ -17,7 +17,7 @@ public class RolemodulesController {
 	@RequestMapping(value="/insertAnddeleteYang",method=RequestMethod.POST)
 	@ResponseBody
 	public Integer insertAnddeleteYang(String parentIds,Integer rolesId) {
-		System.out.println("Ñî´«½õ    55555555555555555555555");
+		
 		rolemodulesService.delectRolesModules(rolesId);
 		String[] arr=parentIds.split(",");
 		Rolemodules rolemodules=new Rolemodules();
@@ -27,7 +27,7 @@ public class RolemodulesController {
 			rolemodules.setRM_ModulesID(Integer.parseInt(arr[i]));
 			s= rolemodulesService.insertRolesModulesYang(rolemodules);
 		}
-		System.out.println(s+"jjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+		
 		return s;
 	}
 	

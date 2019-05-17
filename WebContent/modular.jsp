@@ -125,12 +125,10 @@
 	/*  修改*/
 	function updateTree(){
 	     var node=$("#t").tree("getSelected");
-	     alert(node.modules_Path);
 	     document.getElementById("modules_Id").value=node.id;
 	     document.getElementById("modules_weight").value=node.modules_Weight;
 	     document.getElementById("modules_Name").value = node.text;
 	     document.getElementById("modules_Path").value=node.modules_Path;
-	     alert($("#modules_Path").val());
 	     $("#updateModalWindow").window("open");
 	  }
 	function submitModalFrom(){

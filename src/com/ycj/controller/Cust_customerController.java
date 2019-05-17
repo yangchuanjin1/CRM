@@ -1,6 +1,5 @@
 package com.ycj.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,12 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ycj.entity.Asker;
-import com.ycj.entity.Communicate_record;
 import com.ycj.entity.Cust_customer;
 import com.ycj.entity.FenYe;
+import com.ycj.entity.FenyeJiang;
 import com.ycj.entity.Staff;
 import com.ycj.service.CustomerService;
-import com.ycj.service.CustomerServiceImpl;
 @Controller
 public class Cust_customerController {
 	@Autowired
@@ -26,7 +24,7 @@ public class Cust_customerController {
 		cust_customer.setStaff(staff); 
 	  return customerService.selectCust_customers(cust_customer);
 		}
-	//添加
+	//娣诲姞
 	@RequestMapping(value="/insertCust_customer",method=RequestMethod.POST)
 	@ResponseBody
 	public int insertCust_customer(Cust_customer cust_customer,Asker asker,Staff staff) {
@@ -46,7 +44,7 @@ public class Cust_customerController {
 	/**
 	 * 	fanxiangbin
 	 * 
-	 * 	咨询师
+	 * 	鍜ㄨ甯�
 	 */
 	
 	@RequestMapping(value="/selectCust_customersFan",method=RequestMethod.POST)
@@ -57,4 +55,51 @@ public class Cust_customerController {
 	
 		return customerService.selectCust_customersFan(cust_customer);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    //	添加
+	@RequestMapping(value="/insertCust_customerJiang",method=RequestMethod.POST)
+	@ResponseBody
+	public int insertCust_customerJ(Cust_customer cust_customer) {
+		// TODO Auto-generated method stub
+		int insertCust_customerJ = customerService.insertCust_customerJ(cust_customer);
+		
+		return insertCust_customerJ;
+	}
+	//查询
+	@RequestMapping(value="/selectCust_customer",method=RequestMethod.POST)
+	@ResponseBody
+	public FenyeJiang selectCust_customer(int page,int rows,String Cust_Name,String Cust_Telephone,String Cust_QQ,String minCust_Doortime,String maxCust_Doortime) {
+		// TODO Auto-generated method stub
+		FenyeJiang fenye=new FenyeJiang();
+		fenye.setCust_Name(Cust_Name);
+		fenye.setCust_Telephone(Cust_Telephone);
+		fenye.setMaxCust_Doortime(maxCust_Doortime);
+		fenye.setMinCust_Doortime(minCust_Doortime);
+		fenye.setPage((page-1)*rows);
+		fenye.setPageSize(rows);
+		fenye.setCust_QQ(Cust_QQ);
+		FenyeJiang selectPro = customerService.selectCust_customer(fenye);
+		return selectPro;
+	}
+	
+	
+	
+	
+	
+	
+	
+
 }

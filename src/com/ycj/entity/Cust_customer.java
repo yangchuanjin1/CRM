@@ -3,52 +3,63 @@ package com.ycj.entity;
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
-//�ͻ���
+//锟酵伙拷锟斤拷
 @Component
 public class Cust_customer {
-	private Integer Cust_ID;//客户编号
-	private String Cust_Name;//客户名称
-	private Integer Cust_Age;//客户年龄
-	private String Cust_Gender;//客户（男女）1
-	private String  Cust_Telephone;//客户电话
-	private String Cust_Education;//客户学历(未知，大专，高中，中专，初中，本科，其它)
-	private String Cust_state;//客户状态（上学、下学）
-	private String Cust_channel;//客户来源渠道
-	private String Cust_website;//客户来源网站（其它，职英B站，高考站，职英A站）
-	private String Cust_QQ;//客户QQ
-	private String Cust_WeChat;//客户微信
-	private String Cust_mailbox;//客户邮箱
-	private String Cust_Creationtime;//客户创建的时间
-	private String minCust_Creationtime;//客户创建的时间
-	private String maxCust_Creationtime;//客户创建的时间
-	private String Cust_Course;//课程方向
-	private Integer Cust_Scoring;//客户的质量
-	private Integer Cust_Revisit;//是否回访（0.未回访1.回访）
-	private String Cust_RevisitDays;//回访时间
-	private String minCust_RevisitDays;//回访时间
-	private String maxCust_RevisitDays;//回访时间
-	private Integer Cust_Door;//是否上门（0.上门1.未上门）
-	private String Cust_Doortime;//上门时间
-	private String minCust_Doortime;//上门时间
-	private String maxCust_Doortime;//上门时间
-	private Integer Cust_Pay;//是否缴费（0.缴费1.未交费）
-	private String Cust_Paytime;//缴费时间
-	private String minCust_Paytime;//缴费时间
-	private String maxCust_Paytime;//缴费时间
-	private Double Cust_money;//缴费金额
-	private Integer Cust_Refund;//是否退费（0.是1.否）
-	private String Cust_Refundreason;//退费原因
-	private Integer Cust_entry;//是否进班（0.是1.否）p-
-	private String Cust_entrytime;//进班时间
-	private String minCust_entrytime;//进班时间
-	private String maxCust_entrytime;//进班时间
-	private String Cust_notes;//进班备注
-	private String Cust_Region;//客户所在地区
-	private Integer Cust_preparation;//是否报备（0.是1.否）
-	private Integer Cust_youxiao;//是否有效（0.是1.否）
-	private String Cust_zaixianbeizhu;//在线备注（0.是1.否）
-	private String Cust_laiyuanguanjianzi;//来源关键词（0.是1.否）
-	private Integer Cust_Asker_ID;//咨询师编号
+	private Integer Cust_ID;//瀹㈡埛缂栧彿
+	private String Cust_Name;//瀹㈡埛鍚嶇О
+	private Integer Cust_Age;//瀹㈡埛骞撮緞
+	private String Cust_Gender;//瀹㈡埛锛堢敺濂筹級1
+	private String  Cust_Telephone;//瀹㈡埛鐢佃瘽
+	private String Cust_Education;//瀹㈡埛瀛﹀巻(鏈煡锛屽ぇ涓擄紝楂樹腑锛屼腑涓擄紝鍒濅腑锛屾湰绉戯紝鍏跺畠)
+	private String Cust_state;//瀹㈡埛鐘舵�侊紙涓婂銆佷笅瀛︼級
+	private String Cust_channel;//瀹㈡埛鏉ユ簮娓犻亾
+	private String Cust_website;//瀹㈡埛鏉ユ簮缃戠珯锛堝叾瀹冿紝鑱岃嫳B绔欙紝楂樿�冪珯锛岃亴鑻盇绔欙級
+	private String Cust_QQ;//瀹㈡埛QQ
+	private String Cust_WeChat;//瀹㈡埛寰俊
+	private String Cust_mailbox;//瀹㈡埛閭
+	private String Cust_Creationtime;//瀹㈡埛鍒涘缓鐨勬椂闂�
+	private String minCust_Creationtime;//瀹㈡埛鍒涘缓鐨勬椂闂�
+	private String maxCust_Creationtime;//瀹㈡埛鍒涘缓鐨勬椂闂�
+	private String Cust_Course;//璇剧▼鏂瑰悜
+	private Integer Cust_Scoring;//瀹㈡埛鐨勮川閲�
+	private Integer Cust_Revisit;//鏄惁鍥炶锛�0.鏈洖璁�1.鍥炶锛�
+	private String Cust_RevisitDays;//鍥炶鏃堕棿
+	private String minCust_RevisitDays;//鍥炶鏃堕棿
+	private String maxCust_RevisitDays;//鍥炶鏃堕棿
+	private Integer Cust_Door;//鏄惁涓婇棬锛�0.涓婇棬1.鏈笂闂級
+	private String Cust_Doortime;//涓婇棬鏃堕棿
+	private String minCust_Doortime;//涓婇棬鏃堕棿
+	private String maxCust_Doortime;//涓婇棬鏃堕棿
+	private Integer Cust_Pay;//鏄惁缂磋垂锛�0.缂磋垂1.鏈氦璐癸級
+	private String Cust_Paytime;//缂磋垂鏃堕棿
+	private String minCust_Paytime;//缂磋垂鏃堕棿
+	private String maxCust_Paytime;//缂磋垂鏃堕棿
+	private Double Cust_money;//缂磋垂閲戦
+	private Integer Cust_Refund;//鏄惁閫�璐癸紙0.鏄�1.鍚︼級
+	private String Cust_Refundreason;//閫�璐瑰師鍥�
+	private Integer Cust_entry;//鏄惁杩涚彮锛�0.鏄�1.鍚︼級p-
+	private String Cust_entrytime;//杩涚彮鏃堕棿
+	private String minCust_entrytime;//杩涚彮鏃堕棿
+	private String maxCust_entrytime;//杩涚彮鏃堕棿
+	private String Cust_notes;//杩涚彮澶囨敞
+	private String Cust_Region;//瀹㈡埛鎵�鍦ㄥ湴鍖�
+	private Integer Cust_preparation;//鏄惁鎶ュ锛�0.鏄�1.鍚︼級
+	private Integer Cust_youxiao;//鏄惁鏈夋晥锛�0.鏄�1.鍚︼級
+	
+	private String Cust_zaixianbeizhu;//鍦ㄧ嚎澶囨敞锛�0.鏄�1.鍚︼級
+	private String Cust_laiyuanguanjianzi;//鏉ユ簮鍏抽敭璇嶏紙0.鏄�1.鍚︼級
+	private Integer Cust_Asker_ID;//鍜ㄨ甯堢紪鍙�
+	
+	private String Cust_quyu;//来源区域
+	private String Cust_guanzhu;//学员关注
+	private String Cust_laiyuanbumen;//来源部门
+	
+	private String Cust_wuxiaoyuanyin; //无效原因
+	private Double Cust_dingjin;//定金金额
+	private String Cust_dingjinDay;//定金时间
+	private String Cust_askerbeizhu;//咨询师备注
+
 	
 	private Asker asker;
 	
@@ -190,6 +201,49 @@ public class Cust_customer {
 	}
 	public void setCust_website(String cust_website) {
 		Cust_website = cust_website;
+	}
+	
+	public String getCust_quyu() {
+		return Cust_quyu;
+	}
+	public void setCust_quyu(String cust_quyu) {
+		Cust_quyu = cust_quyu;
+	}
+	public String getCust_guanzhu() {
+		return Cust_guanzhu;
+	}
+	public void setCust_guanzhu(String cust_guanzhu) {
+		Cust_guanzhu = cust_guanzhu;
+	}
+	public String getCust_laiyuanbumen() {
+		return Cust_laiyuanbumen;
+	}
+	public void setCust_laiyuanbumen(String cust_laiyuanbumen) {
+		Cust_laiyuanbumen = cust_laiyuanbumen;
+	}
+	public String getCust_wuxiaoyuanyin() {
+		return Cust_wuxiaoyuanyin;
+	}
+	public void setCust_wuxiaoyuanyin(String cust_wuxiaoyuanyin) {
+		Cust_wuxiaoyuanyin = cust_wuxiaoyuanyin;
+	}
+	public Double getCust_dingjin() {
+		return Cust_dingjin;
+	}
+	public void setCust_dingjin(Double cust_dingjin) {
+		Cust_dingjin = cust_dingjin;
+	}
+	public String getCust_dingjinDay() {
+		return Cust_dingjinDay;
+	}
+	public void setCust_dingjinDay(String cust_dingjinDay) {
+		Cust_dingjinDay = cust_dingjinDay;
+	}
+	public String getCust_askerbeizhu() {
+		return Cust_askerbeizhu;
+	}
+	public void setCust_askerbeizhu(String cust_askerbeizhu) {
+		Cust_askerbeizhu = cust_askerbeizhu;
 	}
 	public String getCust_QQ() {
 		return Cust_QQ;
