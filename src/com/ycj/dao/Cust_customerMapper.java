@@ -16,12 +16,23 @@ public interface Cust_customerMapper {
      */
     Asker selectAskers(int asker_ID);
     
+    /**
+     * 修改学生
+     * @param cust_customer
+     * @return
+     */
+    int updateCust_customer(Cust_customer cust_customer);
+    
     int selectCount(Cust_customer cust_customer);
     
     int updateCust_customergenzhong(Cust_customer cust_customer);
     
     int insertCust_customer(Cust_customer cust_customer);
-    
+    /**
+     * 删除
+     * @param cust_ID
+     * @return
+     */
     int deleteCust_customer(int cust_ID);
     /**
      * 娣诲姞璺熻釜

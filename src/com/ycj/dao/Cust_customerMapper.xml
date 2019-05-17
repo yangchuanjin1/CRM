@@ -35,6 +35,14 @@
      <result column="Cust_preparation" property="Cust_preparation"/>
      <result column="Cust_Asker_ID" property="Cust_Asker_ID"/>
      <result column="Cust_youxiao" property="Cust_youxiao"/>
+     <result column="Cust_quyu" property="Cust_quyu"/>
+     <result column="Cust_guanzhu" property="Cust_guanzhu"/>
+     <result column="Cust_laiyuanbumen" property="Cust_laiyuanbumen"/>
+    
+     <result column="Cust_wuxiaoyuanyin" property="Cust_wuxiaoyuanyin"/>
+     <result column="Cust_dingjin" property="Cust_dingjin"/>
+     <result column="Cust_dingjinDay" property="Cust_dingjinDay"/>
+     <result column="Cust_askerbeizhu" property="Cust_askerbeizhu"/>
      
      <result column="Cust_zaixianbeizhu" property="Cust_zaixianbeizhu"/>
      <result column="Cust_laiyuanguanjianzi" property="Cust_laiyuanguanjianzi"/>
@@ -200,6 +208,124 @@
   <!--  <insert id="insertCommunicate_record" parameterType="communicate_record">
    		INSERT INTO communicate_record(Comm_ cust_ID,Comm_ Staff_ID,Comm_date,Comm_ way,comm_title,comm_detail,comm_nextdate) 
 		VALUES(#{Comm_ cust_ID},#{Comm_ Staff_ID},#{Comm_date},#{Comm_ way},#{comm_title},#{comm_detail},#{comm_nextdate})
+<<<<<<< HEAD
+   </insert>
+   
+   <update id="updateCust_customer" parameterType="cust_customer">
+       update cust_customer 
+       <set>
+          <if test="Cust_Name != null and Cust_Name !=''">
+              Cust_Name =#{Cust_Name},
+          </if>
+          <if test="Cust_Gender != null and Cust_Gender !=''">
+              Cust_Gender =#{Cust_Gender},
+          </if>
+          <if test="Cust_Age != null and Cust_Age !=''">
+              Cust_Age =#{Cust_Age},
+          </if>
+          <if test="Cust_Telephone != null and Cust_Telephone !=''">
+              Cust_Telephone =#{Cust_Telephone},
+          </if>
+          <if test="Cust_Education != null and Cust_Education !=''">
+              Cust_Education =#{Cust_Education},
+          </if>
+          <if test="Cust_state != null and Cust_state !=''">
+              Cust_state =#{Cust_state},
+          </if>
+          <if test="Cust_channel != null and Cust_channel !=''">
+              Cust_channel =#{Cust_channel},
+          </if>
+          <if test="Cust_website != null and Cust_website !=''">
+              Cust_website =#{Cust_website},
+          </if>
+          <if test="Cust_laiyuanguanjianzi != null and Cust_laiyuanguanjianzi !=''">
+              Cust_laiyuanguanjianzi =#{Cust_laiyuanguanjianzi},
+          </if>
+          <if test="Cust_quyu != null and Cust_quyu !=''">
+              Cust_quyu =#{Cust_quyu},
+          </if>
+          <if test="Cust_guanzhu != null and Cust_guanzhu !=''">
+              Cust_guanzhu =#{Cust_guanzhu},
+          </if>
+          <if test="Cust_laiyuanbumen != null and Cust_laiyuanbumen !=''">
+              Cust_laiyuanbumen =#{Cust_laiyuanbumen},
+          </if>
+          <if test="Cust_QQ != null and Cust_QQ !=''">
+              Cust_QQ =#{cust_QQ},
+          </if>
+          <if test="Cust_WeChat != null and Cust_WeChat !=''">
+              Cust_WeChat =#{Cust_WeChat},
+          </if>
+          <if test="Cust_preparation != null and Cust_preparation !=''">
+              Cust_preparation =#{Cust_preparation},
+          </if>
+          <if test="Cust_Asker_ID != null and Cust_Asker_ID !=''">
+              Cust_Asker_ID =#{Cust_Asker_ID},
+          </if>
+          <if test="Cust_Course != null and Cust_Course !=''">
+              Cust_Course =#{Cust_Course},
+          </if>
+          <if test="Cust_Scoring != null and Cust_Scoring !=''">
+              Cust_Scoring =#{Cust_Scoring},
+          </if>
+          <if test="Cust_youxiao != null and Cust_youxiao !=''">
+              Cust_youxiao =#{Cust_youxiao},
+          </if>
+          <if test="Cust_wuxiaoyuanyin != null and Cust_wuxiaoyuanyin !=''">
+              Cust_wuxiaoyuanyin =#{Cust_wuxiaoyuanyin},
+          </if>
+          <if test="Cust_Revisit != null and Cust_Revisit !=''">
+              Cust_Revisit =#{Cust_Revisit},
+          </if>
+          <if test="Cust_RevisitDays != null and Cust_RevisitDays !=''">
+              Cust_RevisitDays =#{Cust_RevisitDays},
+          </if>
+          <if test="Cust_Door != null and Cust_Door !=''">
+              Cust_Door =#{Cust_Door},
+          </if>
+          <if test="Cust_Doortime != null and Cust_Doortime !=''">
+              Cust_Doortime =#{cust_Doortime},
+          </if>
+          <if test="Cust_dingjin != null and Cust_dingjin !=''">
+              Cust_dingjin =#{Cust_dingjin},
+          </if>
+          <if test="Cust_dingjinDay != null and Cust_dingjinDay !=''">
+              Cust_dingjinDay =#{Cust_dingjinDay},
+          </if>
+          <if test="Cust_Pay != null and Cust_Pay !=''">
+              Cust_Pay =#{Cust_Pay},
+          </if>
+          <if test="Cust_Paytime != null and Cust_Paytime !=''">
+              Cust_Paytime =#{Cust_Paytime},
+          </if>
+          <if test="Cust_money != null and Cust_money !=''">
+              Cust_money =#{Cust_money},
+          </if>
+          <if test="Cust_Refund != null and Cust_Refund !=''">
+              Cust_Refund =#{Cust_Refund},
+          </if>
+          <if test="Cust_Refundreason != null and Cust_Refundreason !=''">
+              Cust_Refundreason =#{Cust_Refundreason},
+          </if>
+          <if test="Cust_entry != null and Cust_entry !=''">
+              Cust_entry =#{Cust_entry},
+          </if>
+          <if test="Cust_entrytime != null and Cust_entrytime !=''">
+              Cust_entrytime =#{Cust_entrytime},
+          </if>
+          <if test="Cust_notes != null and Cust_notes !=''">
+              Cust_notes =#{Cust_notes},
+          </if>
+          <if test="Cust_askerbeizhu != null and Cust_askerbeizhu !=''">
+              Cust_askerbeizhu =#{Cust_askerbeizhu},
+          </if>
+       </set>
+       where Cust_ID=#{Cust_ID}
+   </update>
+   <delete id="deleteCust_customer" parameterType="int">
+     delete from cust_customer where Cust_ID=#{cust_ID}
+   </delete>
+=======
    </insert> -->
    
    <!-- fanxiangbin -->

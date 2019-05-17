@@ -61,12 +61,68 @@ public class Cust_customer {
 	private String Cust_askerbeizhu;//咨询师备注
 
 	
+	private String Cust_quyu;//来源区域
+	private String Cust_guanzhu;//学员关注
+	private String Cust_laiyuanbumen;//来源部门
+	
+	private String Cust_wuxiaoyuanyin; //无效原因
+	private Double Cust_dingjin;//定金金额
+	private String Cust_dingjinDay;//定金时间
+	private String Cust_askerbeizhu;//咨询师备注
+	
+	
+	
 	private Asker asker;
 	
 	private Staff staff;
 	
 	private Integer page;
 	private Integer rows;
+	
+	
+	public String getCust_wuxiaoyuanyin() {
+		return Cust_wuxiaoyuanyin;
+	}
+	public void setCust_wuxiaoyuanyin(String cust_wuxiaoyuanyin) {
+		Cust_wuxiaoyuanyin = cust_wuxiaoyuanyin;
+	}
+	public Double getCust_dingjin() {
+		return Cust_dingjin;
+	}
+	public void setCust_dingjin(Double cust_dingjin) {
+		Cust_dingjin = cust_dingjin;
+	}
+	public String getCust_dingjinDay() {
+		return Cust_dingjinDay;
+	}
+	public void setCust_dingjinDay(String cust_dingjinDay) {
+		Cust_dingjinDay = cust_dingjinDay;
+	}
+	public String getCust_askerbeizhu() {
+		return Cust_askerbeizhu;
+	}
+	public void setCust_askerbeizhu(String cust_askerbeizhu) {
+		Cust_askerbeizhu = cust_askerbeizhu;
+	}
+	public String getCust_quyu() {
+		return Cust_quyu;
+	}
+	public void setCust_quyu(String cust_quyu) {
+		Cust_quyu = cust_quyu;
+	}
+	public String getCust_guanzhu() {
+		return Cust_guanzhu;
+	}
+	public void setCust_guanzhu(String cust_guanzhu) {
+		Cust_guanzhu = cust_guanzhu;
+	}
+	public String getCust_laiyuanbumen() {
+		return Cust_laiyuanbumen;
+	}
+	public void setCust_laiyuanbumen(String cust_laiyuanbumen) {
+		Cust_laiyuanbumen = cust_laiyuanbumen;
+	}
+
 	
 	
 	public Staff getStaff() {

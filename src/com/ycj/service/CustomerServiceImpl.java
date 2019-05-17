@@ -34,7 +34,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public int updateCust_customer(Cust_customer cust_customer) {
 		// TODO Auto-generated method stub
-		return 0;
+		return cust_customerMapper.updateCust_customer(cust_customer);
 	}
 
 	@Override
@@ -45,8 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public int deleteCust_customer(int cust_ID) {
-		// TODO Auto-generated method stub
-		return 0;
+		return cust_customerMapper.deleteCust_customer(cust_ID);
 	}
 	
 	@Override
@@ -90,6 +89,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public FenyeJiang selectCust_customer(FenyeJiang fenye) {
 		List<Cust_customer> selectAllCust_customer = cust_customerMapper.selectAllCust_customer(fenye);
 		int selectCountCust_customer = cust_customerMapper.selectCountCust_customer(fenye);
@@ -105,6 +105,11 @@ public class CustomerServiceImpl implements CustomerService {
 		int insertCust_customerJ = cust_customerMapper.insertCust_customerJ(cust_customer);
 		return insertCust_customerJ;
 		
+=======
+	public int insertCommunicate_record(Communicate_record communicate_record) {
+		// TODO Auto-generated method stub
+		return 0;
+>>>>>>> 7828678692853ae9ae8c4a38c208556d2af95a23
 	}
 
 	
