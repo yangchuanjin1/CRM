@@ -176,5 +176,13 @@ public class StaffControll {
 		  Integer deleteStaff_IdYang = staffService.deleteStaff_IdYang(Staff_ID);
 		  return deleteStaffRolesStaff_IDYang+deleteStaff_IdYang;
 	  }
-	  
+	  /**
+	   * YangChuanJin    查询不是咨询师的员工
+	   */
+	  @RequestMapping(value="/selectStaffAndAsker",method=RequestMethod.POST)
+	  @ResponseBody
+	  public List<Staff> selectStaffAndAsker(){
+		  List<Staff> selectStaffAndAsker = staffService.selectStaffAndAsker();
+		  return selectStaffAndAsker;
+	  }
 }

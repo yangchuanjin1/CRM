@@ -120,5 +120,11 @@ public interface StaffMapper {
 	 * @return
 	 */
 	Integer deleteStaff_IdYang(Integer Staff_ID);
+	/**
+	 * YangChuanJin    查询不是咨询师的员工
+	 * @return
+	 */
+	List<Staff> selectStaffAndAsker();
+	
 	
 }

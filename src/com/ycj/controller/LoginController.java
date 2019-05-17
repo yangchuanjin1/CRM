@@ -22,12 +22,14 @@ import com.ycj.Util.Result;
 import com.ycj.entity.Roles;
 import com.ycj.entity.Staff;
 import com.ycj.service.LoginService;
+import com.ycj.service.SigninService;
 
 
 @Controller
 public class LoginController {
 	@Autowired
 	private LoginService loginService;
+	
 	@Autowired
 	private Staff staff;
 	/**

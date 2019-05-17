@@ -1,20 +1,22 @@
 package com.ycj.entity;
-//ǩ����
+//签锟斤拷锟斤拷
 
-import java.util.Date;
+
 
 public class Signin {
-	private Integer signIn_ID;//ǩ�����
-	private String SignIn_date;//ǩ��ʱ��
-	private String Back_date;//ǩ��ʱ��
-	private Integer Sign_StaffID;//Ա�����
+	private Integer signIn_ID;//签锟斤拷锟斤拷锟�
+	private String SignIn_date;//签锟斤拷时锟斤拷
+	private String Back_date;//签锟斤拷时锟斤拷
+	private Integer Sign_StaffID;//员锟斤拷锟斤拷锟�
 	private Integer Signln_status;
+	/*维护的员工对象*/
+	private Staff staff;
 	
-	private String sSignIn_date;//ǩ��ʱ��
-	private String eSignIn_date;//ǩ��ʱ��
+	private String sSignIn_date;//签锟斤拷时锟斤拷
+	private String eSignIn_date;//签锟斤拷时锟斤拷
 	
-	private String sBack_date;//ǩ��ʱ��
-	private String eBack_date;//ǩ��ʱ��
+	private String sBack_date;//签锟斤拷时锟斤拷
+	private String eBack_date;//签锟斤拷时锟斤拷
 	
 	
 	public String getsSignIn_date() {
@@ -71,6 +73,14 @@ public class Signin {
 	}
 	public void setSign_StaffID(Integer sign_StaffID) {
 		Sign_StaffID = sign_StaffID;
+	}
+	
+	
+	public Staff getStaff() {
+		return staff;
+	}
+	public void setStaff(Staff staff) {
+		this.staff = staff;
 	}
 	@Override
 	public String toString() {

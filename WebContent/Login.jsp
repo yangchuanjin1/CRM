@@ -71,7 +71,7 @@
 					</tr>
 					<tr style="padding: 20px;">
 						<td>密码：</td>
-						<td><input name="Staff_Password" id="Staff_Password"
+						<td><input type="password"  name="Staff_Password" id="Staff_Password"
 							class="easyui-textbox" required="required" /></td>
 					</tr>
 					<tr style="padding: 20px;">

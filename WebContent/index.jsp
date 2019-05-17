@@ -109,6 +109,22 @@
 				}
 		 })
 	 }
+	 /*签到*/
+	 function qiandao(){
+		 var staffid='<%= session.getAttribute("Staff_ID")%>';
+		 $.ajax({
+			 type:"post",//提交方式
+				url:"insertSigninYang",//提交路径
+				datatype:"json",//格式
+				data:{//传递的参数
+					"Staff_ID":staffid
+				},success:function(res){//回调
+					if(res>0){
+						$.messager.alert('提示','签到成功');//提示信息
+					}
+				}
+		});
+	 }
 </script>
 </head>
 <body>
@@ -119,6 +135,7 @@
 				href="javascript:tuichu()">&nbsp;安全退出</a> <a
 				href="javascript:shezhimibao()" class="easyui-linkbutton">&nbsp;设置密保</a>
 			<a href="javascript:shezhimima()" class="easyui-linkbutton">&nbsp;重置密码</a>
+			<a href="javascript:qiandao()" class="easyui-linkbutton">&nbsp;签到</a>
 		</div>
 		<div data-options="region:'south',split:true" style="height: 50px;"></div>
 		<!--<div data-options="region:'east',split:true" title="East" style="width:100px;"></div>-->

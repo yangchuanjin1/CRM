@@ -148,6 +148,16 @@ public class StaffServiceImpl implements StaffService{
 		Integer deleteStaff_IdYang = staffMapper.deleteStaff_IdYang(Staff_ID);
 		return deleteStaff_IdYang;
 	}
+
+
+
+	/**
+	 * YangChuanJin    查询不是咨询师的员工
+	 */
+	public List<Staff> selectStaffAndAsker() {
+		List<Staff> selectStaffAndAsker = staffMapper.selectStaffAndAsker();
+		return selectStaffAndAsker;
+	}
 	  
 	  
 
