@@ -60,8 +60,8 @@
        select com.*,cust.Cust_Name,sta.Staff_Name 
        from communicate_record com,cust_customer cust,staff sta 
 			   <where>
-			     com.`Comm_ cust_ID`=Cust_ID 
-			     and Staff_ID=com.`Comm_ Staff_ID`
+			     com.`Comm_cust_ID`=Cust_ID 
+			     and Staff_ID=com.`Comm_Staff_ID`
 			     <if test="cust_customer.cust_Name !=null and cust_customer.cust_Name !=''">
 			        and Cust_Name like "%"#{cust_customer.cust_Name}"%"
 			     </if>
@@ -94,8 +94,8 @@
     select count(Comm_ID) 
        from communicate_record com,cust_customer cust,staff sta 
        <where>
-			     com.`Comm_ cust_ID`=Cust_ID 
-			     and Staff_ID=com.`Comm_ Staff_ID`
+			     com.`Comm_cust_ID`=Cust_ID 
+			     and Staff_ID=com.`Comm_Staff_ID`
 			     <if test="cust_customer.cust_Name !=null and cust_customer.cust_Name !=''">
 			        and Cust_Name like "%"#{cust_customer.cust_Name}"%"
 			     </if>
@@ -131,4 +131,10 @@
   		<select id="selectCommunicate_record" parameterType="communicate_record" resultType="communicate_record">
   			select * from communicate_record
   		</select> -->
+  		<!-- fanxiangbin -->
+  		<insert id="insertCommunicate_recordFan" parameterType="communicate_record">
+  			INSERT INTO communicate_record(Comm_cust_ID,Comm_Staff_ID,Comm_date,Comm_way,comm_zaixianbeizhu,comm_detail,comm_xiacihuifang) 
+		VALUES(#{Comm_cust_ID},#{Comm_Staff_ID},#{Comm_date},#{Comm_way},#{comm_zaixianbeizhu},#{comm_detail},#{comm_xiacihuifang})
+  		</insert>
+  		<!-- fanxiangbin -->
   </mapper>

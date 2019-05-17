@@ -24,5 +24,8 @@ public class Communicate_recordServiceImpl implements Communicate_recordService{
 		fenYe.setRows(selectCommunicate_recordMappers);
 		return fenYe;
 	}
-
+	public int insertCommunicate_recordFan(Communicate_record communicate_record) {
+		// TODO Auto-generated method stub
+		return communicate_recordMapper.insertCommunicate_recordFan(communicate_record);
+	}
 }

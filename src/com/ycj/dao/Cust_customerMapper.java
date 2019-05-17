@@ -13,7 +13,7 @@ public interface Cust_customerMapper {
      * 查询所有咨询师
      * @return
      */
-    List<Asker> selectAskers();
+    Asker selectAskers(int asker_ID);
     
     int selectCount(Cust_customer cust_customer);
     
@@ -28,5 +28,20 @@ public interface Cust_customerMapper {
      * @return
      */
     int insertCommunicate_record(Communicate_record communicate_record);
+    
+    
+    //fanxiangbin
+    	List<Cust_customer> selectCust_customersFan(Cust_customer cust_customer);
+    
+    	int selectCountFan(Cust_customer cust_customer);
+    	    
+    	int updateCust_customergenzhongFan(Cust_customer cust_customer);
+    	    
+    	int insertCust_customerFan(Cust_customer cust_customer);
+    	    
+    	int deleteCust_customerFan(int cust_ID);
+    
+    
+    //fanxiangbin
     
 }
