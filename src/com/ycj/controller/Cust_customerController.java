@@ -40,6 +40,18 @@ public class Cust_customerController {
 	public int insertCommunicate_record(Communicate_record communicate_record) {
 		return customerService.insertCommunicate_record(communicate_record);
 	}
+	@RequestMapping(value="/updateCust_customer",method=RequestMethod.POST)
+	@ResponseBody
+	public int updateCust_customer(Cust_customer cust_customer) {
+		System.out.println("123132654+65+636526");
+		return customerService.updateCust_customer(cust_customer);
+	}
+	@RequestMapping(value="/deleteCust_customer",method=RequestMethod.POST)
+	@ResponseBody
+	public int deleteCust_customer(int cust_ID) {
+		// TODO Auto-generated method stub
+		return customerService.deleteCust_customer(cust_ID);
+	}
 	/*
 	 * @RequestMapping(value="/selectAskers",method=RequestMethod.POST)
 	 * 

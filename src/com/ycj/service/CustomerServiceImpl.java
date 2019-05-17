@@ -33,7 +33,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public int updateCust_customer(Cust_customer cust_customer) {
 		// TODO Auto-generated method stub
-		return 0;
+		return cust_customerMapper.updateCust_customer(cust_customer);
 	}
 
 	@Override
@@ -44,8 +44,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public int deleteCust_customer(int cust_ID) {
-		// TODO Auto-generated method stub
-		return 0;
+		return cust_customerMapper.deleteCust_customer(cust_ID);
 	}
 
 	@Override

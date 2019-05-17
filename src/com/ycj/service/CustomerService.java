@@ -24,4 +24,6 @@ public interface CustomerService {
      * @return
      */
     int insertCommunicate_record(Communicate_record communicate_record);
+    
+    
 }
