@@ -89,7 +89,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-<<<<<<< HEAD
+
 	public FenyeJiang selectCust_customer(FenyeJiang fenye) {
 		List<Cust_customer> selectAllCust_customer = cust_customerMapper.selectAllCust_customer(fenye);
 		int selectCountCust_customer = cust_customerMapper.selectCountCust_customer(fenye);
@@ -105,13 +105,13 @@ public class CustomerServiceImpl implements CustomerService {
 		int insertCust_customerJ = cust_customerMapper.insertCust_customerJ(cust_customer);
 		return insertCust_customerJ;
 		
-=======
+	}
+
+	@Override
 	public int insertCommunicate_record(Communicate_record communicate_record) {
 		// TODO Auto-generated method stub
 		return 0;
->>>>>>> 7828678692853ae9ae8c4a38c208556d2af95a23
 	}
-
 	
 	
 	/**

@@ -28,14 +28,14 @@ import com.ycj.Util.ExportUtils;
 import com.ycj.entity.Cust_customer;
 
 
-@Controller
+/*@Controller*/
 public class ExpotExeclLi {
 	@RequestMapping(value="/exportForm",method=RequestMethod.POST)
 	public void exportForm(HttpServletResponse res,String stulist ,String fields){
 		Gson gson=new Gson();
 		final ObjectMapper mapper = new ObjectMapper();
 	    
-		//获取输出流接收数据输出出去
+		//鑾峰彇杈撳嚭娴佹帴鏀舵暟鎹緭鍑哄嚭鍘�
 		try {
 			List<Cust_customer> listll = mapper.readValue(stulist, new TypeReference<List<Cust_customer>>(){});
 			//List<Cust_customer> list=gson.fromJson(stulist,new TypeToken<List<Cust_customer>>(){}.getType());

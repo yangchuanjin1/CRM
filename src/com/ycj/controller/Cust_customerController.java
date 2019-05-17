@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ycj.entity.Asker;
+import com.ycj.entity.Communicate_record;
 import com.ycj.entity.Cust_customer;
 import com.ycj.entity.FenYe;
 import com.ycj.entity.FenyeJiang;
