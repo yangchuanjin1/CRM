@@ -505,67 +505,67 @@
                  <table cellpadding=7>
                     <tr>
                       <td>姓名</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Name2" name="cust_Name"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Name2" name="cust_Name"></td>
                     </tr>
                     <tr>
                       <td>性别</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Gender2" name="cust_Gender"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Gender2" name="cust_Gender"></td>
                     </tr>
                     <tr>
                       <td>年龄</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Age2" name="cust_Age"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Age2" name="cust_Age"></td>
                     </tr>
                     <tr>
                       <td>电话</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Telephone2" name="cust_Telephone"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Telephone2" name="cust_Telephone"></td>
                     </tr>
                     <tr>
                       <td>学历</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Education2" name="cust_Education"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Education2" name="cust_Education"></td>
                     </tr>
                     <tr>
                       <td>状态</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_state2" name="cust_state"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_state2" name="cust_state"></td>
                     </tr>
                     <tr>
                       <td>来源渠道</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_channel2" name="cust_channel"></td>
+                      <td><input class="easyui-textbox" readonly="readonly"  style="width:150px" id="Cust_channel2" name="cust_channel"></td>
                     </tr>
                     <tr>
                       <td>来源网站</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_website2" name="cust_website"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_website2" name="cust_website"></td>
                     </tr>
                      <tr>
                       <td>来源关键词</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_laiyuanguanjianzi2" name="cust_laiyuanguanjianzi"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_laiyuanguanjianzi2" name="cust_laiyuanguanjianzi"></td>
                     </tr>
                      <tr>
                       <td>所在区域</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_quyu2" name="cust_quyu"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_quyu2" name="cust_quyu"></td>
                     </tr>
                      <tr>
                       <td>学员关注</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_guanzhu2" name="cust_guanzhu"></td>
+                      <td><input class="easyui-textbox" readonly="readonly"  style="width:150px" id="Cust_guanzhu2" name="cust_guanzhu"></td>
                     </tr>
                      <tr>
                       <td>来源部门</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_laiyuanbumen2" name="cust_laiyuanbumen"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_laiyuanbumen2" name="cust_laiyuanbumen"></td>
                     </tr>
                      <tr>
                       <td>学员QQ</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_QQ2" name="cust_QQ"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_QQ2" name="cust_QQ"></td>
                     </tr>
                      <tr>
                       <td>微信号</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_WeChat2" name="cust_WeChat"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_WeChat2" name="cust_WeChat"></td>
                     </tr>
                      <tr>
                       <td>是否报备</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_preparation2" name="cust_preparation"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_preparation2" name="cust_preparation"></td>
                     </tr>
                      <tr>
                       <td>咨询师</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Asker_ID2" name="cust_Asker_ID"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Asker_ID2" name="cust_Asker_ID"></td>
                     </tr>
                  </table>
                </form>
@@ -575,83 +575,83 @@
                  <table cellpadding=7>
                     <tr>
                       <td>咨询师姓名</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Asker_ID2" name="cust_Asker_ID"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Asker_ID2" name="cust_Asker_ID"></td>
                     </tr>
                     <tr>
                       <td>课程方向</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Course2" name="cust_Course"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Course2" name="cust_Course"></td>
                     </tr>
                     <tr>
                       <td>打分</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Scoring2" name="cust_Scoring"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Scoring2" name="cust_Scoring"></td>
                     </tr>
                     <tr>
                       <td>是否有效</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_youxiao2" name="cust_youxiao"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_youxiao2" name="cust_youxiao"></td>
                     </tr>
                     <tr>
                       <td>无效原因</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_wuxiaoyuanyin2" name="cust_wuxiaoyuanyin"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_wuxiaoyuanyin2" name="cust_wuxiaoyuanyin"></td>
                     </tr>
                     <tr>
                       <td>是否回访</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Revisit2" name="cust_Revisit"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Revisit2" name="cust_Revisit"></td>
                     </tr>
                     <tr>
                       <td>首访时间</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_RevisitDays2" name="cust_RevisitDays"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_RevisitDays2" name="cust_RevisitDays"></td>
                     </tr>
                     <tr>
                       <td>是否上门</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Door2" name="cust_Door"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Door2" name="cust_Door"></td>
                     </tr>
                      <tr>
                       <td>上门时间</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Doortime2" name="cust_Doortime"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Doortime2" name="cust_Doortime"></td>
                     </tr>
                      <tr>
                       <td>定金金额</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_dingjin2" name="cust_dingjin"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_dingjin2" name="cust_dingjin"></td>
                     </tr>
                      <tr>
                       <td>定金时间</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_dingjinDay2" name="cust_dingjinDay"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_dingjinDay2" name="cust_dingjinDay"></td>
                     </tr>
                      <tr>
                       <td>是否缴费</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Pay2" name="cust_Pay"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Pay2" name="cust_Pay"></td>
                     </tr>
                      <tr>
                       <td>缴费时间</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Paytime2" name="cust_Paytime"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Paytime2" name="cust_Paytime"></td>
                     </tr>
                      <tr>
                       <td>缴费金额</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_money2" name="cust_money"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_money2" name="cust_money"></td>
                     </tr>
                      <tr>
                       <td>是否退费</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Refund2" name="cust_Refund"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Refund2" name="cust_Refund"></td>
                     </tr>
                      <tr>
                       <td>退费原因</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Refundreason2" name="cust_Refundreason"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Refundreason2" name="cust_Refundreason"></td>
                     </tr>
                      <tr>
                       <td>是否进班</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_entry2" name="cust_entry"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_entry2" name="cust_entry"></td>
                     </tr>
                      <tr>
                       <td>进班时间</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_entrytime2" name="cust_entrytime"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_entrytime2" name="cust_entrytime"></td>
                     </tr>
                      <tr>
                       <td>进班备注</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_notes2" name="cust_notes"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_notes2" name="cust_notes"></td>
                     </tr>
                      <tr>
                       <td>咨询师备注</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_askerbeizhu2" name="cust_askerbeizhu"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_askerbeizhu2" name="cust_askerbeizhu"></td>
                     </tr>
                  </table>
                </form>

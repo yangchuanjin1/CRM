@@ -35,7 +35,6 @@ public class Cust_customerController {
 		cust_customer.setStaff(staff); 
 		return customerService.insertCust_customer(cust_customer);
 	}
-<<<<<<< HEAD
 	@RequestMapping(value="/insertCommunicate_record",method=RequestMethod.POST)
 	@ResponseBody
 	public int insertCommunicate_record(Communicate_record communicate_record) {
@@ -53,9 +52,7 @@ public class Cust_customerController {
 		// TODO Auto-generated method stub
 		return customerService.deleteCust_customer(cust_ID);
 	}
-=======
-	
->>>>>>> 76e3e62b317a687a7c6813dfe04237ce33aabef5
+
 	/*
 	 * @RequestMapping(value="/selectAskers",method=RequestMethod.POST)
 	 * 

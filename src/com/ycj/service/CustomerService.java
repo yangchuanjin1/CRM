@@ -18,7 +18,6 @@ public interface CustomerService {
     int insertCust_customer(Cust_customer cust_customer);
     
     int deleteCust_customer(int cust_ID);
-<<<<<<< HEAD
     /**
      * 跟踪
      * @param communicate_record 跟踪记录表
@@ -27,7 +26,6 @@ public interface CustomerService {
     int insertCommunicate_record(Communicate_record communicate_record);
     
     
-=======
     
     
   //fanxiangbin
@@ -41,5 +39,4 @@ public interface CustomerService {
 
 
 	//fanxiangbin
->>>>>>> 76e3e62b317a687a7c6813dfe04237ce33aabef5
 }

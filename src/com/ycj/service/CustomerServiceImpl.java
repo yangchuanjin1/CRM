@@ -87,6 +87,12 @@ public class CustomerServiceImpl implements CustomerService {
 		return 0;
 	}
 
+	@Override
+	public int insertCommunicate_record(Communicate_record communicate_record) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 	
 	/**
