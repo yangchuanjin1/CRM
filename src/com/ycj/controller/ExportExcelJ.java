@@ -1,6 +1,5 @@
 package com.ycj.controller;
 
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -24,18 +23,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import com.ycj.Util.ExportUtils;
+import com.ycj.Util.ExportUtilsJ;
 import com.ycj.entity.Cust_customer;
 
-
-/*@Controller*/
-public class ExpotExeclLi {
+@Controller
+public class ExportExcelJ {
 	@RequestMapping(value="/exportForm",method=RequestMethod.POST)
 	public void exportForm(HttpServletResponse res,String stulist ,String fields){
 		Gson gson=new Gson();
 		final ObjectMapper mapper = new ObjectMapper();
 	    
-		//閼惧嘲褰囨潏鎾冲毉濞翠焦甯撮弨鑸垫殶閹诡喛绶崙鍝勫毉閸橈拷
+		//获取输出流接收数据输出出去
 		try {
 			List<Cust_customer> listll = mapper.readValue(stulist, new TypeReference<List<Cust_customer>>(){});
 			//List<Cust_customer> list=gson.fromJson(stulist,new TypeToken<List<Cust_customer>>(){}.getType());
@@ -45,8 +43,8 @@ public class ExpotExeclLi {
 			res.setHeader("Content-Disposition", "attachment;fileName="+fileName);
 			HSSFWorkbook wb=new HSSFWorkbook();
 			HSSFSheet sheet=wb.createSheet("sheet0");
-			ExportUtils.outputHeaders(fields.split(","), sheet);
-			ExportUtils.outputColumns(fields.split(","), listll, sheet);
+			ExportUtilsJ.outputHeaders(fields.split(","), sheet);
+			ExportUtilsJ.outputColumns(fields.split(","), listll, sheet);
 			ServletOutputStream stream = res.getOutputStream();
 			wb.write(stream);
 			stream.flush();
@@ -57,5 +55,4 @@ public class ExpotExeclLi {
 		}
 		
 	}
-
 }
