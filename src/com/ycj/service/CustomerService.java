@@ -9,8 +9,13 @@ import com.ycj.entity.FenYe;
 import com.ycj.entity.FenyeJiang;
 
 public interface CustomerService {
+<<<<<<< HEAD
+	//查询所有
+	FenYe<Cust_customer> selectCust_customers(FenYe<Cust_customer> fenYe);
+=======
 	//鏌ヨ鎵�鏈�
 	FenYe<Cust_customer> selectCust_customers(Cust_customer cust_customer);
+>>>>>>> f8dd1b307a07db0a4c5a1d07215cf7cbe946a78b
 	  
 	Asker selectAskers(int asker_ID);
 	

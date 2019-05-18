@@ -20,18 +20,18 @@ public class Cust_customerController {
 	private CustomerService customerService;
 	@RequestMapping(value="/selectCust_customers",method=RequestMethod.POST)
 	@ResponseBody
-	public FenYe<Cust_customer> selectCust_customers(Cust_customer cust_customer,Asker asker,Staff staff) {
-		cust_customer.setAsker(asker);
-		cust_customer.setStaff(staff); 
-	  return customerService.selectCust_customers(cust_customer);
+	public FenYe<Cust_customer> selectCust_customers(FenYe<Cust_customer> fenYe,Cust_customer cust_customer,Integer page,Integer rows) {
+		fenYe.setPage((page-1)*rows);
+		fenYe.setPagesize(rows);
+		fenYe.setCust_customer(cust_customer);
+	  return customerService.selectCust_customers(fenYe);
 		}
 	//娣诲姞
 	@RequestMapping(value="/insertCust_customer",method=RequestMethod.POST)
 	@ResponseBody
-	public int insertCust_customer(Cust_customer cust_customer,Asker asker,Staff staff) {
+	public int insertCust_customer(Cust_customer cust_customer) {
 		// TODO Auto-generated method stub
-		cust_customer.setAsker(asker);
-		cust_customer.setStaff(staff); 
+		
 		return customerService.insertCust_customer(cust_customer);
 	}
 	@RequestMapping(value="/insertCommunicate_record",method=RequestMethod.POST)
@@ -42,7 +42,6 @@ public class Cust_customerController {
 	@RequestMapping(value="/updateCust_customer",method=RequestMethod.POST)
 	@ResponseBody
 	public int updateCust_customer(Cust_customer cust_customer) {
-		System.out.println("123132654+65+636526");
 		return customerService.updateCust_customer(cust_customer);
 	}
 	@RequestMapping(value="/deleteCust_customer",method=RequestMethod.POST)
@@ -67,9 +66,8 @@ public class Cust_customerController {
 	
 	@RequestMapping(value="/selectCust_customersFan",method=RequestMethod.POST)
 	@ResponseBody
-	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer,Asker asker,Staff staff) {
-		cust_customer.setAsker(asker);
-		cust_customer.setStaff(staff); 
+	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer) {
+		
 	
 		return customerService.selectCust_customersFan(cust_customer);
 	}

@@ -6,10 +6,14 @@ import java.util.List;
 import com.ycj.entity.Asker;
 import com.ycj.entity.Communicate_record;
 import com.ycj.entity.Cust_customer;
+<<<<<<< HEAD
+import com.ycj.entity.FenYe;
+=======
 import com.ycj.entity.FenyeJiang;
+>>>>>>> f8dd1b307a07db0a4c5a1d07215cf7cbe946a78b
 
 public interface Cust_customerMapper {
-    List<Cust_customer> selectCust_customers(Cust_customer cust_customer);
+    List<Cust_customer> selectCust_customers(FenYe<Cust_customer> fenYe);
     /**
      * 鏌ヨ鎵�鏈夊挩璇㈠笀
      * @return
@@ -23,7 +27,7 @@ public interface Cust_customerMapper {
      */
     int updateCust_customer(Cust_customer cust_customer);
     
-    int selectCount(Cust_customer cust_customer);
+    int selectCount(FenYe<Cust_customer> fenYe);
     
     int updateCust_customergenzhong(Cust_customer cust_customer);
     

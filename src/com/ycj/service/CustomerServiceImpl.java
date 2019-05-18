@@ -16,18 +16,17 @@ import com.ycj.entity.FenyeJiang;
 public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	private Cust_customerMapper cust_customerMapper;
-	@Autowired 
-	private FenYe<Cust_customer> fenYe;
+	/*
+	 * @Autowired private FenYe<Cust_customer> fenYe;
+	 */
 	
 	@Override
 	/**
 	 * 妯＄硦鏌ヨ鎵�鏈夌敤鎴凤紝浠ュ強鐢ㄦ埛鎬绘潯鏁�
 	 */
-	public FenYe<Cust_customer> selectCust_customers(Cust_customer cust_customer) {
-		cust_customer.setPage((cust_customer.getPage()-1)*cust_customer.getRows());
-		cust_customer.setRows(cust_customer.getRows());
-		fenYe.setRows(cust_customerMapper.selectCust_customers(cust_customer));
-		fenYe.setTotal(cust_customerMapper.selectCount(cust_customer));
+	public FenYe<Cust_customer> selectCust_customers(FenYe<Cust_customer> fenYe) {
+		fenYe.setRows(cust_customerMapper.selectCust_customers(fenYe));
+		fenYe.setTotal(cust_customerMapper.selectCount(fenYe));
 		return fenYe;
 	}
 
@@ -54,6 +53,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return cust_customerMapper.selectAskers(asker_ID);
 		
 	}
+<<<<<<< HEAD
+=======
 	
 	/**
 	 * fanxiangbin
@@ -69,6 +70,19 @@ public class CustomerServiceImpl implements CustomerService {
 		System.out.println(fenYe+"fhgfjghkhj");
 		return fenYe;
 	}
+>>>>>>> f8dd1b307a07db0a4c5a1d07215cf7cbe946a78b
+
+	@Override
+	public int insertCommunicate_record(Communicate_record communicate_record) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public int updateCust_customergenzhongFan(Cust_customer cust_customer) {
@@ -77,6 +91,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int insertCust_customerFan(Cust_customer cust_customer) {
 		// TODO Auto-generated method stub
 		return 0;
@@ -87,8 +102,13 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
+	
+	/**
+	 * fanxiangbin
+	 * 
+	 * 	咨询师
+	 */
+=======
 
 	public FenyeJiang selectCust_customer(FenyeJiang fenye) {
 		List<Cust_customer> selectAllCust_customer = cust_customerMapper.selectAllCust_customer(fenye);
@@ -112,7 +132,30 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+>>>>>>> f8dd1b307a07db0a4c5a1d07215cf7cbe946a78b
 	
+	/*
+	 * public FenYe<Cust_customer> selectCust_customersFan(Cust_customer
+	 * cust_customer) {
+	 * cust_customer.setPage((cust_customer.getPage()-1)*cust_customer.getRows());
+	 * cust_customer.setRows(cust_customer.getRows());
+	 * fenYe.setRows((cust_customerMapper.selectCust_customersFan(cust_customer)));
+	 * fenYe.setTotal(cust_customerMapper.selectCountFan(cust_customer));
+	 * System.out.println(fenYe+"fhgfjghkhj"); return fenYe; }
+	 * 
+	 * @Override public int updateCust_customergenzhongFan(Cust_customer
+	 * cust_customer) { // TODO Auto-generated method stub return 0; }
+	 * 
+	 * @Override public int insertCust_customerFan(Cust_customer cust_customer) { //
+	 * TODO Auto-generated method stub return 0; }
+	 * 
+	 * @Override public int deleteCust_customerFan(int cust_ID) { // TODO
+	 * Auto-generated method stub return 0; }
+	 * 
+	 * @Override public int insertCommunicate_record(Communicate_record
+	 * communicate_record) { // TODO Auto-generated method stub return 0; }
+	 * 
+	 */
 	
 	/**
 	 * fanxiangbin
