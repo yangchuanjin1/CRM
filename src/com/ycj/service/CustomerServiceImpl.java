@@ -15,18 +15,17 @@ import com.ycj.entity.FenYe;
 public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	private Cust_customerMapper cust_customerMapper;
-	@Autowired 
-	private FenYe<Cust_customer> fenYe;
+	/*
+	 * @Autowired private FenYe<Cust_customer> fenYe;
+	 */
 	
 	@Override
 	/**
 	 * 模糊查询所有用户，以及用户总条数
 	 */
-	public FenYe<Cust_customer> selectCust_customers(Cust_customer cust_customer) {
-		cust_customer.setPage((cust_customer.getPage()-1)*cust_customer.getRows());
-		cust_customer.setRows(cust_customer.getRows());
-		fenYe.setRows(cust_customerMapper.selectCust_customers(cust_customer));
-		fenYe.setTotal(cust_customerMapper.selectCount(cust_customer));
+	public FenYe<Cust_customer> selectCust_customers(FenYe<Cust_customer> fenYe) {
+		fenYe.setRows(cust_customerMapper.selectCust_customers(fenYe));
+		fenYe.setTotal(cust_customerMapper.selectCount(fenYe));
 		return fenYe;
 	}
 
@@ -53,20 +52,17 @@ public class CustomerServiceImpl implements CustomerService {
 		return cust_customerMapper.selectAskers(asker_ID);
 		
 	}
-	
-	/**
-	 * fanxiangbin
-	 * 
-	 * 	咨询师
-	 */
-	
+
+	@Override
+	public int insertCommunicate_record(Communicate_record communicate_record) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer) {
-		cust_customer.setPage((cust_customer.getPage()-1)*cust_customer.getRows());
-		cust_customer.setRows(cust_customer.getRows());
-		fenYe.setRows((cust_customerMapper.selectCust_customersFan(cust_customer)));
-		fenYe.setTotal(cust_customerMapper.selectCountFan(cust_customer));
-		System.out.println(fenYe+"fhgfjghkhj");
-		return fenYe;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -86,14 +82,35 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
-	public int insertCommunicate_record(Communicate_record communicate_record) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	
+	/**
+	 * fanxiangbin
+	 * 
+	 * 	咨询师
+	 */
+	
+	/*
+	 * public FenYe<Cust_customer> selectCust_customersFan(Cust_customer
+	 * cust_customer) {
+	 * cust_customer.setPage((cust_customer.getPage()-1)*cust_customer.getRows());
+	 * cust_customer.setRows(cust_customer.getRows());
+	 * fenYe.setRows((cust_customerMapper.selectCust_customersFan(cust_customer)));
+	 * fenYe.setTotal(cust_customerMapper.selectCountFan(cust_customer));
+	 * System.out.println(fenYe+"fhgfjghkhj"); return fenYe; }
+	 * 
+	 * @Override public int updateCust_customergenzhongFan(Cust_customer
+	 * cust_customer) { // TODO Auto-generated method stub return 0; }
+	 * 
+	 * @Override public int insertCust_customerFan(Cust_customer cust_customer) { //
+	 * TODO Auto-generated method stub return 0; }
+	 * 
+	 * @Override public int deleteCust_customerFan(int cust_ID) { // TODO
+	 * Auto-generated method stub return 0; }
+	 * 
+	 * @Override public int insertCommunicate_record(Communicate_record
+	 * communicate_record) { // TODO Auto-generated method stub return 0; }
+	 * 
+	 */
 	
 	/**
 	 * fanxiangbin

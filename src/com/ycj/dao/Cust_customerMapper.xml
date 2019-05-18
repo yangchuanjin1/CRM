@@ -43,147 +43,133 @@
      <result column="Cust_dingjin" property="Cust_dingjin"/>
      <result column="Cust_dingjinDay" property="Cust_dingjinDay"/>
      <result column="Cust_askerbeizhu" property="Cust_askerbeizhu"/>
+     <result column="Cust_askerName" property="Cust_askerName"/>
      
-     <association property="asker" javaType="com.ycj.entity.Asker">
-     <result column="Asker_ID" property="Asker_ID"/>
-     <result column="Asker_Name" property="Asker_Name"/>
-     <result column="Asker_Staff_ID" property="Asker_Staff_ID"/>
-     <result column="Asker_Weight" property="Asker_Weight"/>
-  	</association>
-  	<association property="staff" javaType="com.ycj.entity.Staff">
-		 <result column="Staff_ID" property="Staff_ID"/>
-		 <result column="Staff_Name" property="Staff_Name"/>
-		 <result column="Staff_Password" property="Staff_Password"/>
-	 </association>
+    
     </resultMap>
   
-   <select id="selectCust_customers" parameterType="cust_customer" resultMap="cutMap">
-      select cut.*,cut.Cust_youxiao,ak.*,sta.* from (cust_customer cut INNER JOIN asker ak on cut.`Cust_Asker_ID`=ak.Asker_ID)
-	  INNER JOIN staff sta on sta.Staff_ID = ak.Asker_Staff_ID
+   <select id="selectCust_customers" parameterType="fenYe" resultMap="cutMap">
+      select * from cust_customer
 	  <where>
-	  		<if test=" Cust_Name !='' and Cust_Name !=null ">
-	  			and Cust_Name like "%"#{Cust_Name}"%"
+	  		<if test=" cust_customer.Cust_Name !='' and cust_customer.Cust_Name !=null ">
+	  			and Cust_Name like "%"#{cust_customer.Cust_Name}"%"
 	  		</if>
-	  		<if test=" asker.asker_ID !='' and asker.asker_ID !=null ">
-	  			and Cust_Asker_ID =#{asker.asker_ID}
+	  		 <if test=" cust_customer.Cust_askerName !='' and cust_customer.Cust_askerName !=null ">
+	  			and Cust_askerName like "%"#{cust_customer.Cust_askerName}"%"
 	  		</if>
-	  		<if test=" Cust_QQ !='' and Cust_QQ !=null ">
-	  			and Cust_QQ =#{Cust_QQ}
+	  		<if test=" cust_customer.Cust_QQ !='' and cust_customer.Cust_QQ !=null ">
+	  			and Cust_QQ =#{cust_customer.Cust_QQ}
 	  		</if>
-	  		<if test=" Cust_Telephone !='' and Cust_Telephone !=null ">
-	  			and Cust_Telephone =#{Cust_Telephone}
+	  		<if test=" cust_customer.Cust_Telephone !='' and cust_customer.Cust_Telephone !=null ">
+	  			and Cust_Telephone =#{cust_customer.Cust_Telephone}
 	  		</if>
-	  		<if test=" cust_Pay !=null ">
-	  			and Cust_Pay =#{cust_Pay}
+	  		<if test=" cust_customer.cust_Pay !=null ">
+	  			and Cust_Pay =#{cust_customer.cust_Pay}
 	  		</if>
-	  		<if test="  cust_youxiao !=null ">
-	  			and Cust_youxiao =#{cust_youxiao}
+	  		<if test="  cust_customer.cust_youxiao !=null ">
+	  			and Cust_youxiao =#{cust_customer.cust_youxiao}
 	  		</if>
-	  		<if test=" cust_Revisit !=null ">
-	  			and Cust_Revisit =#{cust_Revisit}
+	  		<if test=" cust_customer.cust_Revisit !=null ">
+	  			and Cust_Revisit =#{cust_customer.cust_Revisit}
 	  		</if>
-	  		<!-- 客户创建的时间 -->
+	  		
 	  		<if test=" minCust_Creationtime !='' and minCust_Creationtime !=null ">
 	  			and Cust_Creationtime &gt;=#{minCust_Creationtime}
 	  		</if>
 	  		<if test=" maxCust_Creationtime !='' and maxCust_Creationtime !=null">
 	  			and Cust_Creationtime &lt;=#{maxCust_Creationtime}
 	  		</if>
-	  		<!--上门时间 -->
+	  		
 	  		<if test=" minCust_Doortime !='' and minCust_Doortime !=null ">
 	  			and Cust_Doortime &gt;=#{minCust_Doortime}
 	  		</if>
 	  		<if test=" maxCust_Doortime !='' and maxCust_Doortime !=null ">
 	  			and Cust_Doortime &lt;=#{maxCust_Doortime}
 	  		</if>
-	  		<!-- 回访时间 -->
+	  		
 	  		<if test=" minCust_RevisitDays !='' and minCust_RevisitDays !=null ">
 	  			and Cust_RevisitDays &gt;=#{minCust_RevisitDays}
 	  		</if>
 	  		<if test=" maxCust_RevisitDays !='' and maxCust_RevisitDays !=null">
 	  			and Cust_RevisitDays &lt;=#{maxCust_RevisitDays}
 	  		</if>
-	  		<!-- 缴费时间 -->
+	  		
 	  		<if test=" minCust_Paytime !='' and minCust_Paytime !=null ">
 	  			and Cust_Paytime &gt;=#{minCust_Paytime}
 	  		</if>
 	  		<if test=" maxCust_Paytime !='' and maxCust_Paytime !=null">
 	  			and Cust_Paytime &lt;=#{maxCust_Paytime}
 	  		</if>
-	  		<!-- 进班时间 -->
+	  		
 	  		<if test=" minCust_entrytime !='' and minCust_entrytime !=null ">
 	  			and Cust_entrytime &gt;=#{minCust_entrytime}
 	  		</if>
 	  		<if test=" maxCust_entrytime !='' and maxCust_entrytime !=null">
 	  			and Cust_entrytime &lt;=#{maxCust_entrytime}
-	  		</if>
-	  </where>
-      limit #{page},#{rows}
+	  		</if> 
+	  </where>  
+      limit #{page},#{pagesize}
    </select>
-   <select id="selectCount" parameterType="cust_customer" resultType="int">
-       select count(*) from (cust_customer cut INNER JOIN asker ak on cut.`Cust_Asker_ID`=ak.Asker_ID)
-	  INNER JOIN staff sta on sta.Staff_ID = ak.`Asker_Staff_ID`
-	  <where>
-	  		<if test=" Cust_Name !='' and Cust_Name !=null ">
-	  			and Cust_Name like "%"#{Cust_Name}"%"
+   <select id="selectCount" parameterType="fenYe" resultType="int">
+       select count(Cust_ID) from cust_customer
+	 <where>
+	  		<if test=" cust_customer.Cust_Name !='' and cust_customer.Cust_Name !=null ">
+	  			and Cust_Name like "%"#{cust_customer.Cust_Name}"%"
 	  		</if>
-	  		<if test=" asker.asker_ID !='' and asker.asker_ID !=null ">
-	  			and Cust_Asker_ID =#{asker.asker_ID}
+	  		<if test=" cust_customer.Cust_askerName !='' and cust_customer.Cust_askerName !=null ">
+	  			and Cust_askerName like "%"#{cust_customer.Cust_askerName}"%"
 	  		</if>
-	  		<if test=" Cust_QQ !='' and Cust_QQ !=null ">
-	  			and Cust_QQ =#{Cust_QQ}
+	  		 
+	  		<if test=" cust_customer.Cust_QQ !='' and cust_customer.Cust_QQ !=null ">
+	  			and Cust_QQ =#{cust_customer.Cust_QQ}
 	  		</if>
-	  		<if test=" asker.asker_ID !='' and asker.asker_ID !=null ">
-	  			and Cust_Asker_ID =#{asker.asker_ID}
+	  		<if test=" cust_customer.Cust_Telephone !='' and cust_customer.Cust_Telephone !=null ">
+	  			and Cust_Telephone =#{cust_customer.Cust_Telephone}
 	  		</if>
-	  		<if test=" Cust_Telephone !='' and Cust_Telephone !=null ">
-	  			and Cust_Telephone =#{Cust_Telephone}
+	  		<if test=" cust_customer.cust_Pay !=null ">
+	  			and Cust_Pay =#{cust_customer.cust_Pay}
 	  		</if>
-	  		<if test=" cust_Pay !=null ">
-	  			and Cust_Pay =#{cust_Pay}
+	  		<if test="  cust_customer.cust_youxiao !=null ">
+	  			and Cust_youxiao =#{cust_customer.cust_youxiao}
 	  		</if>
-	  		<if test=" cust_youxiao !=null ">
-	  			and Cust_youxiao =#{cust_youxiao}
+	  		<if test=" cust_customer.cust_Revisit !=null ">
+	  			and Cust_Revisit =#{cust_customer.cust_Revisit}
 	  		</if>
-	  		<if test=" cust_Revisit !=null ">
-	  			and Cust_Revisit =#{cust_Revisit}
-	  		</if>
-	  		<!-- 客户创建的时间 -->
 	  		<if test=" minCust_Creationtime !='' and minCust_Creationtime !=null ">
 	  			and Cust_Creationtime &gt;=#{minCust_Creationtime}
 	  		</if>
 	  		<if test=" maxCust_Creationtime !='' and maxCust_Creationtime !=null">
 	  			and Cust_Creationtime &lt;=#{maxCust_Creationtime}
 	  		</if>
-	  		<!--上门时间 -->
+	  		
 	  		<if test=" minCust_Doortime !='' and minCust_Doortime !=null ">
 	  			and Cust_Doortime &gt;=#{minCust_Doortime}
 	  		</if>
 	  		<if test=" maxCust_Doortime !='' and maxCust_Doortime !=null ">
 	  			and Cust_Doortime &lt;=#{maxCust_Doortime}
 	  		</if>
-	  		<!-- 回访时间 -->
+	  		
 	  		<if test=" minCust_RevisitDays !='' and minCust_RevisitDays !=null ">
 	  			and Cust_RevisitDays &gt;=#{minCust_RevisitDays}
 	  		</if>
 	  		<if test=" maxCust_RevisitDays !='' and maxCust_RevisitDays !=null">
 	  			and Cust_RevisitDays &lt;=#{maxCust_RevisitDays}
 	  		</if>
-	  		<!-- 缴费时间 -->
+	  		
 	  		<if test=" minCust_Paytime !='' and minCust_Paytime !=null ">
 	  			and Cust_Paytime &gt;=#{minCust_Paytime}
 	  		</if>
 	  		<if test=" maxCust_Paytime !='' and maxCust_Paytime !=null">
 	  			and Cust_Paytime &lt;=#{maxCust_Paytime}
 	  		</if>
-	  		<!-- 进班时间 -->
+	  		
 	  		<if test=" minCust_entrytime !='' and minCust_entrytime !=null ">
 	  			and Cust_entrytime &gt;=#{minCust_entrytime}
 	  		</if>
 	  		<if test=" maxCust_entrytime !='' and maxCust_entrytime !=null">
 	  			and Cust_entrytime &lt;=#{maxCust_entrytime}
-	  		</if>
-	  </where>
+	  		</if> 
+	  </where>  
    </select>
    <select id="selectAskers" parameterType="int" resultType="asker">
      select * from asker  where Asker_ID=#{asker_ID} 
@@ -194,10 +180,9 @@
     	value(#{Cust_Name},#{Cust_Gender},#{Cust_Age},#{Cust_QQ},#{Cust_WeChat},#{Cust_Telephone},#{Cust_Education},#{Cust_state},#{Cust_channel},#{Cust_website},#{Cust_laiyuanguanjianzi},#{Cust_preparation},#{Cust_zaixianbeizhu},NOW(),#{cust_Asker_ID})
     </insert>
     
-  <!--  <insert id="insertCommunicate_record" parameterType="communicate_record">
+    <insert id="insertCommunicate_record" parameterType="communicate_record">
    		INSERT INTO communicate_record(Comm_ cust_ID,Comm_ Staff_ID,Comm_date,Comm_ way,comm_title,comm_detail,comm_nextdate) 
 		VALUES(#{Comm_ cust_ID},#{Comm_ Staff_ID},#{Comm_date},#{Comm_ way},#{comm_title},#{comm_detail},#{comm_nextdate})
-<<<<<<< HEAD
    </insert>
    
    <update id="updateCust_customer" parameterType="cust_customer">
@@ -314,8 +299,8 @@
    <delete id="deleteCust_customer" parameterType="int">
      delete from cust_customer where Cust_ID=#{cust_ID}
    </delete>
-=======
-   </insert> -->
+
+
    
    <!-- fanxiangbin -->
    <select id="selectCust_customersFan" parameterType="cust_customer" resultMap="cutMap">

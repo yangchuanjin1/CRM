@@ -6,9 +6,10 @@ import java.util.List;
 import com.ycj.entity.Asker;
 import com.ycj.entity.Communicate_record;
 import com.ycj.entity.Cust_customer;
+import com.ycj.entity.FenYe;
 
 public interface Cust_customerMapper {
-    List<Cust_customer> selectCust_customers(Cust_customer cust_customer);
+    List<Cust_customer> selectCust_customers(FenYe<Cust_customer> fenYe);
     /**
      * 查询所有咨询师
      * @return
@@ -22,7 +23,7 @@ public interface Cust_customerMapper {
      */
     int updateCust_customer(Cust_customer cust_customer);
     
-    int selectCount(Cust_customer cust_customer);
+    int selectCount(FenYe<Cust_customer> fenYe);
     
     int updateCust_customergenzhong(Cust_customer cust_customer);
     

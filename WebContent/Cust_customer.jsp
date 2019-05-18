@@ -12,20 +12,15 @@
 <script type="text/javascript" src="jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$("#Staff_Name").combobox({
+		/* $("#Staff_Name").combobox({
 			   url:'selectAskers',
 			   method:'post',
 			   valueField: 'id',
 			   textField: 'text'
-		   });
+		   }); */
 		init();
 	});
-	function Staff_Name(value,row,index){
-		return row.staff.staff_Name;
-	}
-	function Cust_Asker_ID(value,row,index){
-		return row.asker.asker_Name;
-	}
+	
 	function caozuo(value,row,index){
 		return "<a href='#' onclick='insertCustomer("+index+")'>跟踪</a>  <a href='#' onclick='chakanCustomer("+index+")'>查看</a>  <a href='#' onclick='updateCustomer("+index+")'>编辑</a> <a href='#' onclick='deleteCustomer("+index+")'>删除</a>";
 	}
@@ -124,15 +119,14 @@
 	}
 	
 	function init(){
-		var asker_ID=$("#Staff_Name").combobox("getValue");
+		/* var asker_ID=$("#Staff_Name").combobox("getValue");
 	     if(asker_ID=="--请选择--"){
 	    	 asker_ID='';
-	     }  
+	     } */  
 		$('#tab').datagrid({  
 		    url:'selectCust_customers',  
 		    method:"post",
 		    pagination:true,
-		    singleSelect:true,
 		    toolbar:'#f',
 		    queryParams:{
 		    	Cust_Name:$("#Cust_Name").val(),
@@ -141,7 +135,7 @@
 		    	cust_Pay:$("#Cust_Pay").combobox("getValue"),
 		    	cust_youxiao:$("#Cust_youxiao").combobox("getValue"),
 		    	cust_Revisit:$("#Cust_Revisit").combobox("getValue"),
-		    	asker_ID:asker_ID,
+		    	Cust_askerName:$("#Staff_Name").val(),
 		    	minCust_Creationtime:$("#minCust_Creationtime").datebox("getValue"),
 		    	maxCust_Creationtime:$("#maxCust_Creationtime").datebox("getValue"),
 		    	minCust_Doortime:$("#minCust_Doortime").datebox("getValue"),
@@ -314,7 +308,7 @@
 <table class="easyui-datagrid" id="tab">   
     <thead>   
         <tr>   
-            <th data-options="field:'ck',checkbox:true">
+            <th data-options="field:'check',checkbox:true"></th>
             <th data-options="field:'cust_ID',width:100">客户编码</th>   
             <th data-options="field:'cust_Name',width:100">客户名称</th>   
             <th data-options="field:'cust_Age',width:100">客户年龄</th>   
@@ -330,10 +324,9 @@
             <th data-options="field:'cust_Doortime',width:100">上门时间</th>   
             <th data-options="field:'cust_RevisitDays',width:100">回访时间</th>   
             <th data-options="field:'cust_Paytime',width:100">缴费时间</th>   
-            <th data-options="field:'cust_entrytime',width:100">进班时间</th>  
-            <th data-options="field:'cust_Asker_ID',width:100,formatter:Cust_Asker_ID">咨询师头衔</th>  
-            <th data-options="field:'staff_Name',width:100,formatter:Staff_Name">咨询师姓名</th>
+            <th data-options="field:'cust_entrytime',width:100">进班时间</th> 
             <th data-options="field:'cust_zaixianbeizhu',width:100">在线备注</th>
+            <th data-options="field:'cust_askerName',width:100">咨询师姓名</th>
             <th data-options="field:'caozuo',width:100,formatter:caozuo">操作</th>  
         </tr>   
     </thead>   
@@ -343,10 +336,10 @@
 		客户名称:<input class="easyui-textbox"  style="width:150px" id="Cust_Name" > 
 		客户QQ:<input class="easyui-textbox"  style="width:150px" id="Cust_QQ"> 
 		电话:<input class="easyui-textbox"  style="width:150px" id="Cust_Telephone"> 
-		咨询师:
-		 <select id="Staff_Name" class="easyui-combobox" style="width:150px;">   
+		咨询师:<input class="easyui-textbox"  style="width:150px" id="Staff_Name"> 
+		 <!-- <select id="Staff_Name" class="easyui-combobox" style="width:150px;">   
 				    <option >--请选择--</option>  
-				</select>
+				</select> -->
 		是否缴费:<select id="Cust_Pay" class="easyui-combobox"  style="width:150px;">   
 		   <option value="">--请选择--</option>   
 		   <option value="1">否</option>   
