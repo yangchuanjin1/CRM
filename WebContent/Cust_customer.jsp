@@ -108,7 +108,6 @@
 		$("#f1").form("load",row);
 		$("#f2").form("load",row);
 		$("#win1").window("open");
-		
 	}
 	function huifang(value,row,index){
 		 return row.cust_Revisit==0?"是":"否";

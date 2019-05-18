@@ -21,7 +21,7 @@ function Cust_Asker_ID(value,row,index){
 	return row.asker.asker_Name;
 }
 function caozuo(value,row,index){
-	return "<a onclick='updateCustomer("+index+")'>跟踪</a><a onclick='chakanCustomer("+index+")'>查看</a>";
+	return "<a href='#' onclick='updateCustomer("+index+")'>跟踪</a><a onclick='chakanCustomer("+index+")'>查看</a>";
 }
 function chakanCustomer(index){
 	$("#win1").window("open");
@@ -80,6 +80,9 @@ function updateCustomer(index){
 	
 	$("#wingenzhong").window("open");
 }
+function closegenzhong(){
+	$("#wingenzhong").window("close");
+}
 function genzhong(){
 	alert(stuid);
 	alert(askid);
@@ -99,6 +102,70 @@ function genzhong(){
 	},"json")
 	
 }
+
+/*
+
+*设置隐藏列
+*
+*/
+//设置隐藏列
+function selectColumn() {
+		$("#hiddenColumn_dialog").dialog("open");
+	}
+	function saveColumn() {
+		var cbx = $("#hiddenColumn_form input[type='checkbox']"); //获取Form里面是checkbox的Object
+		
+	    var checkedValue = "";
+	    var unCheckValue = "";
+	    for (var i = 0; i < cbx.length; i++) {
+	        if (cbx[i].checked) {//获取已经checked的Object
+	            if (checkedValue.length > 0) {
+	                checkedValue += "," + cbx[i].value; //获取已经checked的value
+	            }
+	            else {
+	                checkedValue = cbx[i].value;
+	            }
+	        }
+	        if (!cbx[i].checked) {//获取没有checked的Object
+	            if (unCheckValue.length > 0) {
+	                unCheckValue += "," + cbx[i].value; //获取没有checked的value
+	            }
+	            else {
+	                unCheckValue = cbx[i].value;
+	            }
+	        }
+	    }
+	    var checkeds = new Array();
+	    if (checkedValue != null && checkedValue != "") {
+	        checkeds = checkedValue.split(',');
+	        for (var i = 0; i < checkeds.length; i++) {
+	            $('#tab').datagrid('showColumn', checkeds[i]); //显示相应的列
+	        }
+	    }
+	    var unChecks = new Array();
+	    if (unCheckValue != null && unCheckValue != "") {
+	        unChecks = unCheckValue.split(',');
+	        for (var i = 0; i < unChecks.length; i++) {
+	            $('#tab').datagrid('hideColumn', unChecks[i]); //隐藏相应的列
+	        }
+	    }
+	}
+	//关闭设置隐藏列弹框
+	function closed_hiddenColumn() {
+		$('#hiddenColumn_dialog').dialog('close');
+	}
+	//全选按钮
+	function ChooseAll() {
+	   
+	    var a=$("#isQuanXuan").text();//获取按钮的值
+	    if("全选"==a.trim()){
+	    	 $("#hiddenColumn_form input[type='checkbox']").prop("checked", true);//全选
+	    	$('#isQuanXuan').linkbutton({ text:'全不选' });
+	    }else{    	
+	    	 $("#hiddenColumn_form input[type='checkbox']").removeAttr("checked", "checked");//取消全选
+	    	 $('#isQuanXuan').linkbutton({ text:'全选' });
+	    }
+	}
 </script>
 </head>
 <body>
@@ -160,6 +227,11 @@ function genzhong(){
 	~:<input class="easyui-datebox"  style="width:105px" id="maxCust_entrytime"> &nbsp;
 	<a onclick="init()"  class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a> 
 	<a onclick="rizhi()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">跟踪日志</a>
+			<a onclick="addCustomer()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" onclick="selectColumn()">设置隐藏列</a>
+	    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" onclick="ExportForm()">导出Excel</a>
+		
+
 </form>
 </div>
 <div id="win" class="easyui-window" title="添加" style="width:300px;height:400px"   
@@ -209,7 +281,71 @@ function genzhong(){
 			<a onclick="closegenzhong()"  class="easyui-linkbutton" data-options="iconCls:'icon-search'">关闭</a> 
 </div>
 </div> 
-
-
+<!-- 设置隐藏列 -->
+<div id="hiddenColumn_dialog" class="easyui-dialog" data-options="title:'设置隐藏列',modal:true,closed:'true',
+			buttons:[{
+				text:'保存',
+				handler:function(){
+				saveColumn();<!-- 保存 -->
+				init();<!-- 刷新 -->
+				closed_hiddenColumn();<!-- 关闭弹窗 -->
+				}
+			},{
+				text:'关闭',
+				handler:function(){
+				closed_hiddenColumn();
+				}
+			}]">
+	<form id="hiddenColumn_form" class="easyui-form">
+	<a href="javascript:void()"  class="easyui-linkbutton" id="isQuanXuan" onclick="ChooseAll()" data-options="iconCls:'icon-edit'">全选</a> 
+		<table>
+		     <tr>
+				<td><input type="checkbox" value="cust_ID"/>客户编号</td>
+				<td><input type="checkbox" value="cust_Asker_ID"/>咨询师编号</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" value="cust_Name"/>客户名称</td>
+				
+				<td><input type="checkbox" value="cust_Age"/>客户年龄</td>
+			</tr>
+			 <tr>
+			    <td><input type="checkbox" value="cust_Gender"/>客户性别</td>
+			    
+				<td><input type="checkbox" value="cust_Telephone"/>客户电话</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" value="cust_Education"/>客户学历</td>
+				
+				<td><input type="checkbox" value="cust_Creationtime"/>客户创建时间</td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" value="cust_QQ"/>学员QQ</td>
+		
+				<td><input type="checkbox" value="cust_WeChat"/>微信</td>
+			</tr>
+			
+			<tr>
+                <td><input type="checkbox" value="cust_Revisit"/>是否回访（0.未回访1.回访）</td>
+			
+				<td><input type="checkbox" value="cust_RevisitDays"/>回访时间</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" value="cust_entrytime"/>进班时间</td>
+			
+				<td><input type="checkbox" value="cust_Doortime"/>上门时间</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" value="cust_Pay"/>是否缴费（0.缴费1.未交费）</td>
+			
+				<td><input type="checkbox" value="cust_Paytime"/>缴费时间</td>
+			</tr>
+			<tr>
+			    <td><input type="checkbox" value="cust_zaixianbeizhu"/>在线备注</td>
+				<td><input type="checkbox" value="cust_youxiao"/>是否有效（0.是1.否）</td>
+			</tr>
+		</table>
+	</form>
+</div>
 </body>
 </html>
