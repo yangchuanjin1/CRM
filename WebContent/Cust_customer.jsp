@@ -86,7 +86,8 @@
 			Cust_entry:$("#Cust_entry3").combobox("getValue"),
 			Cust_entrytime:$("#Cust_entrytime3").val(),
 			Cust_notes:$("#Cust_notes3").val(),
-			Cust_askerbeizhu:$("#Cust_askerbeizhu3").val()
+			Cust_askerbeizhu:$("#Cust_askerbeizhu3").val(),
+			Cust_askerName:$("#Cust_askerName3").val()
 		},function(res){
 			if(res>0){
 				alert("修改成功");
@@ -175,7 +176,6 @@
 			Cust_laiyuanguanjianzi:$("#Cust_laiyuanguanjianzi1").val(),
 			Cust_preparation:$("#Cust_preparation1").combobox("getValue"),
 			Cust_zaixianbeizhu:$("#Cust_zaixianbeizhu1").val(),
-			cust_Asker_ID:$("#cust_Asker_ID").combobox("getValue")
 		},function(res){
 			if(res){
 				alert("添加成功");
@@ -186,14 +186,33 @@
 			}
 		},"json")
 	}
+	var cust_askerName=null;
+	var cust_ID=null;
 	function insertCustomer(index){
 		var data=$("#tab").datagrid("getData");
 		var row=data.rows[index];
-		alert(row.cust_ID)
-		$("#ff1").form("load",row);
+		cust_askerName=row.cust_askerName;
+		cust_ID=row.cust_ID;
+		alert(cust_askerName);
 		$("#wingenzhong").window("open");
 	}
-	
+	function genzhong(){
+		$.post('insertCommunicate_recordFan',{
+			Comm_cust_ID:cust_ID,
+			comm_Staff_Name:cust_askerName,
+			Comm_date:$("#Comm_date").datebox("getValue"),
+			comm_xiacihuifang:$("#comm_xiacihuifang").datebox("getValue"),
+			comm_detail:$("#comm_detail").val(),
+			Comm_way:$("#Comm_way").val(),
+			comm_zaixianbeizhu:$("#comm_zaixianbeizhu").val()
+		},function(res){
+			if(res){
+				alert("以跟踪");
+				$("#wingenzhong").window("close");
+			}
+		},"json")
+		
+	}
 	//设置隐藏列
 	 function selectColumn() {
 			$("#hiddenColumn_dialog").dialog("open");
@@ -391,7 +410,7 @@
 		<table>
 		     <tr>
 				<td><input type="checkbox" value="cust_ID"/>客户编号</td>
-				<td><input type="checkbox" value="cust_Asker_ID"/>咨询师编号</td>
+				<td><input type="checkbox" value="cust_askerName"/>咨询师姓名</td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="cust_Name"/>客户名称</td>
@@ -468,10 +487,6 @@
 						    <option value="0">否</option>   
 						   </select><br/>
 				在线备注:<input class="easyui-textbox"  style="width:150px" id="Cust_zaixianbeizhu1"> <br/>
-				咨询师：
-				<select id="cust_Asker_ID" class="easyui-combobox" style="width:150px;">   
-				    <option >--请选择--</option>  
-				</select><br/>
 				<a onclick="tianjia()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a> 
 				<a onclick="closeTianjia()"  class="easyui-linkbutton" data-options="iconCls:'icon-search'">关闭</a> 
 	</div>
@@ -558,7 +573,7 @@
                     </tr>
                      <tr>
                       <td>咨询师</td>
-                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Asker_ID2" name="cust_Asker_ID"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_askerName2" name="cust_askerName"></td>
                     </tr>
                  </table>
                </form>
@@ -568,7 +583,7 @@
                  <table cellpadding=7>
                     <tr>
                       <td>咨询师姓名</td>
-                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_Asker_ID2" name="cust_Asker_ID"></td>
+                      <td><input class="easyui-textbox" readonly="readonly" style="width:150px" id="Cust_askerName2" name="cust_askerName"></td>
                     </tr>
                     <tr>
                       <td>课程方向</td>
@@ -732,7 +747,7 @@
                     </tr>
                      <tr>
                       <td>咨询师</td>
-                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_Asker_ID3" name="cust_Asker_ID"></td>
+                      <td><input class="easyui-textbox"  style="width:150px" id="Cust_askerName3" name="cust_askerName"></td>
                     </tr>
                  </table>
                </form>

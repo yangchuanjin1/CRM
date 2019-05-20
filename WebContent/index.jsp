@@ -18,7 +18,9 @@
 	function tuichu(){
 		$.messager.confirm("确定","您确定要退出吗？",function(r){
 			if(r){
-				globalDate.tuichu();
+				window.sessionStorage.removeItem("Staff_Name");
+				window.sessionStorage.removeItem("Staff_ID");
+				window.location.href="Login.jsp";
 			}
 		});
 	}
@@ -120,6 +122,9 @@
 				},success:function(res){//回调
 					if(res>0){
 						$.messager.alert('提示','签到成功');//提示信息
+						$("#btn1").attr("disabled",true).css("pointer-events","none")
+					}else{
+						$.messager.alert('提示','签到失败');//提示信息
 					}
 				}
 		});
@@ -134,7 +139,7 @@
 				href="javascript:tuichu()">&nbsp;安全退出</a> <a
 				href="javascript:shezhimibao()" class="easyui-linkbutton">&nbsp;设置密保</a>
 			<a href="javascript:shezhimima()" class="easyui-linkbutton">&nbsp;重置密码</a>
-			<a href="javascript:qiandao()" class="easyui-linkbutton">&nbsp;签到</a>
+			<a href="javascript:qiandao()" id="btn1" class="easyui-linkbutton">&nbsp;签到</a>
 		</div>
 		<div data-options="region:'south',split:true" style="height: 50px;"></div>
 		<!--<div data-options="region:'east',split:true" title="East" style="width:100px;"></div>-->

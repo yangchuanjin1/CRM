@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ycj.dao.SigninMapper;
 import com.ycj.entity.FenYeYang;
 import com.ycj.entity.Signin;
+import com.ycj.entity.Staff;
 @Service
 public class SigninServiceImp implements SigninService {
 	@Autowired
@@ -16,7 +17,7 @@ public class SigninServiceImp implements SigninService {
 	
 	
 	/**
-	 * YangChuanJin   ÔÚÔ±¹¤µÇÂ¼µÄÊ±ºòÇ©µ½
+	 * YangChuanJin   ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½ï¿½Ç©ï¿½ï¿½
 	 */
 	public Integer insertSigninYang(Integer Staff_ID) {
 		Integer insertSigninYang = signinMapper.insertSigninYang(Staff_ID);
@@ -26,7 +27,7 @@ public class SigninServiceImp implements SigninService {
 
 
 	/**
-	 * YangChuanJin  ·ÖÒ³´øÌõ¼þ²éÑ¯ËùÓÐÊý¾ÝºÍ²éÑ¯×ÜÌõÊý
+	 * YangChuanJin  ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÝºÍ²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public FenYeYang selectSiginAllandCountYang(FenYeYang fenYeYang) {
 		List<Signin> selectSiginAllYang = signinMapper.selectSiginAllYang(fenYeYang);
@@ -35,5 +36,7 @@ public class SigninServiceImp implements SigninService {
 		fenYeYang.setRows(selectSiginAllYang);
 		return fenYeYang;
 	}
+
+
 
 }

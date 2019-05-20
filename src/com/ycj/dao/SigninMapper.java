@@ -1,26 +1,29 @@
 package com.ycj.dao;
-//Ç©µ½±í
+//Ç©ï¿½ï¿½ï¿½ï¿½
 
 import java.util.List;
 
 import com.ycj.entity.FenYeYang;
 import com.ycj.entity.Signin;
+import com.ycj.entity.Staff;
 
 public interface SigninMapper {
+
+	
 	/**
-	 * YangChuanJin   ÔÚÔ±¹¤µÇÂ¼µÄÊ±ºòÇ©µ½
+	 * YangChuanJin   ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½ï¿½Ç©ï¿½ï¿½
 	 * @param Staff_ID
 	 * @return
 	 */
 	Integer insertSigninYang(Integer Staff_ID);
 	/**
-	 * YangChuanJin  ·ÖÒ³´øÌõ¼þ²éÑ¯ËùÓÐÊý¾Ý
+	 * YangChuanJin  ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param signin
 	 * @return
 	 */
 	List<Signin> selectSiginAllYang(FenYeYang fenYeYang);
 	/**
-	 * YangChuanJin   ²éÑ¯×ÜÌõÊý
+	 * YangChuanJin   ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param fenYeYang
 	 * @return
 	 */

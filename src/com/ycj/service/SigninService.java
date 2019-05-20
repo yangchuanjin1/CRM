@@ -1,22 +1,21 @@
 package com.ycj.service;
 
-import java.util.List;
-
 import com.ycj.entity.FenYeYang;
 import com.ycj.entity.Signin;
+import com.ycj.entity.Staff;
 
 public interface SigninService {
 	/**
-	 * YangChuanJin   ÔÚÔ±¹¤µÇÂ¼µÄÊ±ºòÇ©µ½
+	 * YangChuanJin   ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½ï¿½Ç©ï¿½ï¿½
 	 * @param Staff_ID
 	 * @return
 	 */
 	Integer insertSigninYang(Integer Staff_ID);
 	/**
-	 * YangChuanJin  ·ÖÒ³´øÌõ¼þ²éÑ¯ËùÓÐÊý¾ÝºÍ²éÑ¯×ÜÌõÊý
+	 * YangChuanJin  ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÝºÍ²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param signin
 	 * @return
 	 */
 	FenYeYang selectSiginAllandCountYang(FenYeYang fenYeYang);
-
+	
 }

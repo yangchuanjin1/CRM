@@ -33,7 +33,7 @@ public class LoginController {
 	@Autowired
 	private Staff staff;
 	/**
-	 * Ç°Ì¨µÇÂ¼controller
+	 * Ç°Ì¨ï¿½ï¿½Â¼controller
 	 * @param users
 	 * @param request
 	 * @return
@@ -42,40 +42,42 @@ public class LoginController {
 	@RequestMapping(value="/loginStaff",method=RequestMethod.POST)
 	@ResponseBody
 	public String loginUsers(HttpServletRequest request,String Staff_Password,String Staff_Name,String kaptcha,HttpServletResponse response) {
-		HttpSession session = request.getSession();//ÉùÃ÷session
+		HttpSession session = request.getSession();//ï¿½ï¿½ï¿½ï¿½session
 		staff.setStaff_Name(Staff_Name);
+		System.out.println(Staff_Name+"jfhljghdjf");
 		staff.setStaff_Password(MD5.MD5jia(Staff_Password));
+		System.out.println(Staff_Password+"jkfdhgfudjghrejhdgrtuyejgrdbuydh");
         String code = (String)session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
         Staff staffcha = loginService.selectByCheckUsers(staff);
-      //´ÓrequestÖÐ»ñÈ¡ËùÓÐCookie
-        //ÅÐ¶ÏÑéÖ¤ÂëÊÇ·ñÏàÍ¬
+      //ï¿½ï¿½requestï¿½Ð»ï¿½È¡ï¿½ï¿½ï¿½ï¿½Cookie
+        //ï¿½Ð¶ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Í¬
         if(code.equals(kaptcha)) {
-        	if(staffcha!=null) {//ÅÐ¶Ï²éÑ¯µÄÓÃ»§ÐÅÏ¢ÊÇ·ñÎª¿Õ
-        		if(staffcha.getStaff_IsLockout().equals("1")) {//ÅÐ¶ÏÓÃ»§ÊÇ·ñËø¶¨
-        			return Result.toClient(false, "´ËÓÃ»§ÒÑ±»Ëø¶¨£¬ÇëÁªÏµ¹ÜÀíÔ±½øÐÐ½âËø");
+        	if(staffcha!=null) {//ï¿½Ð¶Ï²ï¿½Ñ¯ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ï¢ï¿½Ç·ï¿½Îªï¿½ï¿½
+        		if(staffcha.getStaff_IsLockout().equals("1")) {//ï¿½Ð¶ï¿½ï¿½Ã»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
+        			return Result.toClient(false, "ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½");
         		}else {
         			System.out.println(1111);
         			loginService.updateByStaff_Time(staffcha.getStaff_ID());
         			request.getSession().setAttribute("Staff_ID", staffcha.getStaff_ID());
         			request.getSession().setAttribute("Staff_Name", staffcha.getStaff_Name());
-        			return Result.toClient(true, "µÇÂ½³É¹¦");
+        			return Result.toClient(true, "ï¿½ï¿½Â½ï¿½É¹ï¿½");
         		}
         	}
         	if(staff.getStaff_Name()!=null) {
         		Staff byStaff_Name = loginService.selectByStaff_Name(staff.getStaff_Name());
         		if(byStaff_Name==null) {
-        			return Result.toClient(false, "ÓÃ»§ÃûÊäÈë²»ÕýÈ·");
+        			return Result.toClient(false, "ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½È·");
         		}
         	}
         	if(staff.getStaff_Password()!=null) {
         		Staff staff_password = loginService.selectByStaff_password(staff.getStaff_Password());
         		if(staff_password==null) {
         			loginService.updateByStaff_PsdWrong(staff.getStaff_Name());
-        			return Result.toClient(false, "ÃÜÂëÊäÈë²»ÕýÈ·");
+        			return Result.toClient(false, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½È·");
         		}
         	}
         }
-        	return Result.toClient(false, "ÑéÖ¤Âë²»ÕýÈ·");
+        	return Result.toClient(false, "ï¿½ï¿½Ö¤ï¿½ë²»ï¿½ï¿½È·");
         
         	
         

@@ -53,62 +53,19 @@ public class CustomerServiceImpl implements CustomerService {
 		return cust_customerMapper.selectAskers(asker_ID);
 		
 	}
-<<<<<<< HEAD
-=======
+
 	
 	/**
 	 * fanxiangbin
 	 * 
 	 * 	鍜ㄨ甯�
 	 */
-	
-	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer) {
-		cust_customer.setPage((cust_customer.getPage()-1)*cust_customer.getRows());
-		cust_customer.setRows(cust_customer.getRows());
-		fenYe.setRows((cust_customerMapper.selectCust_customersFan(cust_customer)));
-		fenYe.setTotal(cust_customerMapper.selectCountFan(cust_customer));
-		System.out.println(fenYe+"fhgfjghkhj");
-		return fenYe;
-	}
->>>>>>> f8dd1b307a07db0a4c5a1d07215cf7cbe946a78b
 
-	@Override
-	public int insertCommunicate_record(Communicate_record communicate_record) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int updateCust_customergenzhongFan(Cust_customer cust_customer) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-<<<<<<< HEAD
-	public int insertCust_customerFan(Cust_customer cust_customer) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int deleteCust_customerFan(int cust_ID) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 	/**
 	 * fanxiangbin
 	 * 
 	 * 	咨询师
 	 */
-=======
 
 	public FenyeJiang selectCust_customer(FenyeJiang fenye) {
 		List<Cust_customer> selectAllCust_customer = cust_customerMapper.selectAllCust_customer(fenye);
@@ -132,8 +89,31 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
->>>>>>> f8dd1b307a07db0a4c5a1d07215cf7cbe946a78b
-	
+
+	@Override
+	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int updateCust_customergenzhongFan(Cust_customer cust_customer) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insertCust_customerFan(Cust_customer cust_customer) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteCust_customerFan(int cust_ID) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	/*
 	 * public FenYe<Cust_customer> selectCust_customersFan(Cust_customer
 	 * cust_customer) {

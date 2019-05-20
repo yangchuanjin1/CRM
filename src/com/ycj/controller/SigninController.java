@@ -1,5 +1,7 @@
 package com.ycj.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,14 +9,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ycj.entity.FenYeYang;
+import com.ycj.entity.Signin;
+import com.ycj.entity.Staff;
 import com.ycj.service.SigninService;
+
+import javafx.scene.control.Alert;
 
 @Controller
 public class SigninController {
 	@Autowired
 	private SigninService signinService;
+	
 	/**
-	 * Ô±¹¤Ç©µ½
+	 * Ô±ï¿½ï¿½Ç©ï¿½ï¿½
 	 * @param Staff_ID
 	 * @return
 	 */
@@ -25,7 +32,7 @@ public class SigninController {
 		return insertSigninYang;
 	}
 	/**
-	 * YangChuanJin  ·ÖÒ³´øÌõ¼þ²éÑ¯ËùÓÐÊý¾ÝºÍ²éÑ¯×ÜÌõÊý
+	 * YangChuanJin  ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÝºÍ²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	@RequestMapping(value="/selectSigninAllandCount",method=RequestMethod.POST)
 	@ResponseBody

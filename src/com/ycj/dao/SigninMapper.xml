@@ -15,9 +15,8 @@
   
   <!-- YangChuanJin   在员工登录的时候签到 -->
   <insert id="insertSigninYang" parameterType="int">
-  	insert into signin(SignIn_date,Sign_StaffID) value(NOW(),#{Staff_ID})
+  	insert into signin(SignIn_date,Sign_StaffID) value(NOW(),#{Sign_StaffID})
   </insert>
-  <!--  -->
   <select id="selectSiginAllYang" parameterType="fenYeYang" resultMap="signinMap">
   	SELECT s.*,sf.Staff_Name FROM signin s INNER JOIN staff sf ON s.`Sign_StaffID`=sf.Staff_ID
   	<where>
@@ -66,6 +65,4 @@
   		</if>
   	</where>
   </select>
-  
-  
   </mapper>

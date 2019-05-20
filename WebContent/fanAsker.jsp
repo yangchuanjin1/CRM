@@ -77,7 +77,6 @@ function updateCustomer(index){
 	var row=data.rows[index];
 	stuid=row.cust_ID;
 	askid=row.cust_Asker_ID;
-	
 	$("#wingenzhong").window("open");
 }
 function genzhong(){
@@ -116,7 +115,7 @@ function genzhong(){
         <th data-options="field:'cust_Revisit',width:100,formatter:huifang">是否回访</th>   
         <th data-options="field:'cust_youxiao',width:100,formatter:youxiao">是否有效</th>   
         <th data-options="field:'cust_Pay',width:100,formatter:jiaofei">是否缴费</th>   
-        <th data-options="field:'cust_Creationtime',width:100">客户创建的时间</th>   
+        <th data-options="field:'cus  t_Creationtime',width:100">客户创建的时间</th>   
         <th data-options="field:'cust_Doortime',width:100">上门时间</th>   
         <th data-options="field:'cust_RevisitDays',width:100">回访时间</th>   
         <th data-options="field:'cust_Paytime',width:100">缴费时间</th>   
