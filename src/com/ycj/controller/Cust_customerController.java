@@ -1,6 +1,5 @@
 package com.ycj.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +29,6 @@ public class Cust_customerController {
 	@RequestMapping(value="/insertCust_customer",method=RequestMethod.POST)
 	@ResponseBody
 	public int insertCust_customer(Cust_customer cust_customer) {
-		// TODO Auto-generated method stub
-		
 		return customerService.insertCust_customer(cust_customer);
 	}
 	@RequestMapping(value="/insertCommunicate_record",method=RequestMethod.POST)
@@ -61,28 +58,23 @@ public class Cust_customerController {
 	/**
 	 * 	fanxiangbin
 	 * 
-	 * 	鍜ㄨ甯�
+	 * 	咨询师
 	 */
 	
 	@RequestMapping(value="/selectCust_customersFan",method=RequestMethod.POST)
 	@ResponseBody
-	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer) {
-		
-	
-		return customerService.selectCust_customersFan(cust_customer);
+	public FenYe<Cust_customer> selectCust_customersFan(FenYe<Cust_customer> fenYe,Cust_customer cust_customer,Integer page,Integer rows) {
+		fenYe.setPage((page-1)*rows);
+		fenYe.setPagesize(rows);
+		fenYe.setCust_customer(cust_customer);
+		return customerService.selectCust_customersFan(fenYe);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * 	fanxiangbin
+	 * 
+	 * 	咨询师
+	 */
 	
 	
     //	添加
@@ -110,12 +102,4 @@ public class Cust_customerController {
 		FenyeJiang selectPro = customerService.selectCust_customer(fenye);
 		return selectPro;
 	}
-	
-	
-	
-	
-	
-	
-	
-
 }

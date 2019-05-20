@@ -6,11 +6,9 @@ import java.util.List;
 import com.ycj.entity.Asker;
 import com.ycj.entity.Communicate_record;
 import com.ycj.entity.Cust_customer;
-<<<<<<< HEAD
 import com.ycj.entity.FenYe;
-=======
 import com.ycj.entity.FenyeJiang;
->>>>>>> f8dd1b307a07db0a4c5a1d07215cf7cbe946a78b
+import com.ycj.entity.Staff;
 
 public interface Cust_customerMapper {
     List<Cust_customer> selectCust_customers(FenYe<Cust_customer> fenYe);
@@ -19,7 +17,6 @@ public interface Cust_customerMapper {
      * @return
      */
     Asker selectAskers(int asker_ID);
-    
     /**
      * 修改学生
      * @param cust_customer
@@ -47,9 +44,9 @@ public interface Cust_customerMapper {
     
     
     //fanxiangbin
-    	List<Cust_customer> selectCust_customersFan(Cust_customer cust_customer);
+    	List<Cust_customer> selectCust_customersFan(FenYe<Cust_customer> fenYe);
     
-    	int selectCountFan(Cust_customer cust_customer);
+    	int selectCountFan(FenYe<Cust_customer> fenYe);
     	    
     	int updateCust_customergenzhongFan(Cust_customer cust_customer);
     	    
@@ -57,7 +54,7 @@ public interface Cust_customerMapper {
     	    
     	int deleteCust_customerFan(int cust_ID);
     
-    
+    	Staff selectStaffFan(String Staff_Name);
     //fanxiangbin
     
     	 //姜亚龙

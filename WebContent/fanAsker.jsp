@@ -88,7 +88,7 @@ function genzhong(){
 	alert(askid);
 	$.post('insertCommunicate_recordFan',{
 		Comm_cust_ID:stuid,
-		Comm_Staff_ID:askid,
+		Comm_Staff_ID:1,
 		Comm_date:$("#Comm_date").datebox("getValue"),
 		comm_xiacihuifang:$("#comm_xiacihuifang").datebox("getValue"),
 		comm_detail:$("#comm_detail").val(),
@@ -188,8 +188,6 @@ function selectColumn() {
         <th data-options="field:'cust_RevisitDays',width:100">回访时间</th>   
         <th data-options="field:'cust_Paytime',width:100">缴费时间</th>   
         <th data-options="field:'cust_entrytime',width:100">进班时间</th>  
-        <th data-options="field:'cust_Asker_ID',width:100,formatter:Cust_Asker_ID">咨询师头衔</th>  
-        <th data-options="field:'staff_Name',width:100,formatter:Staff_Name">咨询师姓名</th>  
         <th data-options="field:'caozuo',width:100,formatter:caozuo">操作</th>  
     </tr>   
 </thead>   

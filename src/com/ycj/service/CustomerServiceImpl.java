@@ -12,6 +12,7 @@ import com.ycj.entity.Communicate_record;
 import com.ycj.entity.Cust_customer;
 import com.ycj.entity.FenYe;
 import com.ycj.entity.FenyeJiang;
+import com.ycj.entity.Staff;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 	@Autowired
@@ -53,36 +54,25 @@ public class CustomerServiceImpl implements CustomerService {
 		return cust_customerMapper.selectAskers(asker_ID);
 		
 	}
-<<<<<<< HEAD
-=======
 	
 	/**
 	 * fanxiangbin
 	 * 
-	 * 	鍜ㄨ甯�
+	 * 	咨询师
 	 */
 	
-	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer) {
-		cust_customer.setPage((cust_customer.getPage()-1)*cust_customer.getRows());
-		cust_customer.setRows(cust_customer.getRows());
-		fenYe.setRows((cust_customerMapper.selectCust_customersFan(cust_customer)));
-		fenYe.setTotal(cust_customerMapper.selectCountFan(cust_customer));
-		System.out.println(fenYe+"fhgfjghkhj");
+	public FenYe<Cust_customer> selectCust_customersFan(FenYe<Cust_customer> fenYe) {
+		fenYe.setRows(cust_customerMapper.selectCust_customersFan(fenYe));
+		fenYe.setTotal(cust_customerMapper.selectCountFan(fenYe));
 		return fenYe;
 	}
->>>>>>> f8dd1b307a07db0a4c5a1d07215cf7cbe946a78b
 
 	@Override
-	public int insertCommunicate_record(Communicate_record communicate_record) {
+	public Staff selectStaffFan(String Staff_Name) {
 		// TODO Auto-generated method stub
-		return 0;
+		return cust_customerMapper.selectStaffFan(Staff_Name);
 	}
-
-	@Override
-	public FenYe<Cust_customer> selectCust_customersFan(Cust_customer cust_customer) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public int updateCust_customergenzhongFan(Cust_customer cust_customer) {
@@ -91,7 +81,6 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public int insertCust_customerFan(Cust_customer cust_customer) {
 		// TODO Auto-generated method stub
 		return 0;
@@ -108,7 +97,6 @@ public class CustomerServiceImpl implements CustomerService {
 	 * 
 	 * 	咨询师
 	 */
-=======
 
 	public FenyeJiang selectCust_customer(FenyeJiang fenye) {
 		List<Cust_customer> selectAllCust_customer = cust_customerMapper.selectAllCust_customer(fenye);
@@ -132,7 +120,13 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
->>>>>>> f8dd1b307a07db0a4c5a1d07215cf7cbe946a78b
+
+	@Override
+	public FenYe<Cust_customer> selectCust_customers(Cust_customer cust_customer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	/*
 	 * public FenYe<Cust_customer> selectCust_customersFan(Cust_customer
