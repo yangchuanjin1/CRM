@@ -45,6 +45,10 @@ public class Cust_customer {
 	private String Cust_laiyuanguanjianzi;//来源关键词（0.是1.否）
 	private Integer Cust_Asker_ID;//咨询师编号
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> f759ac6ade6cf03169d3db94142dd183c552d83c
 	private String Cust_quyu;//来源区域
 	private String Cust_guanzhu;//学员关注
 	private String Cust_laiyuanbumen;//来源部门
@@ -55,18 +59,29 @@ public class Cust_customer {
 	private String Cust_askerbeizhu;//咨询师备注
 
 	
-	
-	
 	private String Cust_askerName;
 	
 	
 	public String getCust_askerName() {
 		return Cust_askerName;
 	}
+<<<<<<< HEAD
 	
 	
 	
 	
+=======
+
+	
+	
+
+
+	public String getCust_QQ() {
+		return Cust_QQ;
+	}
+
+
+>>>>>>> f759ac6ade6cf03169d3db94142dd183c552d83c
 
 
 
@@ -181,12 +196,15 @@ public class Cust_customer {
 	public void setCust_website(String cust_website) {
 		Cust_website = cust_website;
 	}
+<<<<<<< HEAD
 
 	public String getCust_QQ() {
 		return Cust_QQ;
 	}
 
 
+=======
+>>>>>>> f759ac6ade6cf03169d3db94142dd183c552d83c
 
 	public void setCust_QQ(String cust_QQ) {
 		Cust_QQ = cust_QQ;

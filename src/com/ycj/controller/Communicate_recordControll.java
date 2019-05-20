@@ -1,5 +1,7 @@
 package com.ycj.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,13 +30,27 @@ public class Communicate_recordControll {
 	}
 	@RequestMapping(value="insertCommunicate_recordFan",method=RequestMethod.POST)
 	@ResponseBody
-	public int insertCommunicate_recordFan(Communicate_record communicate_record) {
-		Asker Asker_Staff_ID = customerService.selectAskers(communicate_record.getComm_Staff_ID());
+	public int insertCommunicate_recordFan(Communicate_record communicate_record,HttpSession session) {
+		String Staff_Name = (String)session.getAttribute("Staff_Name");
+		System.out.println(Staff_Name+"jjghkdjfgkhkjfgh===========");
+		/*Asker Asker_Staff_ID = customerService.selectAskers(communicate_record.getComm_Staff_ID());
 		Asker_Staff_ID.getAsker_Staff_ID();
 		System.out.println("-----------------------------------------");
 		System.out.println(Asker_Staff_ID.getAsker_Staff_ID());
-		communicate_record.setComm_Staff_ID(Asker_Staff_ID.getAsker_Staff_ID());
+		*/
+		Staff staff=customerService.selectStaffFan(Staff_Name);
+		staff.getStaff_ID();
+		System.out.println(staff.getStaff_ID());
+		System.out.println("+++++++++++++++++++++++++++++++++++++++");
+		/*communicate_record.setComm_Staff_ID(Asker_Staff_ID.getAsker_Staff_ID());*/
+		communicate_record.setComm_Staff_ID(staff.getStaff_ID());
 		return communicate_recordService.insertCommunicate_recordFan(communicate_record);
 		
 	}
+	/*@RequestMapping(value="/selectStaffFan",method=RequestMethod.POST)
+	@ResponseBody
+	public Staff selectStaffFan(String Staff_Name) {
+		// TODO Auto-generated method stub
+		return customerService.selectStaffFan(Staff_Name);
+	}*/
 }

@@ -9,7 +9,6 @@ import java.util.List;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.mapper.Mapper;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.stereotype.Controller;
@@ -33,7 +32,7 @@ public class ExportExcelJ {
 		Gson gson=new Gson();
 		final ObjectMapper mapper = new ObjectMapper();
 	    
-		//»ñÈ¡Êä³öÁ÷½ÓÊÕÊý¾ÝÊä³ö³öÈ¥
+		//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥
 		try {
 			List<Cust_customer> listll = mapper.readValue(stulist, new TypeReference<List<Cust_customer>>(){});
 			//List<Cust_customer> list=gson.fromJson(stulist,new TypeToken<List<Cust_customer>>(){}.getType());
