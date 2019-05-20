@@ -54,17 +54,12 @@ public class CustomerServiceImpl implements CustomerService {
 		return cust_customerMapper.selectAskers(asker_ID);
 		
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> f759ac6ade6cf03169d3db94142dd183c552d83c
 	
 	/**
 	 * fanxiangbin
 	 * 
 	 * 	咨询师
 	 */
-<<<<<<< HEAD
 
 	/**
 	 * fanxiangbin
@@ -94,14 +89,12 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-=======
 	
 	public FenYe<Cust_customer> selectCust_customersFan(FenYe<Cust_customer> fenYe) {
 		fenYe.setRows(cust_customerMapper.selectCust_customersFan(fenYe));
 		fenYe.setTotal(cust_customerMapper.selectCountFan(fenYe));
 		return fenYe;
 	}
->>>>>>> f759ac6ade6cf03169d3db94142dd183c552d83c
 
 	@Override
 	public Staff selectStaffFan(String Staff_Name) {
@@ -127,9 +120,6 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-<<<<<<< HEAD
-
-=======
 	
 	/**
 	 * fanxiangbin
@@ -137,28 +127,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * 	咨询师
 	 */
 
-	public FenyeJiang selectCust_customer(FenyeJiang fenye) {
-		List<Cust_customer> selectAllCust_customer = cust_customerMapper.selectAllCust_customer(fenye);
-		int selectCountCust_customer = cust_customerMapper.selectCountCust_customer(fenye);
-		fenye.setRows(selectAllCust_customer);
-		fenye.setTotal(selectCountCust_customer);
-		return fenye;
 
-	}
-
-	@Override
-	public int insertCust_customerJ(Cust_customer cust_customer) {
-		// TODO Auto-generated method stub
-		int insertCust_customerJ = cust_customerMapper.insertCust_customerJ(cust_customer);
-		return insertCust_customerJ;
-		
-	}
-
-	@Override
-	public int insertCommunicate_record(Communicate_record communicate_record) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public FenYe<Cust_customer> selectCust_customers(Cust_customer cust_customer) {
@@ -167,7 +136,6 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	
->>>>>>> f759ac6ade6cf03169d3db94142dd183c552d83c
 	/*
 	 * public FenYe<Cust_customer> selectCust_customersFan(Cust_customer
 	 * cust_customer) {

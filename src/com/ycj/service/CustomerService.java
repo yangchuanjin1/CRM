@@ -12,13 +12,10 @@ import com.ycj.entity.Staff;
 public interface CustomerService {
 	//查询所有
 	FenYe<Cust_customer> selectCust_customers(FenYe<Cust_customer> fenYe);
-<<<<<<< HEAD
 
-=======
 	//鏌ヨ鎵�鏈�
 	FenYe<Cust_customer> selectCust_customers(Cust_customer cust_customer);
 	  
->>>>>>> f759ac6ade6cf03169d3db94142dd183c552d83c
 	Asker selectAskers(int asker_ID);
 	
 	int updateCust_customer(Cust_customer cust_customer);

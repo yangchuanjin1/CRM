@@ -45,7 +45,6 @@
      <result column="Cust_preparation" property="cust_customer.Cust_preparation"/>
      <result column="Cust_Asker_ID" property="cust_customer.Cust_Asker_ID"/>
      
-     
       <result property="staff.Staff_ID" column="Staff_ID" />
         <result property="staff.Staff_Name" column="Staff_Name" />
         <result property="staff.Staff_Password" column="Staff_Password" />
